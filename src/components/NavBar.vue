@@ -1,8 +1,9 @@
 <script setup>
-import SearchComp from "@components/SearchComp.vue";
+import SearchItem from "@components/SearchItem.vue";
 import NavbarItem from "@components/NavbarItem.vue";
 import navbarItemsDetail from "@/const/navbar.js";
 </script>
+
 <template>
   <nav class="max-w-screen-xl mx-auto">
     <div
@@ -19,19 +20,19 @@ import navbarItemsDetail from "@/const/navbar.js";
           >Bookshop</span
         >
       </router-link>
-      <SearchComp />
+      <SearchItem />
 
       <ul class="font-medium flex flex-row">
         <li v-for="(item, index) in navbarItemsDetail" :key="index">
-          <navbarItem
+          <NavbarItem
             :to="item.path"
-            class="block py-2 pr-4 text-black flex items-center"
+            class="py-2 pr-4 text-black flex items-center"
           >
             <template v-slot:text>{{ item.text }}</template>
             <template v-slot:icon
               ><component :is="item.component"></component
             ></template>
-          </navbarItem>
+          </NavbarItem>
         </li>
       </ul>
     </div>

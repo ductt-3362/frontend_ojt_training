@@ -5,7 +5,7 @@ defineProps(["path"]);
 <template>
   <router-link
     :to="path"
-    class="block py-2 pr-4 text-black flex items-center"
+    class="py-2 pr-4 text-black flex items-center"
     aria-current="page"
   >
     <slot name="icon"></slot>
