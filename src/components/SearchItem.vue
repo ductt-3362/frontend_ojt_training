@@ -1,7 +1,7 @@
 <script setup>
 import IconSearch from "@icons/IconSearch.vue";
-import ButtonBase from "@components/ButtonBase.vue";
-import InputBase from "@components/InputBase.vue";
+import BaseButton from "@components/BaseButton.vue";
+import BaseInput from "@components/BaseInput.vue";
 import { ref } from "vue";
 
 const textSearch = ref("");
@@ -16,14 +16,17 @@ const Search = function () {};
     >
       <IconSearch />
     </div>
-    <InputBase
+    <BaseInput
       type="search"
       placeholder="Search"
       class="pl-10 pr-24"
       v-model="textSearch"
     />
-    <ButtonBase @submit="() => Search()" class="absolute right-0 bottom-0">
+    <BaseButton
+      @submit="() => Search()"
+      class="h-full absolute right-0 bottom-0 pt-0 pb-0"
+    >
       Search
-    </ButtonBase>
+    </BaseButton>
   </div>
 </template>
