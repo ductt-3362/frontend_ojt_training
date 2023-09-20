@@ -1,7 +1,7 @@
 <script setup>
 import SearchItem from "@components/SearchItem.vue";
 import NavbarItem from "@components/NavbarItem.vue";
-import navbarItemsDetail from "@/const/navbar.js";
+import navbarItemsDetail from "@constants/navbar.js";
 </script>
 
 <template>
