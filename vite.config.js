@@ -12,6 +12,7 @@ export default defineConfig({
       "@layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
       "@router": fileURLToPath(new URL("./src/router", import.meta.url)),
       "@stores": fileURLToPath(new URL("./src/stores", import.meta.url)),
+      "@images": fileURLToPath(new URL("./src/assets/images", import.meta.url)),
       "@views": fileURLToPath(new URL("./src/views", import.meta.url)),
       "@apis": fileURLToPath(new URL("./src/apis", import.meta.url)),
       "@locales": fileURLToPath(new URL("./src/locales", import.meta.url)),

@@ -1,7 +1,12 @@
 <script setup>
 import SearchItem from "@components/SearchItem.vue";
 import NavbarItem from "@components/NavbarItem.vue";
-import navbarItemsDetail from "@constants/navbar.js";
+import { useAuthStore } from "@stores/auth";
+import NavbarItemsDetail from "@constants/navbar.js";
+import { computed } from "vue";
+
+const authStore = useAuthStore();
+const isLogin = computed(() => authStore.getUser);
 </script>
 
 <template>
@@ -11,7 +16,7 @@ import navbarItemsDetail from "@constants/navbar.js";
     >
       <router-link to="/" class="flex items-center">
         <img
-          src="../assets/BookWithBookmarks.svg"
+          src="@images/BookWithBookmarks.svg"
           class="h-8 mr-3 inline-block"
           alt="Flowbite Logo"
         />
@@ -21,18 +26,32 @@ import navbarItemsDetail from "@constants/navbar.js";
         >
       </router-link>
       <SearchItem />
-
       <ul class="font-medium flex flex-row">
-        <li v-for="(item, index) in navbarItemsDetail" :key="index">
-          <NavbarItem
-            :to="item.path"
-            class="py-2 pr-4 text-black flex items-center"
-          >
-            <template v-slot:text>{{ item.text }}</template>
-            <template v-slot:icon
-              ><component :is="item.component"></component
-            ></template>
-          </NavbarItem>
+        <li v-for="(item, index) in NavbarItemsDetail" :key="index">
+          <template v-if="isLogin">
+            <navbarItem
+              v-if="item.status !== 0"
+              :to="item.path"
+              class="block py-2 pr-4 text-black flex items-center"
+            >
+              <template v-slot:text>{{ item.text }}</template>
+              <template v-slot:icon
+                ><component :is="item.component"></component
+              ></template>
+            </navbarItem>
+          </template>
+          <template v-else>
+            <navbarItem
+              v-if="item.status !== 1"
+              :to="item.path"
+              class="block py-2 pr-4 text-black flex items-center"
+            >
+              <template v-slot:text>{{ item.text }}</template>
+              <template v-slot:icon
+                ><component :is="item.component"></component
+              ></template>
+            </navbarItem>
+          </template>
         </li>
       </ul>
     </div>
