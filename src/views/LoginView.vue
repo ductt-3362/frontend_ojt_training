@@ -6,11 +6,11 @@ import BaseLabel from "@components/BaseLabel.vue";
 import { useForm } from "vee-validate";
 import * as yup from "yup";
 import { useRouter } from "vue-router";
-import { loginApi } from "@api/auth.js";
+import { loginApi } from "@apis/auth.js";
 import { useAuthStore } from "@stores/auth";
 import { useToast } from "vue-toast-notification";
 import "vue-toast-notification/dist/theme-sugar.css";
-import message from "@const/message.js";
+import message from "@constants/message.js";
 
 const $toast = useToast();
 const router = useRouter();

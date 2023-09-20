@@ -2,7 +2,7 @@
 import SearchItem from "@components/SearchItem.vue";
 import NavbarItem from "@components/NavbarItem.vue";
 import { useAuthStore } from "@stores/auth";
-import NavbarItemsDetail from "@const/navbar.js";
+import NavbarItemsDetail from "@constants/navbar.js";
 import { computed } from "vue";
 
 const authStore = useAuthStore();
