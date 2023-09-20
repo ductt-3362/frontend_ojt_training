@@ -1,0 +1,206 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "YONA - CÔNG CHÚA BÌNH MINH - TẬP 33 (TẶNG KÈM POSTCARD)",
+      "author": "Mizuho Kusanagi",
+      "price": 22500,
+      "quantity": 10,
+      "description": "Yona không được tiếp xúc với Hak và Tứ Long, cả yêu cầu gặp mặt Soo Won cũng bị từ chối. Đêm đến, khi Yona lẻn ra khỏi phòng ngủ và tiến về phía ngự thư phòng thì Soo Won đột nhiên xuất hiện và bắt chuyện với cô… Trong lúc đó, Tứ Long đồng ý tham gia diễn tập cùng quân đội…!?",
+      "image": "https://product.hstatic.net/200000343865/product/33_c41b6baaa61d479f9846d9f65d09e717_master.jpg",
+      "size": "11.3x17.6 cm",
+      "page": 176,
+      "cover": "Bìa mềm",
+      "weight": "150 gram",
+      "audience": "Thiếu niên (11 – 15)",
+      "categoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "THÁNH THẠCH RAVE - TẬP 17 (TẶNG KÈM BOOKMARK PLUE)",
+      "author": "Hiro Mashima",
+      "price": 27000,
+      "quantity": 10,
+      "description": "Ma vương giáng lâm! Cuối cùng, Doryu – kẻ sở hữu bóng tối sâu thẳm đã tiết lộ hình dáng thật đầy đáng sợ của hắn!! Nhưng ta đâu đơn độc. Chỉ cần tất cả chúng ta hợp sức, nhất định sẽ đánh bại ngươi cho xem. Dù có phải thiêu rụi tính mạng này chăng nữa!!!",
+      "image": "https://product.hstatic.net/200000343865/product/12_1558b8f373cf43e88f3abe09ec49b8af_master.jpg",
+      "size": "11.3x17.6 cm",
+      "page": 184,
+      "cover": "Bìa mềm",
+      "weight": "135 gram",
+      "audience": "Tuổi mới lớn (15 – 18)",
+      "categoryId": 1
+    },
+    {
+      "id": 3,
+      "name": "NINJA RANTARO - TẬP 12",
+      "author": "Soubee Amako",
+      "price": 36000,
+      "quantity": 10,
+      "description": "Tuy gió vẫn còn lạnh nhưng trời đã sang xuân. Trong tập thơ Thanh Thiếu Nạp Ngôn có câu “mùa xuân là ánh bình minh”. Còn mấy câu kiểu như “mùa hè có ma, mùa đông ăn lẩu” chẳng qua là lời lảm nhảm của cậu chàng nhiều chuyện Kirimaru mà thôi. ",
+      "image": "https://product.hstatic.net/200000343865/product/17_144a93d3ecf346be83eb51f44924a536_master.jpg",
+      "size": "11.3x17.6 cm",
+      "page": 236,
+      "cover": "Bìa mềm",
+      "weight": "225 gram",
+      "audience": "Nhi đồng (6 – 11)",
+      "categoryId": 1
+    },
+    {
+      "id": 4,
+      "name": "MIỀN AN LẠC - TẬP 2",
+      "author": "Ichimon Izumi",
+      "price": 36000,
+      "quantity": 10,
+      "description": "Thầy thuốc học việc Kang Zhipa và vị hôn thê Moshi Lati đến với nhau trong cuộc hôn nhân sắp đặt từ hai bên gia đình, song hiện giờ, mối quan hệ của hai người vẫn chỉ dừng lại ở mức độ bạn bè thân thiết. Luôn hết lòng cứu chữa bệnh nhân nhưng mặt khác lại là kẻ phát cuồng vì thảo dược đến nỗi khiến mọi người xung quanh thấy phiền… Càng biết thêm về Kang Zhipa, Lati càng thêm ngưỡng mộ vị hôn phu của mình. Giữa lúc ấy, Kang Zhipa và cô bạn thân thuở nhỏ xuất hiện trước mắt Lati… ",
+      "image": "https://product.hstatic.net/200000343865/product/2_b476a3664a2c440f8fc43934168a6556_master.jpg",
+      "size": "13x18 cm",
+      "page": 160,
+      "cover": "Bìa mềm",
+      "weight": "200 gram",
+      "audience": "Tuổi mới lớn (15 – 18)",
+      "categoryId": 1
+    },
+    {
+      "id": 5,
+      "name": "NHỮNG DÒNG CHỮ MÀU NHIỆM - NHẬT KÍ THỰC HIỆN ƯỚC MƠ",
+      "author": "Honda Ariake",
+      "price": 45000,
+      "quantity": 10,
+      "description": "Một thiếu niên hầu như không biết bơi liệu có thể bơi được 50 mét chỉ sau một kì nghỉ hè hay không? Rồi lại còn có thể tự tra được địa chỉ và đến gặp người bạn đã chuyển nhà sang tỉnh kế bên không?",
+      "image": "https://product.hstatic.net/200000343865/product/nhung-dong-chu-nhiem-mau_nhat-ki-thuc-hien-uoc-mo_bia_350a97bfcbe147bd8f8ea57d35ad1d79_master.jpg",
+      "size": "13x19 cm",
+      "page": 152,
+      "cover": "Bìa mềm",
+      "weight": "150 gram",
+      "audience": "Thiếu niên (11 – 15)",
+      "categoryId": 1
+    },
+    {
+      "id": 6,
+      "name": "THÁM TỬ LỪNG DANH CONAN - TIỂU THUYẾT - CƠN ÁC MỘNG ĐEN TỐI",
+      "author": "Gosho Aoyama",
+      "price": 45000,
+      "quantity": 10,
+      "description": "Trong chuyến tham quan thủy cung Toto cùng tiến sĩ Agasa, đội thám tử nhí tình cờ bắt gặp người phụ nữ mất trí nhớ, mình đầy thương tích, và đặc biệt hơn cả: hai đồng tử của cô ta khác màu nhau. Đội thám tử nhí nhiệt tình giúp đỡ, cùng cô ta lên vòng đu quay khổng lồ. Qua vẻ ngoài và khí chất kì dị, Haibara nghi ngờ cô ta là thành viên của tổ chức áo đen. Sự thật là, đêm hôm trước, người phụ nữ này đã đột nhập vào Cơ quan Cảnh sát Quốc gia rồi gặp tai nạn trên đường đào thoát. Tổ chức áo đen đang ráo riết truy lùng hòng cướp người về!",
+      "image": "https://product.hstatic.net/200000343865/product/conan-tieu-thuyet_con-ac-mong-den-toi_46c9a083824442f6b85d9e1ebaf563f9_master.jpg",
+      "size": "13x19 cm",
+      "page": 248,
+      "cover": "Bìa mềm",
+      "weight": "248 gram",
+      "audience": "Thiếu niên (11 – 15)",
+      "categoryId": 2
+    },
+    {
+      "id": 7,
+      "name": "SPY X FAMILY - TẬP 9 (TẶNG KÈM STANDEE PVC)",
+      "author": "Tatsuya Endo",
+      "price": 22500,
+      "quantity": 10,
+      "description": "Trận giao tranh giữa Yor và đám sát thủ đã đi đến hồi kết…!! Cùng lúc đó, bom trên chiếc du thuyền hạng sang cũng được cài xong! Cảm nhận được mối nguy hiểm, Loid và Anya đều tận lực cứu vãn tình hình theo cách của riêng mình…",
+      "image": "https://product.hstatic.net/200000343865/product/9_b750d3e3ab2b4564abafdc54438db5b3_master.jpg",
+      "size": "11.3x17.6 cm",
+      "page": 210,
+      "cover": "Bìa mềm",
+      "weight": "140 gram",
+      "audience": "Tuổi mới lớn (15 – 18)",
+      "categoryId": 2
+    },
+    {
+      "id": 8,
+      "name": "90% TRẺ THÔNG MINH NHỜ CÁCH TRÒ CHUYỆN ĐÚNG ĐẮN CỦA CHA MẸ",
+      "author": "Urako Kanamori",
+      "price": 35100,
+      "quantity": 10,
+      "description": "Bạn có bao giờ thốt ra những câu dù biết là không nên nói như  “Còn lề mề đến bao giờ nữa hả?” hay “Chẳng được cái trò trống gì, đưa đây xem nào!”… nhưng vẫn lỡ lời không?",
+      "image": "https://product.hstatic.net/200000343865/product/9_b750d3e3ab2b4564abafdc54438db5b3_master.jpg",
+      "size": "13x19 cm",
+      "page": 176,
+      "cover": "Bìa mềm",
+      "weight": "165 gram",
+      "audience": "Cha mẹ đọc cùng con",
+      "categoryId": 2
+    },
+    {
+      "id": 9,
+      "name": "TÝ QUẬY - TẬP 13",
+      "author": "Đào Hải",
+      "price": 36000,
+      "quantity": 10,
+      "description": "Tý Quậy tập 13 tiếp tục giới thiệu 4 mẩu chuyện mới toanh về Tý, Tèo, Tún – bộ ba gây cười “trứ danh” của xê-ri Tý Quậy. Ở tập truyện mới này, Tý phải đương đầu với những tình huống vô cùng “ngặt nghèo” như bị bố mẹ so sánh với “con nhà người ta”, với bài tập tiếng Việt tưởng dễ mà lại khó không tưởng, với ngày lễ Giáng Sinh và kì nghỉ hè “trong mơ”. Vẫn hài hước và đáng yêu đậm chất Tý Quậy, tập truyện tranh này hứa hẹn mang tới cho các độc giả trung thành của Tý những tràng cười sảng khoái! ",
+      "image": "https://product.hstatic.net/200000343865/product/13_96a50f23f2514a25a41381cc637cfae3_master.jpg",
+      "size": "14.5x20.5 cm",
+      "page": 160,
+      "cover": "Bìa mềm",
+      "weight": "185 gram",
+      "audience": "Nhi đồng (6 – 11)",
+      "categoryId": 2
+    },
+    {
+      "id": 10,
+      "name": "ĐẤT RỪNG PHƯƠNG NAM",
+      "author": "Đoàn Giỏi",
+      "price": 72900,
+      "quantity": 10,
+      "description": "Được viết bằng trái tim nhạy cảm, tài quan sát tinh tế, hiểu biết sâu sắc và vốn sống dồi dào, Đất rừng phương Nam là một trong những tác phẩm viết về Nam bộ xuất sắc nhất, làm bật lên trọn vẹn vẻ đẹp con người và thiên nhiên nơi đây. Mỗi lần đọc là mỗi lần tình yêu xứ sở được khơi gợi đến nao lòng",
+      "image": "https://product.hstatic.net/200000343865/product/dat-rung-phuong-nam_532d0fa40aab482f85159ed6a3b654ea_1edd78cb1d744015ac3fe61c1e9300e1_master.jpg",
+      "size": "14.5x20.5 cm",
+      "page": 340,
+      "cover": "Bìa mềm",
+      "weight": "355 gram",
+      "audience": "Thiếu niên (11 – 15)",
+      "categoryId": 2
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Sách mới"
+    },
+    {
+      "id": 2,
+      "name": "Sách bán chạy"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "date": "2021-05-20",
+      "status": "Đang giao hàng"
+    }
+  ],
+  "users": [
+    {
+      "email": "ductt@gmail.com",
+      "password": "$2a$10$IDtQLGoukMlc88F/tGCtFe6QZaBNC7zgnjSMoJAy1oCSbJa6KNSP.",
+      "name": "Trần Thăng Đức",
+      "phone": "0912345678",
+      "address": "Hà Nội",
+      "role": "admin",
+      "id": 1
+    },
+    {
+      "email": "anhdd@gmail.com",
+      "password": "$2a$10$AnvZ4Y00k2xUeiTE/lD26Oq5jMTpw4i5hh80LDz9MJDAu4f.zGum.",
+      "name": "Đỗ Duy Anh",
+      "phone": "0912345678",
+      "address": "Hà Nội",
+      "role": "user",
+      "id": 2
+    }
+  ],
+  "order-details": [
+    {
+      "id": 1,
+      "orderId": 1,
+      "bookId": 1,
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "orderId": 1,
+      "bookId": 2,
+      "quantity": 1
+    }
+  ]
+}
