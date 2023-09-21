@@ -3,20 +3,30 @@ import { getCategoriesApi, getCategoryApi } from "@apis/category.js";
 import { getBooksByCategoryApi } from "@apis/book.js";
 import { onMounted, ref, watch } from "vue";
 
+import SelectSort from "@components/SelectSort.vue";
 import BookItem from "@components/BookItem.vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();
 const id = ref();
-id.value = route.params.id;
 const category = ref({});
 const books = ref([]);
 const categories = ref([]);
+const paramsSort = ref();
+
+const handleSortApi = async (params) => {
+  const { data: booksData } = await getBooksByCategoryApi(
+    id.value,
+    params || paramsSort.value
+  );
+  paramsSort.value = { ...params };
+  books.value = booksData;
+};
 
 const hanldeApi = async function (newId) {
   try {
-    const { data: categoryData } = await getCategoryApi(newId || id.value);
-    const { data: booksData } = await getBooksByCategoryApi(newId || id.value);
+    const { data: categoryData } = await getCategoryApi(newId);
+    const { data: booksData } = await getBooksByCategoryApi(newId);
     const { data: categoriesData } = await getCategoriesApi();
     category.value = categoryData;
     books.value = booksData;
@@ -30,8 +40,12 @@ watch(
   () => route.params.id,
   async (newId) => {
     id.value = newId;
-    hanldeApi(newId);
-  }
+    await hanldeApi(newId);
+    if (paramsSort.value) {
+      await handleSortApi(paramsSort.value);
+    }
+  },
+  { immediate: true }
 );
 onMounted(hanldeApi);
 </script>
@@ -52,7 +66,10 @@ onMounted(hanldeApi);
     <div class="grid grid-cols-4 gap-4 w-full">
       <div class="col-span-full flex justify-between">
         <p class="text-lg font-bold">{{ category.name }}</p>
-        <p>Sắp xếp</p>
+        <SelectSort
+          class="max-h-9"
+          @handle-sort="(params) => handleSortApi(params)"
+        />
       </div>
       <template v-for="book in books" :key="book.id">
         <BookItem :book="book" />
