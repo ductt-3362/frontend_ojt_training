@@ -5,6 +5,7 @@ import LoginView from "@views/LoginView.vue";
 import RegisterView from "@views/RegisterView.vue";
 import ProductDetailView from "@views/ProductDetailView.vue";
 import ProductsByCaterogy from "@views/ProductsByCaterogy.vue";
+import SearchView from "@views/SearchView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,12 @@ const router = createRouter({
       path: "/collections/:id",
       name: "collections",
       component: ProductsByCaterogy,
+    },
+    {
+      path: "/search",
+      name: "search",
+      component: SearchView,
+      props: (route) => ({ query: route.query.q }),
     },
   ],
   scrollBehavior() {
