@@ -4,6 +4,7 @@ import CartView from "@views/CartView.vue";
 import LoginView from "@views/LoginView.vue";
 import RegisterView from "@views/RegisterView.vue";
 import ProductDetailView from "@views/ProductDetailView.vue";
+import ProductsByCaterogy from "@views/ProductsByCaterogy.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: "/books/:id",
       name: "books",
       component: ProductDetailView,
+    },
+    {
+      path: "/collections/:id",
+      name: "collections",
+      component: ProductsByCaterogy,
     },
   ],
   scrollBehavior() {
