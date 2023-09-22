@@ -24,10 +24,10 @@ onMounted(handleSearch);
 
 <template>
   <div class="my-12">
-    <p v-if="query" class="text-3xl font-semibold">
-      KẾT QUẢ: Có {{ books.length }} sản phẩm chứa từ khóa "{{ query }}"
+    <p v-if="query" class="text-3xl">
+      Kết quả: Có {{ books.length }} sản phẩm chứa từ khóa "{{ query }}"
     </p>
-    <p v-else class="text-3xl font-semibold">HÃY NHẬP TỪ KHÓA ĐỂ TÌM KIẾM</p>
+    <p v-else class="text-3xl">Hãy nhập từ khóa để tìm kiếm</p>
     <BookList :list="books" />
   </div>
 </template>

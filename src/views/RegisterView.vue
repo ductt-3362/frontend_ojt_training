@@ -15,6 +15,8 @@ import { registerMessage } from "@locales/vi/messages";
 const router = useRouter();
 const $toast = useToast();
 const authStore = useAuthStore();
+const DEFAULT_AVATAR_URL =
+  "https://i0.wp.com/www.msahq.org/wp-content/uploads/2016/12/default-avatar.png?fit=1024%2C1024&ssl=1&w=640";
 
 const schema = yup.object({
   name: yup.string().required(registerMessage.required),
@@ -47,7 +49,10 @@ const address = defineInputBinds("address");
 async function onSuccess(values) {
   try {
     delete values.confirmPassword;
-    const { data } = await registerApi(values);
+    const { data } = await registerApi({
+      ...values,
+      avatar: DEFAULT_AVATAR_URL,
+    });
     $toast.success(registerMessage.success);
     const { accessToken, user } = data;
     authStore.login(accessToken, user);
