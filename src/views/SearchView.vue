@@ -7,12 +7,14 @@ const props = defineProps(["query"]);
 const books = ref([]);
 
 const handleSearch = async () => {
-  try {
-    const { data } = await getBooksByKeywordApi(props.query);
-    books.value = data;
-  } catch (error) {
-    throw new Error(error);
-  }
+  if (!props.query) books.value = [];
+  else
+    try {
+      const { data } = await getBooksByKeywordApi(props.query);
+      books.value = data;
+    } catch (error) {
+      // handle error
+    }
 };
 
 watch(() => props.query, handleSearch);
@@ -22,7 +24,10 @@ onMounted(handleSearch);
 
 <template>
   <div class="my-12">
-    <p class="text-3xl font-semibold">KẾT QUẢ TÌM KIẾM: {{ query }}</p>
+    <p v-if="query" class="text-3xl font-semibold">
+      KẾT QUẢ: Có {{ books.length }} sản phẩm chứa từ khóa "{{ query }}"
+    </p>
+    <p v-else class="text-3xl font-semibold">HÃY NHẬP TỪ KHÓA ĐỂ TÌM KIẾM</p>
     <BookList :list="books" />
   </div>
 </template>
