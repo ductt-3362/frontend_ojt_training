@@ -10,15 +10,15 @@ import { loginApi } from "@apis/auth.js";
 import { useAuthStore } from "@stores/auth";
 import { useToast } from "vue-toast-notification";
 import "vue-toast-notification/dist/theme-sugar.css";
-import message from "@constants/message.js";
+import { loginMessage } from "@locales/vi/messages";
 
 const $toast = useToast();
 const router = useRouter();
 const authStore = useAuthStore();
 
 const schema = yup.object({
-  email: yup.string().required(message.required).email(message.email),
-  password: yup.string().required(message.required),
+  email: yup.string().required(loginMessage.required).email(loginMessage.email),
+  password: yup.string().required(loginMessage.required),
 });
 const { handleSubmit, errors, defineInputBinds } = useForm({
   validationSchema: schema,
@@ -28,11 +28,12 @@ async function handleLogin(values) {
   try {
     const { data } = await loginApi(values);
     const { accessToken, user } = data;
-    $toast.success(message.success);
+    $toast.success(loginMessage.success);
     await authStore.login(accessToken, user);
     router.push("/");
   } catch (error) {
-    $toast.error(message.error);
+    // handle error
+    $toast.error(loginMessage.error);
   }
 }
 

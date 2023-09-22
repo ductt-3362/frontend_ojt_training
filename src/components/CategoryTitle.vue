@@ -5,7 +5,7 @@ defineProps(["title", "id"]);
 <template>
   <div class="text-center my-4">
     <router-link
-      :to="{ name: 'collections', params: { id } }"
+      :to="{ name: 'books', params: { id } }"
       class="text-2xl font-bold text-gray-900"
     >
       {{ title }}

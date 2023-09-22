@@ -1,6 +1,6 @@
 <script setup>
+import { formatPrice } from "@utils/function.js";
 defineProps(["book"]);
-import { formatPrice } from "../utils/function.js";
 </script>
 
 <template>
