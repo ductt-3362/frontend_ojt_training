@@ -1,7 +1,7 @@
 <script setup>
 import ProductDetail from "@components/ProductDetail.vue";
 import { useRoute } from "vue-router";
-import { getDetailProductApi } from "@apis/category";
+import { getDetailBookApi } from "@apis/book";
 import { ref, onMounted } from "vue";
 
 const route = useRoute();
@@ -9,7 +9,7 @@ const id = route.params.id;
 const bookDetail = ref({});
 const getBookDetailData = async () => {
   try {
-    const { data } = await getDetailProductApi(id);
+    const { data } = await getDetailBookApi(id);
     bookDetail.value = data;
   } catch (error) {
     console.log(error);

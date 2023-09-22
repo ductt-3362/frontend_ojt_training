@@ -1,10 +1,11 @@
 <script setup>
 import BaseButton from "@components/BaseButton.vue";
+import { formatPrice } from "../utils/function";
 defineProps(["productDetail"]);
 </script>
 
 <template>
-  <div class="flex mt-24 mb-12 grid grid-cols-5">
+  <div class="my-12 grid grid-cols-5">
     <div class="col-span-2">
       <img :src="productDetail.image" />
     </div>
@@ -12,9 +13,11 @@ defineProps(["productDetail"]);
       <div class="name font-bold text-xl pb-6">
         {{ productDetail.name }}
       </div>
-      <div class="price text-xl text-red-700">{{ productDetail.price }}đ</div>
+      <div class="price text-3xl font-bold text-red-700">
+        {{ formatPrice(productDetail.price) }}
+      </div>
       <div class="detail">
-        <ul class="mb-6">
+        <ul class="my-6">
           <li class="leading-8">
             Tác giả:
             <span class="text-red-700">{{ productDetail.author }}</span>
