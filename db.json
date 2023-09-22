@@ -489,7 +489,8 @@
       "phone": "0912345678",
       "address": "Hà Nội",
       "role": "admin",
-      "id": 1
+      "id": 1,
+      "avatar": "https://avatars.githubusercontent.com/u/106803109?v=4"
     },
     {
       "email": "anhdd@gmail.com",
@@ -498,7 +499,8 @@
       "phone": "0912345678",
       "address": "Hà Nội",
       "role": "user",
-      "id": 2
+      "id": 2,
+      "avatar": "https://avatars.githubusercontent.com/u/86650217?v=4"
     }
   ],
   "order-details": [

@@ -1,10 +1,16 @@
 <script setup>
 import SearchItem from "@components/SearchItem.vue";
-import NavbarItem from "@components/NavbarItem.vue";
+import IconLogout from "@icons/IconLogout.vue";
+import IconCart from "@icons/IconCart.vue";
+import IconLogin from "@icons/IconLogin.vue";
+import IconRegister from "@icons/IconRegister.vue";
+import IconProfile from "@icons/IconProfile.vue";
 import { useAuthStore } from "@stores/auth";
-import NavbarItemsDetail from "@constants/navbar.js";
 import { computed } from "vue";
 
+const handleLogout = () => {
+  window.location.href = "/";
+};
 const authStore = useAuthStore();
 const isLogin = computed(() => authStore.getUser);
 </script>
@@ -27,32 +33,69 @@ const isLogin = computed(() => authStore.getUser);
       </router-link>
       <SearchItem />
       <ul class="font-medium flex flex-row">
-        <li v-for="(item, index) in NavbarItemsDetail" :key="index">
-          <template v-if="isLogin">
-            <navbarItem
-              v-if="item.status !== 0"
-              :to="item.path"
-              class="block py-2 pr-4 text-black flex items-center"
+        <template v-if="isLogin">
+          <li>
+            <router-link
+              to="/profile"
+              class="py-2 pl-4 text-black flex items-center"
+              aria-current="page"
             >
-              <template v-slot:text>{{ item.text }}</template>
-              <template v-slot:icon
-                ><component :is="item.component"></component
-              ></template>
-            </navbarItem>
-          </template>
-          <template v-else>
-            <navbarItem
-              v-if="item.status !== 1"
-              :to="item.path"
-              class="block py-2 pr-4 text-black flex items-center"
+              <IconProfile />
+              <span>
+                {{ isLogin.name }}
+              </span>
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/cart"
+              class="py-2 pl-4 text-black flex items-center"
+              aria-current="page"
             >
-              <template v-slot:text>{{ item.text }}</template>
-              <template v-slot:icon
-                ><component :is="item.component"></component
-              ></template>
-            </navbarItem>
-          </template>
-        </li>
+              <IconCart />
+              <span> Giỏ hàng </span>
+            </router-link>
+          </li>
+          <li
+            @click="handleLogout"
+            class="cursor-pointer py-2 pl-4 text-black flex items-center"
+          >
+            <IconLogout />
+            <span>Đăng xuất</span>
+          </li>
+        </template>
+        <template v-else>
+          <li>
+            <router-link
+              to="/login"
+              class="py-2 pl-4 text-black flex items-center"
+              aria-current="page"
+            >
+              <IconLogin />
+              <span> Đăng nhập </span>
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/register"
+              class="py-2 pl-4 text-black flex items-center"
+              aria-current="page"
+            >
+              <IconRegister />
+              <span> Đăng ký </span>
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              to="/cart"
+              class="py-2 pl-4 text-black flex items-center"
+              aria-current="page"
+            >
+              <IconCart />
+              <span> Giỏ hàng</span>
+            </router-link>
+          </li>
+        </template>
       </ul>
     </div>
   </nav>

@@ -6,3 +6,8 @@ export const registerMessage = {
   success: "Đăng ký thành công",
   error: "Đăng ký thất bại",
 };
+
+export const logoutMessage = {
+  success: "Đăng xuất thành công",
+  error: "Đăng xuất thất bại",
+};
