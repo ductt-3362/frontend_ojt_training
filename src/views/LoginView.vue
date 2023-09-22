@@ -32,7 +32,6 @@ async function handleLogin(values) {
     await authStore.login(accessToken, user);
     router.push("/");
   } catch (error) {
-    console.log(error);
     $toast.error(message.error);
   }
 }

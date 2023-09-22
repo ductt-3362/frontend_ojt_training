@@ -12,7 +12,7 @@ const getBookDetailData = async () => {
     const { data } = await getDetailBookApi(id);
     bookDetail.value = data;
   } catch (error) {
-    console.log(error);
+    // handle error
   }
 };
 onMounted(getBookDetailData);
