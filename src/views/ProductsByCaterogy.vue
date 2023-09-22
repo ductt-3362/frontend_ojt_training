@@ -15,11 +15,9 @@ const categories = ref([]);
 const paramsSort = ref();
 
 const handleSortApi = async (params) => {
-  const { data: booksData } = await getBooksByCategoryApi(
-    id.value,
-    params || paramsSort.value
-  );
   paramsSort.value = { ...params };
+
+  const { data: booksData } = await getBooksByCategoryApi(id.value, params);
   books.value = booksData;
 };
 
@@ -32,7 +30,7 @@ const hanldeApi = async function (newId) {
     books.value = booksData;
     categories.value = categoriesData;
   } catch (error) {
-    console.log(error);
+    // handle error
   }
 };
 

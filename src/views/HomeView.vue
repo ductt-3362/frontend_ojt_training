@@ -22,7 +22,7 @@ const getHomepageData = async () => {
       homepageData.value.push({ id, name, books });
     });
   } catch (err) {
-    throw new Error(err);
+    // handle error
   }
 };
 

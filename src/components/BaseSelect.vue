@@ -3,7 +3,7 @@ import { UPDATE_SELECT } from "@constants/events.js";
 const props = defineProps(["optionsValue"]);
 const emit = defineEmits([UPDATE_SELECT]);
 const hanleSelect = function (value) {
-  emit("update:select", value);
+  emit(UPDATE_SELECT, value);
 };
 </script>
 
