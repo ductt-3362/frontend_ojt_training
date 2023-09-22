@@ -1,10 +1,15 @@
 <script setup>
-defineProps(["title"]);
+defineProps(["title", "id"]);
 </script>
 
 <template>
-  <p class="text-2xl font-bold text-gray-900 text-center my-4">
-    {{ title }}
-  </p>
+  <div class="text-center my-4">
+    <router-link
+      :to="{ name: 'collections', params: { id } }"
+      class="text-2xl font-bold text-gray-900"
+    >
+      {{ title }}
+    </router-link>
+  </div>
   <hr class="h-px my-4 bg-gray-200 border-0" />
 </template>
