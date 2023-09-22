@@ -14,7 +14,8 @@ export const useCartStore = defineStore("cart", {
     addToCart(book) {
       const inCartItem = this.cart.find((item) => item.id === book.id);
       if (inCartItem) {
-        inCartItem.inCartQuantity += 1;
+        if (inCartItem.inCartQuantity < inCartItem.quantity)
+          inCartItem.inCartQuantity += 1;
       } else {
         this.cart.push({
           ...book,
@@ -24,7 +25,8 @@ export const useCartStore = defineStore("cart", {
     },
     increment(id) {
       const inCartItem = this.cart.find((item) => item.id === id);
-      inCartItem.inCartQuantity += 1;
+      if (inCartItem && inCartItem.inCartQuantity < inCartItem.quantity)
+        inCartItem.inCartQuantity += 1;
     },
     decrement(id) {
       const inCartItem = this.cart.find((item) => item.id === id);
