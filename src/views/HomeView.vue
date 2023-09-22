@@ -32,7 +32,7 @@ onMounted(getHomepageData);
 <template>
   <Carousel :pictures="pictures" :slide="true" />
   <template v-for="category in homepageData" :key="category.id">
-    <CategoryTitle :title="category.name" />
+    <CategoryTitle :title="category.name" :id="category.id" />
     <BookList :list="category.books" />
   </template>
 </template>
