@@ -6,6 +6,7 @@ import RegisterView from "@views/RegisterView.vue";
 import ProductDetailView from "@views/ProductDetailView.vue";
 import ProductsByCaterogy from "@views/ProductsByCaterogy.vue";
 import SearchView from "@views/SearchView.vue";
+import ProfileView from "@views/ProfileView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
       name: "search",
       component: SearchView,
       props: (route) => ({ query: route.query.q }),
+    },
+    {
+      path: "/profile",
+      name: "profile",
+      component: ProfileView,
     },
   ],
   scrollBehavior() {
