@@ -484,23 +484,28 @@
 	"categories": [
 		{
 			"id": 1,
-			"name": "Sách mới"
+			"name": "Sách mới",
+			"slug": "sach-moi"
 		},
 		{
 			"id": 2,
-			"name": "Sách bán chạy"
+			"name": "Sách bán chạy",
+			"slug": "sach-ban-chay"
 		},
 		{
 			"id": 3,
-			"name": "Combo"
+			"name": "Combo",
+			"slug": "combo"
 		},
 		{
 			"id": 4,
-			"name": "Manga - Comic"
+			"name": "Manga - Comic",
+			"slug": "manga-comic"
 		},
 		{
 			"id": 5,
-			"name": "Doraemon"
+			"name": "Doraemon",
+			"slug": "deraemon"
 		}
 	],
 	"orders": [

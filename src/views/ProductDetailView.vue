@@ -8,12 +8,13 @@
 
 	const $toast = useToast();
 	const route = useRoute();
-	const id = route.params.id;
+	const slug = route.params.slug;
+	console.log(slug);
 	const bookDetail = ref({});
 	const getBookDetailData = async () => {
 		try {
-			const { data } = await getDetailBookApi(id);
-			bookDetail.value = data;
+			const { data } = await getDetailBookApi(slug);
+			bookDetail.value = data[0];
 		} catch (error) {
 			$toast.error(productApiMessage.error);
 		}
