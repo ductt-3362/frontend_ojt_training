@@ -9,7 +9,6 @@
 	const $toast = useToast();
 	const route = useRoute();
 	const slug = route.params.slug;
-	console.log(slug);
 	const bookDetail = ref({});
 	const getBookDetailData = async () => {
 		try {

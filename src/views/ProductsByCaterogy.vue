@@ -49,7 +49,7 @@
 				getBooksByCategoryApi(state.id, params),
 				getCategoriesApi(),
 			]);
-			state.category = categoryData[0];
+			state.category = categoryData;
 			state.books = booksData;
 			state.categories = categoriesData;
 		} catch (error) {
