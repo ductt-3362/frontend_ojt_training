@@ -8,7 +8,6 @@ import * as yup from "yup";
 import { registerApi } from "@apis/auth";
 import { useRouter } from "vue-router";
 import { useToast } from "vue-toast-notification";
-import "vue-toast-notification/dist/theme-sugar.css";
 import { useAuthStore } from "@stores/auth";
 import { registerMessage } from "@locales/vi/messages";
 import { DEFAULT_AVATAR_URL } from "@constants/images";

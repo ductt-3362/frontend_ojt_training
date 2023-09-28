@@ -1,28 +1,29 @@
 export const registerMessage = {
-	required: "Trường này không được để trống",
-	email: "Email không hợp lệ",
-	min: "Mật khẩu phải có ít nhất 6 ký tự",
-	oneOf: "Mật khẩu không khớp",
-	success: "Đăng ký thành công",
-	error: "Đăng ký thất bại",
+  required: "Trường này không được để trống",
+  email: "Email không hợp lệ",
+  min: "Mật khẩu phải có ít nhất 6 ký tự",
+  oneOf: "Mật khẩu không khớp",
+  success: "Đăng ký thành công",
+  error: "Đăng ký thất bại",
 };
 
 export const loginMessage = {
-	required: "Trường này không được để trống",
-	email: "Email không hợp lệ",
-	min: "Mật khẩu phải có ít nhất 6 ký tự",
-	success: "Đăng nhập thành công",
-	error: "Đăng nhập thất bại",
+  required: "Trường này không được để trống",
+  email: "Email không hợp lệ",
+  min: "Mật khẩu phải có ít nhất 6 ký tự",
+  success: "Đăng nhập thành công",
+  error: "Đăng nhập thất bại",
 };
 
 export const cartMessage = {
-	success: "Thêm vào giỏ hàng thành công",
+  success: "Thêm vào giỏ hàng thành công",
+  outOfStock: "Số lượng trong kho hàng không đủ",
 };
 
 export const orderMessage = {
-	success: "Đặt hàng thành công",
+  success: "Đặt hàng thành công",
 };
 
 export const productApiMessage = {
-	error: "Không thể kết nối đến máy chủ",
+  error: "Không thể kết nối đến máy chủ",
 };
