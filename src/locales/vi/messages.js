@@ -5,6 +5,7 @@ export const registerMessage = {
   oneOf: "Mật khẩu không khớp",
   success: "Đăng ký thành công",
   error: "Đăng ký thất bại",
+  phone: "Số điện thoại không hợp lệ",
 };
 
 export const loginMessage = {
