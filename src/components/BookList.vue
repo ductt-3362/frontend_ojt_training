@@ -1,6 +1,6 @@
 <script setup>
-defineProps(["list"]);
 import BookItem from "@components/BookItem.vue";
+defineProps(["list"]);
 </script>
 
 <template>

@@ -17,6 +17,7 @@ export default defineConfig({
       "@apis": fileURLToPath(new URL("./src/apis", import.meta.url)),
       "@locales": fileURLToPath(new URL("./src/locales", import.meta.url)),
       "@constants": fileURLToPath(new URL("./src/constants", import.meta.url)),
+      "@utils": fileURLToPath(new URL("./src/utils", import.meta.url)),
       "@icons": fileURLToPath(
         new URL("./src/components/icons", import.meta.url)
       ),

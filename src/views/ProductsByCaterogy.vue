@@ -63,7 +63,7 @@ onMounted(hanldeApi);
 
     <div class="grid grid-cols-4 gap-4 w-full">
       <div class="col-span-full flex justify-between">
-        <p class="text-lg font-bold">{{ category.name }}</p>
+        <p class="text-2xl font-bold">{{ category.name }}</p>
         <SelectSort
           class="max-h-9"
           @handle-sort="(params) => handleSortApi(params)"
