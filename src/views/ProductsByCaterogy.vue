@@ -1,14 +1,15 @@
-<!-- @format -->
-
 <script setup>
 	import { getCategoriesApi, getCategoryApi } from "@apis/category.js";
 	import { getBooksByCategoryApi } from "@apis/book.js";
-	import { onMounted, ref, watch } from "vue";
+	import { ref, watch } from "vue";
 
+	import { productApiMessage } from "@locales/vi/messages";
 	import SelectSort from "@components/SelectSort.vue";
 	import BookItem from "@components/BookItem.vue";
 	import { useRoute } from "vue-router";
+	import { useToast } from "vue-toast-notification";
 
+	const $toast = useToast();
 	const route = useRoute();
 	const id = ref();
 	const category = ref({});
@@ -23,16 +24,22 @@
 		books.value = booksData;
 	};
 
-	const hanldeApi = async function (newId) {
+	const fetchProductsByCategory = async function (newId) {
 		try {
-			const { data: categoryData } = await getCategoryApi(newId);
-			const { data: booksData } = await getBooksByCategoryApi(newId);
-			const { data: categoriesData } = await getCategoriesApi();
+			const [
+				{ data: categoryData },
+				{ data: booksData },
+				{ data: categoriesData },
+			] = await Promise.all([
+				getCategoryApi(newId),
+				getBooksByCategoryApi(newId),
+				getCategoriesApi(),
+			]);
 			category.value = categoryData;
 			books.value = booksData;
 			categories.value = categoriesData;
 		} catch (error) {
-			// handle error
+			$toast.error(productApiMessage.error);
 		}
 	};
 
@@ -40,14 +47,13 @@
 		() => route.params.id,
 		async (newId) => {
 			id.value = newId;
-			await hanldeApi(newId);
+			await fetchProductsByCategory(newId);
 			if (paramsSort.value) {
 				await handleSortApi(paramsSort.value);
 			}
 		},
 		{ immediate: true }
 	);
-	onMounted(hanldeApi);
 </script>
 
 <template>
