@@ -2,7 +2,7 @@
 	import { getCategoriesApi, getCategoryApi } from "@apis/category.js";
 	import { getBooksByCategoryApi } from "@apis/book.js";
 	import { productApiMessage } from "@locales/vi/messages";
-	import { reactive, watchEffect, onMounted, watch } from "vue";
+	import { reactive, watchEffect, watch } from "vue";
 	import CategorySearch from "@components/CategorySearch.vue";
 
 	import SelectSort from "@components/SelectSort.vue";
@@ -47,12 +47,9 @@
 		}
 	};
 
-	onMounted(
-		watchEffect(async () => {
-			await fetchProductsByCategory(route.params.id, state.params);
-		}),
-		{ immediate: true }
-	);
+	watchEffect(async () => {
+		await fetchProductsByCategory(route.params.id, state.params);
+	});
 
 	watch(
 		() => route.params.id,
