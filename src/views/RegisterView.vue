@@ -11,12 +11,11 @@ import { useToast } from "vue-toast-notification";
 import "vue-toast-notification/dist/theme-sugar.css";
 import { useAuthStore } from "@stores/auth";
 import { registerMessage } from "@locales/vi/messages";
+import { DEFAULT_AVATAR_URL } from "@constants/images";
 
 const router = useRouter();
 const $toast = useToast();
 const authStore = useAuthStore();
-const DEFAULT_AVATAR_URL =
-  "https://i0.wp.com/www.msahq.org/wp-content/uploads/2016/12/default-avatar.png?fit=1024%2C1024&ssl=1&w=640";
 
 const schema = yup.object({
   name: yup.string().required(registerMessage.required),
@@ -55,7 +54,7 @@ async function onSuccess(values) {
     });
     $toast.success(registerMessage.success);
     const { accessToken, user } = data;
-    authStore.login(accessToken, user);
+    authStore.setUserInfo(accessToken, user);
     router.push("/");
   } catch (error) {
     $toast.error(registerMessage.error);

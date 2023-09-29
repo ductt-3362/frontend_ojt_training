@@ -1,14 +1,21 @@
 import { defineStore } from "pinia";
+import Cookies from "js-cookie";
+import { TOKEN_KEY } from "@constants/storage";
 
 export const useAuthStore = defineStore("auth", {
-  state: () => ({ token: "", user: null }),
-  getters: {
-    getUser: (state) => state.user,
-  },
+  state: () => ({
+    userInfo: null,
+  }),
   actions: {
-    login(accessToken, data) {
-      this.token = accessToken;
-      this.user = data;
+    setUserInfo(accessToken, userData) {
+      Cookies.set(TOKEN_KEY, accessToken);
+      this.userInfo = userData;
+    },
+    logout() {
+      this.userInfo = null;
+      Cookies.remove(TOKEN_KEY);
+      window.location.replace("/");
     },
   },
+  persist: true,
 });
