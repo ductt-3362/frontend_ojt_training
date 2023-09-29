@@ -11,6 +11,7 @@ import { useToast } from "vue-toast-notification";
 import { useAuthStore } from "@stores/auth";
 import { registerMessage } from "@locales/vi/messages";
 import { DEFAULT_AVATAR_URL } from "@constants/images";
+import { phoneRegex } from "@constants/regex";
 
 const router = useRouter();
 const $toast = useToast();
@@ -18,7 +19,7 @@ const authStore = useAuthStore();
 
 const schema = yup.object({
   name: yup.string().required(registerMessage.required),
-  phone: yup.string().required(registerMessage.required),
+  phone: yup.string().matches(phoneRegex, registerMessage.phone),
   address: yup.string().required(registerMessage.required),
   email: yup
     .string()
