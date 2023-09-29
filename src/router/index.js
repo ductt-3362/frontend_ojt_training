@@ -11,53 +11,53 @@ import { TOKEN_KEY } from "@constants/storage";
 import Cookies from "js-cookie";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: HomeView,
-    },
-    {
-      path: "/login",
-      name: "login",
-      component: LoginView,
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: RegisterView,
-    },
-    {
-      path: "/cart",
-      name: "cart",
-      component: CartView,
-    },
-    {
-      path: "/books/:id",
-      name: "books",
-      component: ProductDetailView,
-    },
-    {
-      path: "/collections/:id",
-      name: "collections",
-      component: ProductsByCaterogy,
-    },
-    {
-      path: "/search",
-      name: "search",
-      component: SearchView,
-      props: (route) => ({ query: route.query.q }),
-    },
-    {
-      path: "/profile",
-      name: "profile",
-      component: ProfileView,
-    },
-  ],
-  scrollBehavior() {
-    return { top: 0 };
-  },
+	history: createWebHistory(import.meta.env.BASE_URL),
+	routes: [
+		{
+			path: "/",
+			name: "home",
+			component: HomeView,
+		},
+		{
+			path: "/login",
+			name: "login",
+			component: LoginView,
+		},
+		{
+			path: "/register",
+			name: "register",
+			component: RegisterView,
+		},
+		{
+			path: "/cart",
+			name: "cart",
+			component: CartView,
+		},
+		{
+			path: "/books/:slug",
+			name: "books",
+			component: ProductDetailView,
+		},
+		{
+			path: "/collections/:slug",
+			name: "collections",
+			component: ProductsByCaterogy,
+		},
+		{
+			path: "/search",
+			name: "search",
+			component: SearchView,
+			props: (route) => ({ query: route.query.q }),
+		},
+		{
+			path: "/profile",
+			name: "profile",
+			component: ProfileView,
+		},
+	],
+	scrollBehavior() {
+		return { top: 0 };
+	},
 });
 
 router.beforeEach((to, _from, next) => {

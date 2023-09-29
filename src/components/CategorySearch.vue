@@ -19,7 +19,7 @@
 	};
 
 	watch(
-		() => route.params.id,
+		() => route.params.slug,
 		() => {
 			textInput.value = "";
 		}

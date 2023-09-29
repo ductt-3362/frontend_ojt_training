@@ -18,7 +18,7 @@
 		emit("handleSort", params);
 	};
 	watch(
-		() => route.params.id,
+		() => route.params.slug,
 		() => {
 			selectValue.value = "Sắp xếp";
 		}
