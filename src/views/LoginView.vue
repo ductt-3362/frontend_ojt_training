@@ -28,8 +28,8 @@ async function handleLogin(values) {
   try {
     const { data } = await loginApi(values);
     const { accessToken, user } = data;
+    await authStore.setUserInfo(accessToken, user);
     $toast.success(loginMessage.success);
-    await authStore.login(accessToken, user);
     router.push("/");
   } catch (error) {
     // handle error

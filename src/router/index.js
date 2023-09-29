@@ -7,6 +7,8 @@ import ProductDetailView from "@views/ProductDetailView.vue";
 import ProductsByCaterogy from "@views/ProductsByCaterogy.vue";
 import SearchView from "@views/SearchView.vue";
 import ProfileView from "@views/ProfileView.vue";
+import { TOKEN_KEY } from "@constants/storage";
+import Cookies from "js-cookie";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -56,6 +58,19 @@ const router = createRouter({
   scrollBehavior() {
     return { top: 0 };
   },
+});
+
+router.beforeEach((to, _from, next) => {
+  const token = Cookies.get(TOKEN_KEY);
+  const authPath = ["/login", "/register"];
+  if (token) {
+    if (authPath.includes(to.path)) {
+      next("/");
+      return;
+    }
+  }
+
+  next();
 });
 
 export default router;
