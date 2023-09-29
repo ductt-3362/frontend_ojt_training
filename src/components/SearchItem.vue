@@ -6,9 +6,19 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const textSearch = ref("");
+const timeoutID = ref(null);
+const DELAY = 1000;
 
 const handleSearch = function () {
-  router.push({ name: "search", query: { q: textSearch.value } });
+  clearTimeout(timeoutID.value);
+  timeoutID.value = setTimeout(() => {
+    router.push({
+      name: "search",
+      query: {
+        q: textSearch.value,
+      },
+    });
+  }, DELAY);
 };
 </script>
 

@@ -9,7 +9,6 @@ import { useRouter } from "vue-router";
 import { loginApi } from "@apis/auth.js";
 import { useAuthStore } from "@stores/auth";
 import { useToast } from "vue-toast-notification";
-import "vue-toast-notification/dist/theme-sugar.css";
 import { loginMessage } from "@locales/vi/messages";
 
 const $toast = useToast();
