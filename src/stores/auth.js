@@ -16,6 +16,9 @@ export const useAuthStore = defineStore("auth", {
       Cookies.remove(TOKEN_KEY);
       window.location.replace("/");
     },
+    updateUserInfo(userData) {
+      this.userInfo = userData;
+    },
   },
   persist: true,
 });

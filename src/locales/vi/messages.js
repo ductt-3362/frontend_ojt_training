@@ -28,3 +28,13 @@ export const orderMessage = {
 export const productApiMessage = {
   error: "Không thể kết nối đến máy chủ",
 };
+
+export const uploadMessage = {
+  success: "Tải ảnh lên thành công",
+  error: "Không thể tải ảnh lên",
+};
+
+export const userApiMessage = {
+  updateError: "Cập nhật thông tin thất bại",
+  updateSuccess: "Cập nhật thông tin thành công",
+};
