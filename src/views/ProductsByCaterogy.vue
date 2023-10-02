@@ -6,7 +6,13 @@
 	} from "@apis/category.js";
 	import { getBooksByCategoryApi } from "@apis/book.js";
 	import { productApiMessage } from "@locales/vi/messages";
-	import { PRICE_FILTER } from "@constants/filters.js";
+	import {
+		PRICE_FILTER,
+		LESS_THAN_100K_PRICE,
+		FROM_100K_TO_200K_PRICE,
+		FROM_200K_TO_300K_PRICE,
+		MORE_THAN_300K_PRICE,
+	} from "@constants/filters.js";
 	import { reactive, watchEffect, watch, computed } from "vue";
 	import CategorySearch from "@components/CategorySearch.vue";
 	import SelectSort from "@components/SelectSort.vue";
@@ -32,16 +38,16 @@
 		if (state.pickedValue) {
 			return state.books.filter((item) => {
 				switch (state.pickedValue) {
-					case 1:
+					case LESS_THAN_100K_PRICE:
 						// price < 100000
 						return item.price < 100000;
-					case 2:
+					case FROM_100K_TO_200K_PRICE:
 						// 100000 <= price < 20000
 						return item.price >= 100000 && item.price < 200000;
-					case 3:
+					case FROM_200K_TO_300K_PRICE:
 						// 200000 <= price < 300000
 						return item.price >= 200000 && item.price < 300000;
-					case 4:
+					case MORE_THAN_300K_PRICE:
 						// price > 300000
 						return item.price > 300000;
 					default:
