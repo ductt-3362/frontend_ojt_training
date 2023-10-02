@@ -6,10 +6,17 @@
 	} from "@apis/category.js";
 	import { getBooksByCategoryApi } from "@apis/book.js";
 	import { productApiMessage } from "@locales/vi/messages";
-	import { reactive, watchEffect, watch } from "vue";
+	import {
+		PRICE_FILTER,
+		LESS_THAN_100K_PRICE,
+		FROM_100K_TO_200K_PRICE,
+		FROM_200K_TO_300K_PRICE,
+		MORE_THAN_300K_PRICE,
+	} from "@constants/filters.js";
+	import { reactive, watchEffect, watch, computed } from "vue";
 	import CategorySearch from "@components/CategorySearch.vue";
-
 	import SelectSort from "@components/SelectSort.vue";
+	import FilterRadio from "@components/FilterRadio.vue";
 	import BookItem from "@components/BookItem.vue";
 	import { useRoute } from "vue-router";
 	import { useToast } from "vue-toast-notification";
@@ -19,10 +26,36 @@
 	const state = reactive({
 		category: {},
 		books: [],
+		filteredBooks: [],
 		categories: [],
 		params: {},
 		isSearch: false,
 		id: null,
+		pickedValue: null,
+	});
+
+	state.filteredBooks = computed(() => {
+		if (state.pickedValue) {
+			return state.books.filter((item) => {
+				switch (state.pickedValue) {
+					case LESS_THAN_100K_PRICE:
+						// price < 100000
+						return item.price < 100000;
+					case FROM_100K_TO_200K_PRICE:
+						// 100000 <= price < 20000
+						return item.price >= 100000 && item.price < 200000;
+					case FROM_200K_TO_300K_PRICE:
+						// 200000 <= price < 300000
+						return item.price >= 200000 && item.price < 300000;
+					case MORE_THAN_300K_PRICE:
+						// price > 300000
+						return item.price > 300000;
+					default:
+						// all
+						return true;
+				}
+			});
+		} else return state.books;
 	});
 	const handleSort = (params) => {
 		state.params = { ...state.params, ...params };
@@ -34,6 +67,10 @@
 			state.isSearch = false;
 		}
 		state.params = { ...state.params, ...params };
+	};
+
+	const handleFilter = (value) => {
+		state.pickedValue = value;
 	};
 
 	const fetchProductsByCategory = async function (slug, params) {
@@ -49,7 +86,7 @@
 				getBooksByCategoryApi(state.id, params),
 				getCategoriesApi(),
 			]);
-			state.category = categoryData[0];
+			state.category = categoryData;
 			state.books = booksData;
 			state.categories = categoriesData;
 		} catch (error) {
@@ -60,27 +97,41 @@
 	watchEffect(async () => {
 		const { slug } = route.params;
 		await fetchProductsByCategory(slug, state.params);
-	}),
-		watch(
-			() => route.params.slug,
-			() => {
-				state.params = {};
-				state.isSearch = false;
-			}
-		);
+	});
+
+	watch(
+		() => route.params.slug,
+		() => {
+			state.params = {};
+			state.isSearch = false;
+			state.pickedValue = null;
+		}
+	);
 </script>
 
 <template>
 	<div class="flex mb-4">
-		<div class="w-64 h-fit border-2 border-b-0 h mb-4 mr-4">
-			<p class="bg-red-700 p-4 text-white">DANH MỤC SẢN PHẨM</p>
-			<template v-for="item in state.categories" :key="item.id">
-				<router-link
-					:to="{ path: `/collections/${item.slug}` }"
-					class="p-4 block border-b-2 category-navbar truncate"
-					>{{ item.name }}
-				</router-link>
-			</template>
+		<div class="flex flex-col w-64 mr-4">
+			<div class="h-fit border-2 border-b-0 h mb-4">
+				<p class="bg-red-700 p-4 text-white">DANH MỤC SẢN PHẨM</p>
+				<template v-for="item in state.categories" :key="item.id">
+					<router-link
+						:to="{
+							path: `/collections/${item.slug}`,
+						}"
+						class="p-4 block border-b-2 category-navbar truncate"
+						>{{ item.name }}
+					</router-link>
+				</template>
+			</div>
+			<div class="w-64 h-fit border-2 h mb-4">
+				<p class="bg-red-700 p-4 text-white">KHOẢNG GIÁ</p>
+
+				<FilterRadio
+					:options-value="PRICE_FILTER"
+					class="m-4"
+					@update-radio="(pickedValue) => handleFilter(pickedValue)" />
+			</div>
 		</div>
 
 		<div class="w-full flex flex-col">
@@ -99,13 +150,17 @@
 			</div>
 			<div v-if="state.isSearch" class="mb-4 text-lg">
 				<p>
-					Kết quả: Có {{ state.books.length }} sản phẩm với từ khóa "{{
-						state.params.q
-					}}"
+					Kết quả: Có
+					{{ state.books.length }} sản phẩm với từ khóa "{{ state.params.q }}"
 				</p>
 			</div>
+			<div
+				v-if="state.filteredBooks.length === 0 && !state.isSearch"
+				class="mb-4 text-lg">
+				<p>Không có kết quả phù hợp với yêu cầu</p>
+			</div>
 			<div class="grid grid-cols-4 gap-4 w-full">
-				<template v-for="book in state.books" :key="book.id">
+				<template v-for="book in state.filteredBooks" :key="book.id">
 					<BookItem :book="book" />
 				</template>
 			</div>
