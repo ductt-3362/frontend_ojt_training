@@ -6,3 +6,18 @@ export const formatPrice = (price) => {
       })
     : price;
 };
+
+export const formatDate = (date) => {
+  const dateobject = new Date(date);
+  return (
+    dateobject.getFullYear() +
+    "-" +
+    (dateobject.getMonth() + 1) +
+    "-" +
+    dateobject.getDate() +
+    " " +
+    dateobject.getHours() +
+    ":" +
+    dateobject.getMinutes()
+  );
+};
