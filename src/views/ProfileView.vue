@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useAuthStore } from "@stores/auth";
 import BaseButton from "@components/BaseButton.vue";
+import UploadWidget from "@components/UploadWidget.vue";
 
 const authStore = useAuthStore();
 const user = computed(() => authStore.userInfo);
@@ -13,7 +14,10 @@ const user = computed(() => authStore.userInfo);
     <template v-if="user">
       <div class="flex">
         <div class="w-96">
-          <img class="rounded-3xl" :src="user.avatar" />
+          <div class="relative">
+            <img class="rounded-3xl" :src="user.avatar" />
+            <UploadWidget class="absolute top-4 right-4" :user="user" />
+          </div>
         </div>
         <div class="ml-8 text-2xl flex flex-col justify-between">
           <div class="">

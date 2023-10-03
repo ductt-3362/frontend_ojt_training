@@ -10,6 +10,8 @@ import { loginApi } from "@apis/auth.js";
 import { useAuthStore } from "@stores/auth";
 import { useToast } from "vue-toast-notification";
 import { loginMessage } from "@locales/vi/messages";
+import { TOKEN_KEY } from "@constants/storage";
+import Cookies from "js-cookie";
 
 const $toast = useToast();
 const router = useRouter();
@@ -27,7 +29,8 @@ async function handleLogin(values) {
   try {
     const { data } = await loginApi(values);
     const { accessToken, user } = data;
-    await authStore.setUserInfo(accessToken, user);
+    Cookies.set(TOKEN_KEY, accessToken);
+    await authStore.setUserInfo(user);
     $toast.success(loginMessage.success);
     router.push("/");
   } catch (error) {

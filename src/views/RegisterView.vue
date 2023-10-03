@@ -11,7 +11,9 @@ import { useToast } from "vue-toast-notification";
 import { useAuthStore } from "@stores/auth";
 import { registerMessage } from "@locales/vi/messages";
 import { DEFAULT_AVATAR_URL } from "@constants/images";
-import { phoneRegex } from "@constants/regex";
+import { PHONE_REGEX } from "@constants/regex";
+import { TOKEN_KEY } from "@constants/storage";
+import Cookies from "js-cookie";
 
 const router = useRouter();
 const $toast = useToast();
@@ -19,7 +21,7 @@ const authStore = useAuthStore();
 
 const schema = yup.object({
   name: yup.string().required(registerMessage.required),
-  phone: yup.string().matches(phoneRegex, registerMessage.phone),
+  phone: yup.string().matches(PHONE_REGEX, registerMessage.phone),
   address: yup.string().required(registerMessage.required),
   email: yup
     .string()
@@ -54,7 +56,8 @@ async function onSuccess(values) {
     });
     $toast.success(registerMessage.success);
     const { accessToken, user } = data;
-    authStore.setUserInfo(accessToken, user);
+    Cookies.set(TOKEN_KEY, accessToken);
+    authStore.setUserInfo(user);
     router.push("/");
   } catch (error) {
     $toast.error(registerMessage.error);
