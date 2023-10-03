@@ -65,9 +65,6 @@ const router = createRouter({
       path: "/order-detail/:id",
       name: "order-detail",
       component: OrderDetailView,
-      beforeEnter: (_to, from, next) => {
-        from.name !== "order-history" ? next("/") : next();
-      },
     },
   ],
   scrollBehavior() {
