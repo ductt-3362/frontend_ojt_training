@@ -56,7 +56,12 @@ const onSubmit = handleSubmit(handleLogin);
         </div>
         <div class="mb-6">
           <BaseLabel for="password">Mật khẩu</BaseLabel>
-          <BaseInput type="password" id="password" v-bind="password" />
+          <BaseInput
+            type="password"
+            id="password"
+            v-bind="password"
+            autocomplete
+          />
         </div>
 
         <BaseButton>Đăng nhập</BaseButton>
