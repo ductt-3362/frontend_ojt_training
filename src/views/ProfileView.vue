@@ -3,7 +3,9 @@ import { computed } from "vue";
 import { useAuthStore } from "@stores/auth";
 import BaseButton from "@components/BaseButton.vue";
 import UploadWidget from "@components/UploadWidget.vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const authStore = useAuthStore();
 const user = computed(() => authStore.userInfo);
 </script>
@@ -32,7 +34,11 @@ const user = computed(() => authStore.userInfo);
             <p class="text-2xl font-normal text-gray-400 mb-4">Địa chỉ</p>
             <p>{{ user.address }}</p>
           </div>
-          <BaseButton class="text-xl">Lịch sử mua hàng</BaseButton>
+          <BaseButton
+            class="text-xl"
+            @click="router.push({ name: 'order-history' })"
+            >Lịch sử mua hàng</BaseButton
+          >
         </div>
       </div>
       <p class="text-2xl font-normal mt-4 text-gray-400">Họ và tên</p>
