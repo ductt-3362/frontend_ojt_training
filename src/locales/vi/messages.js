@@ -42,3 +42,8 @@ export const userApiMessage = {
 export const orderApiMessage = {
   error: "Không thể kết nối đến máy chủ",
 };
+
+export const commentApiMessage = {
+  error: "Không thể đăng đánh giá",
+  success: "Đánh giá thành công",
+};

@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const formatPrice = (price) => {
   return price >= 0
     ? price.toLocaleString("vi", {
@@ -8,16 +10,5 @@ export const formatPrice = (price) => {
 };
 
 export const formatDate = (date) => {
-  const dateobject = new Date(date);
-  return (
-    dateobject.getFullYear() +
-    "-" +
-    (dateobject.getMonth() + 1) +
-    "-" +
-    dateobject.getDate() +
-    " " +
-    dateobject.getHours() +
-    ":" +
-    dateobject.getMinutes()
-  );
+  return moment(date).format("DD MMMM YYYY, h:mm:ss a");
 };
