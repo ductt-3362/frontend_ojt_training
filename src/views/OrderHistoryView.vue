@@ -4,13 +4,20 @@ import { orderTableHeader } from "@constants/table";
 import { formatPrice, formatDate } from "@utils/function";
 import { getOrdersByUserApi } from "@apis/order";
 import { useAuthStore } from "@stores/auth";
+import { useToast } from "vue-toast-notification";
+import { orderApiMessage } from "@locales/vi/messages";
 
+const $toast = useToast();
 const authStore = useAuthStore();
 const orders = ref([]);
 
 const fetchOrders = async () => {
-  const { data } = await getOrdersByUserApi(authStore.userInfo.id);
-  orders.value = data;
+  try {
+    const { data } = await getOrdersByUserApi(authStore.userInfo.id);
+    orders.value = data;
+  } catch (error) {
+    $toast.error(orderApiMessage.error);
+  }
 };
 
 onMounted(() => {

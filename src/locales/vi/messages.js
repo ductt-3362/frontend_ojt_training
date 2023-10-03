@@ -38,3 +38,7 @@ export const userApiMessage = {
   updateError: "Cập nhật thông tin thất bại",
   updateSuccess: "Cập nhật thông tin thành công",
 };
+
+export const orderApiMessage = {
+  error: "Không thể kết nối đến máy chủ",
+};

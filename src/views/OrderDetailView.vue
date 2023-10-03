@@ -4,13 +4,20 @@ import { getOrderDetailApi } from "@apis/order";
 import { useRoute } from "vue-router";
 import { formatDate, formatPrice } from "@utils/function";
 import OrderItem from "@components/OrderItem.vue";
+import { useToast } from "vue-toast-notification";
+import { orderApiMessage } from "@locales/vi/messages";
 
+const $toast = useToast();
 const route = useRoute();
 const orderDetail = ref([]);
 
 const fetchOrder = async () => {
-  const { data } = await getOrderDetailApi(route.params.id);
-  orderDetail.value = data;
+  try {
+    const { data } = await getOrderDetailApi(route.params.id);
+    orderDetail.value = data;
+  } catch (error) {
+    $toast.error(orderApiMessage.error);
+  }
 };
 
 onMounted(() => {
@@ -28,7 +35,7 @@ const order = computed(() => orderDetail.value[0]?.order);
         <span
           class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
         >
-          Đang chờ xác nhận</span
+          {{ order.status }}</span
         >
       </div>
       <p class="text-xl text-gray-500">
