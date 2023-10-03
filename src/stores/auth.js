@@ -7,17 +7,13 @@ export const useAuthStore = defineStore("auth", {
     userInfo: null,
   }),
   actions: {
-    setUserInfo(accessToken, userData) {
-      Cookies.set(TOKEN_KEY, accessToken);
+    setUserInfo(userData) {
       this.userInfo = userData;
     },
     logout() {
       this.userInfo = null;
       Cookies.remove(TOKEN_KEY);
       window.location.replace("/");
-    },
-    updateUserInfo(userData) {
-      this.userInfo = userData;
     },
   },
   persist: true,

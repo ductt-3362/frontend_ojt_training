@@ -16,7 +16,7 @@ const user = computed(() => authStore.userInfo);
         <div class="w-96">
           <div class="relative">
             <img class="rounded-3xl" :src="user.avatar" />
-            <UploadWidget class="absolute top-4 right-2" :user="user" />
+            <UploadWidget class="absolute top-4 right-4" :user="user" />
           </div>
         </div>
         <div class="ml-8 text-2xl flex flex-col justify-between">
