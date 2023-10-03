@@ -73,16 +73,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _from, next) => {
-  const token = Cookies.get(TOKEN_KEY);
-  const authPath = ["/login", "/register"];
-  if (token) {
-    if (authPath.includes(to.path)) {
-      next("/");
-      return;
-    }
-  }
+	const token = Cookies.get(TOKEN_KEY);
+	const authPath = ["/login", "/register"];
+	if (token) {
+		if (authPath.includes(to.path)) {
+			next("/");
+			return;
+		}
+	}
 
-  next();
+	next();
 });
 
 export default router;
