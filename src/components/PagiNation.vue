@@ -1,9 +1,11 @@
 <script setup>
 import { computed, ref, watch } from "vue";
+
 const emit = defineEmits(["handlePaginate"]);
 const props = defineProps(["pageSum", "resetCurrentId"]);
 const currentIndex = ref(1);
 const numItems = ref(1);
+
 const handlePaginate = (pageIndex) => {
   if (pageIndex < 1 || pageIndex > props.pageSum) return;
   currentIndex.value = pageIndex;
@@ -13,18 +15,12 @@ const pageIndexStyle = ref(
   "cursor-pointer flex items-center justify-center px-4 h-10 leading-tight border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
 );
 
-watch(
-  () => props.resetCurrentId,
-  () => {
-    currentIndex.value = 1;
-  }
-);
-
 const getStylePageActive = (pageIndex) => {
   return currentIndex.value === pageIndex
     ? "bg-blue-50 text-blue-500"
     : "bg-white text-gray-500";
 };
+
 // Gets an array containing the page numbers before and after the current page
 const arrayAroundIndex = computed(() => {
   const arr = [];
@@ -37,6 +33,13 @@ const arrayAroundIndex = computed(() => {
   }
   return arr;
 });
+
+watch(
+  () => props.resetCurrentId,
+  () => {
+    currentIndex.value = 1;
+  }
+);
 </script>
 
 <template>
@@ -72,7 +75,7 @@ const arrayAroundIndex = computed(() => {
           @click="handlePaginate(1)"
           :class="[getStylePageActive(1), pageIndexStyle]"
         >
-          {{ 1 }}
+          1
         </li>
 
         <li

@@ -1,5 +1,5 @@
 import { api } from "./axios";
-export const getCommentApi = async (bookId, params) =>
+export const getCommentsApi = async (bookId, params) =>
   api.get(`/comments/?bookId=${bookId}&_expand=user&_expand=book`, {
     params,
   });
