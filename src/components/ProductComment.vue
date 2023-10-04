@@ -119,7 +119,6 @@ const handleComment = async () => {
     bookId: props.productDetail.id,
     rating: state.rating,
   };
-  console.log(params);
   try {
     await postCommentApi(params);
     const { data: comments } = await getCommentsApi(
