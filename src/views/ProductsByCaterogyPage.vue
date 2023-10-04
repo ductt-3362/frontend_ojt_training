@@ -72,7 +72,7 @@ const handleFilter = async (value) => {
   isLoading.products = true;
   const { data: booksData } = await getBooksByCategoryApi(
     state.idCategory,
-    state.noFilterParams
+    state.noFilterParams,
   );
   const filteredBooks = booksData.filter((item) => {
     switch (value) {
@@ -149,7 +149,7 @@ const fetchProductsByCategory = async function (params) {
       isLoading.products = true;
       const { data: booksData } = await getBooksByCategoryApi(
         state.idCategory,
-        params
+        params,
       );
       state.books = booksData;
       isLoading.products = false;
@@ -166,7 +166,7 @@ const fetchBooksTotal = async function (params) {
       isLoading.booksTotal = true;
       const { data: booksData } = await getBooksByCategoryApi(
         state.idCategory,
-        params
+        params,
       );
       state.noPagiBooks = booksData;
       state.pageSum = calculatePageSum(booksData.length);
@@ -186,7 +186,7 @@ watch(
     } else {
       state.pageSum = calculatePageSum(state.noPagiBooks.length);
     }
-  }
+  },
 );
 
 // When the slug changes, retrieve the category name according to the slug
@@ -195,7 +195,7 @@ watch(
   async () => {
     await fetchCategoryBySlug(route.params.slug);
   },
-  { immediate: true }
+  { immediate: true },
 );
 
 // When the category id changes (slug changes), reset the params and variables
@@ -208,7 +208,7 @@ watch(
     state.isSearch = false;
     state.pickedValue = null;
     state.pageIndex = 1;
-  }
+  },
 );
 
 // When params change (search, sort, filter) get new books and pageSum data
@@ -222,7 +222,7 @@ watch(
     });
     await fetchBooksTotal(state.params);
   },
-  { immediate: true }
+  { immediate: true },
 );
 onMounted(async () => {
   isLoading.categories = true;
@@ -232,9 +232,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex mb-4">
-    <div class="flex flex-col w-64 mr-4">
-      <div class="h-fit mb-4 border-2 rounded-lg overflow-hidden">
+  <div class="mb-4 flex">
+    <div class="mr-4 flex w-64 flex-col">
+      <div class="mb-4 h-fit overflow-hidden rounded-lg border-2">
         <p class="bg-red-700 p-4 text-white">DANH MỤC SẢN PHẨM</p>
         <template v-if="!isLoading.categories">
           <template v-for="item in state.categories" :key="item.id">
@@ -242,14 +242,14 @@ onMounted(async () => {
               :to="{
                 path: `/collections/${item.slug}`,
               }"
-              class="p-4 block border-t-2 category-navbar truncate"
+              class="category-navbar block truncate border-t-2 p-4"
               >{{ item.name }}
             </router-link>
           </template>
         </template>
         <template v-else><BaseLoading class="h-96" /></template>
       </div>
-      <div class="w-64 h-fit border-2 h mb-4 rounded-lg overflow-hidden">
+      <div class="h mb-4 h-fit w-64 overflow-hidden rounded-lg border-2">
         <p class="bg-red-700 p-4 text-white">KHOẢNG GIÁ</p>
 
         <FilterRadio
@@ -260,14 +260,14 @@ onMounted(async () => {
       </div>
     </div>
 
-    <div class="w-full flex flex-col">
-      <div class="flex justify-between mb-4">
-        <p class="text-2xl font-bold truncate w-56">
+    <div class="flex w-full flex-col">
+      <div class="mb-4 flex justify-between">
+        <p class="w-56 truncate text-2xl font-bold">
           {{ state.category.name }}
         </p>
         <div class="flex">
           <CategorySearch
-            class="h-9 w-48 mr-4"
+            class="mr-4 h-9 w-48"
             @search="(textSearch) => handleSearch(textSearch)"
           />
           <SelectSort
@@ -296,7 +296,7 @@ onMounted(async () => {
 
       <div
         v-if="!isLoading.products && !isLoading.booksTotal"
-        class="grid grid-cols-4 gap-4 w-full h-full"
+        class="grid h-full w-full grid-cols-4 gap-4"
       >
         <template v-for="book in state.books" :key="book.id">
           <BookItem :book="book" />
