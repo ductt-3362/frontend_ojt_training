@@ -31,17 +31,19 @@ const state = reactive({
   idCategory: null,
   pickedValue: null,
   pageSum: null,
-  pageIndex: null,
+  pageIndex: 1,
   resetCurrentId: true,
 });
 
-// thay đổi lại params khi sort được kích hoạt
+// change params again when sort is enabled
 const handleSort = (params) => {
   state.params = { ...state.params, ...params };
   state.noFilterParams = state.params;
 };
-
-// thay đổi lại params khi search được kích hoạt
+const calculatePageSum = (booksLength) => {
+  return Math.ceil(booksLength / ITEMS_PER_PAGE);
+};
+// change params again when search is enabled
 const handleSearch = (params) => {
   state.params = { ...state.params, ...params };
   state.noFilterParams = state.params;
@@ -55,7 +57,7 @@ const handleSearch = (params) => {
   }
 };
 
-// lấy dữ liệu books khi filter được kích hoạt.
+// Get books data when filter is activated.
 const handleFilter = async (value) => {
   state.pickedValue = value;
   state.pageIndex = 1;
@@ -98,7 +100,7 @@ const handleFilter = async (value) => {
   }
 };
 
-// lấy dữ liệu books mới khi chuyển trang
+// Get new books data when switching pages
 const handlePaginate = (pageIndex) => {
   state.pageIndex = pageIndex;
   fetchProductsByCategory({
@@ -147,39 +149,42 @@ const fetchProductsByCategory = async function (params) {
 // get total book by category without pagination
 const fetchBooksTotal = async function (params) {
   try {
-    const { data: booksData } = await getBooksByCategoryApi(
-      state.idCategory,
-      params
-    );
-    state.noPagiBooks = booksData;
-    state.pageSum = Math.ceil(booksData.length / ITEMS_PER_PAGE);
+    if (state.idCategory) {
+      const { data: booksData } = await getBooksByCategoryApi(
+        state.idCategory,
+        params
+      );
+      state.noPagiBooks = booksData;
+      state.pageSum = calculatePageSum(booksData.length);
+    }
   } catch (error) {
     $toast.error(productApiMessage.error);
   }
 };
 
-// tính lại tổng số trang khi filter
+// Recalculate the total number of pages when filtering
 watch(
   () => state.pickedValue,
   () => {
     if (state.pickedValue !== 0) {
-      state.pageSum = Math.ceil(state.books.length / ITEMS_PER_PAGE);
+      state.pageSum = calculatePageSum(state.books.length);
     } else {
-      state.pageSum = Math.ceil(state.noPagiBooks.length / ITEMS_PER_PAGE);
+      state.pageSum = calculatePageSum(state.noPagiBooks.length);
     }
   }
 );
 
-// Khi slug thay đổi, lấy ra tên của category theo slug
+// When the slug changes, retrieve the category name according to the slug
 watch(
   () => route.params.slug,
   async () => {
     await fetchCategoryBySlug(route.params.slug);
-  }
+  },
+  { immediate: true }
 );
 
-// khi id của category thay đổi (slug thay đổi),  reset lại các params và biến
-// gọi hàm tính pageSum và dữ liệu books
+// When the category id changes (slug changes), reset the params and variables
+// Call the function to calculate pageSum and books data
 watch(
   () => state.idCategory,
   async () => {
@@ -188,12 +193,10 @@ watch(
     state.isSearch = false;
     state.pickedValue = null;
     state.pageIndex = 1;
-    await fetchBooksTotal({});
-    await fetchProductsByCategory({ _limit: ITEMS_PER_PAGE, _page: 1 });
   }
 );
 
-// Khi params thay đổi(search, sort, filter) lấy dữ liệu books  và pageSum mới
+// When params change (search, sort, filter) get new books and pageSum data
 watch(
   () => state.params,
   async () => {
@@ -203,15 +206,11 @@ watch(
       _page: state.pageIndex,
     });
     await fetchBooksTotal(state.params);
-  }
+  },
+  { immediate: true }
 );
-
 onMounted(async () => {
-  const { slug } = route.params;
   await fetchCategories();
-  await fetchCategoryBySlug(slug);
-  await fetchProductsByCategory({ _limit: ITEMS_PER_PAGE, _page: 1 });
-  await fetchBooksTotal();
 });
 </script>
 
