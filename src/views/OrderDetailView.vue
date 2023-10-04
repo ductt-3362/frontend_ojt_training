@@ -7,16 +7,20 @@ import OrderItem from "@components/OrderItem.vue";
 import { useToast } from "vue-toast-notification";
 import { orderApiMessage } from "@locales/vi/messages";
 import { useAuthStore } from "@stores/auth";
+import BaseLoading from "@components/BaseLoading.vue";
 
 const $toast = useToast();
 const route = useRoute();
 const authStore = useAuthStore();
 const orderDetail = ref([]);
+const isLoading = ref(false);
 
 const fetchOrder = async () => {
   try {
+    isLoading.value = true;
     const { data } = await getOrderDetailApi(route.params.id);
     orderDetail.value = data;
+    isLoading.value = false;
   } catch (error) {
     $toast.error(orderApiMessage.error);
   }
@@ -30,40 +34,45 @@ const order = computed(() => orderDetail.value[0]?.order);
 </script>
 
 <template>
-  <div v-if="order" class="mt-12">
-    <template v-if="order.userId === authStore.userInfo?.id">
-      <div class="w-full flex justify-between items-center mb-6">
-        <div class="flex items-center justify-center">
-          <p class="text-3xl mr-4">Chi tiết đơn hàng #{{ order.id }}</p>
-          <span
-            class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
-          >
-            {{ order.status }}</span
-          >
-        </div>
-        <p class="text-xl text-gray-500">
-          Ngày đặt hàng: {{ formatDate(order.createdAt) }}
-        </p>
-      </div>
-      <div>
-        <template v-for="item in orderDetail" :key="item.id">
-          <OrderItem :order="item" />
-        </template>
-        <div class="flex w-full justify-end items-center mb-10">
-          <p class="text-2xl">
-            Thành tiền:
-            <span class="text-red-700 font-bold ml-2">{{
-              formatPrice(order.total)
-            }}</span>
+  <template v-if="!isLoading">
+    <div v-if="order" class="mt-12">
+      <template v-if="order.userId === authStore.userInfo?.id">
+        <div class="w-full flex justify-between items-center mb-6">
+          <div class="flex items-center justify-center">
+            <p class="text-3xl mr-4">Chi tiết đơn hàng #{{ order.id }}</p>
+            <span
+              class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+            >
+              {{ order.status }}</span
+            >
+          </div>
+          <p class="text-xl text-gray-500">
+            Ngày đặt hàng: {{ formatDate(order.createdAt) }}
           </p>
         </div>
-      </div>
-    </template>
-    <template v-else>
-      <p class="text-3xl text-center">Bạn không có quyền xem đơn hàng này</p>
-    </template>
-  </div>
-  <div v-else class="mt-12">
-    <p class="text-3xl text-center">Đơn hàng không tồn tại</p>
-  </div>
+        <div>
+          <template v-for="item in orderDetail" :key="item.id">
+            <OrderItem :order="item" />
+          </template>
+          <div class="flex w-full justify-end items-center mb-10">
+            <p class="text-2xl">
+              Thành tiền:
+              <span class="text-red-700 font-bold ml-2">{{
+                formatPrice(order.total)
+              }}</span>
+            </p>
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <p class="text-3xl text-center">Bạn không có quyền xem đơn hàng này</p>
+      </template>
+    </div>
+    <div v-else class="mt-12">
+      <p class="text-3xl text-center">Đơn hàng không tồn tại</p>
+    </div>
+  </template>
+  <template v-else>
+    <BaseLoading class="h-[80vh]" />
+  </template>
 </template>
