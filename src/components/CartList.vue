@@ -4,7 +4,7 @@ import CartItem from "@components/CartItem.vue";
 import BaseButton from "@components/BaseButton.vue";
 import { formatPrice } from "@utils/function";
 import { useToast } from "vue-toast-notification";
-import { orderMessage, orderApiMessage } from "@locales/vi/messages";
+import { orderMessage } from "@locales/vi/messages";
 import { INITIAL_ORDER_STATUS } from "@constants/order";
 import { useCartStore } from "@stores/cart";
 import { useAuthStore } from "@stores/auth";
@@ -23,27 +23,17 @@ const handleOrder = async () => {
     total: cartStore.getTotalPrice,
   };
   try {
-    const { data: orderData } = await postOrderApi(order);
-    const orderId = orderData.id;
-
+    const { data } = await postOrderApi(order);
+    const { id: orderId } = data;
     // post order detail to server
     props.list.forEach(async (item) => {
-      const orderDetail = {
-        orderId,
-        book: item,
-        quantity: item.inCartQuantity,
-        price: item.price,
-      };
-      try {
-        await postOrderDetailApi(orderDetail);
-      } catch {
-        $toast.error(orderApiMessage.error);
-      }
+      const { inCartQuantity: quantity, price } = item;
+      const orderDetail = { orderId, book: item, quantity, price };
+      await postOrderDetailApi(orderDetail);
     });
     $toast.success(orderMessage.success);
   } catch {
     $toast.error(orderMessage.error);
-    return;
   }
 };
 </script>
