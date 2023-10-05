@@ -1,16 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "@views/HomeView.vue";
-import CartView from "@views/CartView.vue";
-import LoginView from "@views/LoginView.vue";
-import RegisterView from "@views/RegisterView.vue";
-import ProductDetailView from "@views/ProductDetailView.vue";
-import ProductsByCaterogy from "@views/ProductsByCaterogy.vue";
-import SearchView from "@views/SearchView.vue";
-import ProfileView from "@views/ProfileView.vue";
 import OrderHistoryView from "@views/OrderHistoryView.vue";
 import OrderDetailView from "@views/OrderDetailView.vue";
 import { TOKEN_KEY } from "@constants/storage";
 import Cookies from "js-cookie";
+import { ROLES } from "@constants/roles";
+import { useAuthStore } from "@stores/auth";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,43 +12,68 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: () => import("@views/HomePage.vue"),
     },
     {
       path: "/login",
       name: "login",
-      component: LoginView,
+      component: () => import("@views/LoginPage.vue"),
     },
     {
       path: "/register",
       name: "register",
-      component: RegisterView,
+      component: () => import("@views/RegisterPage.vue"),
     },
     {
       path: "/cart",
       name: "cart",
-      component: CartView,
+      component: () => import("@views/CartPage.vue"),
     },
     {
       path: "/books/:slug",
       name: "books",
-      component: ProductDetailView,
+      component: () => import("@views/ProductDetailPage.vue"),
     },
     {
       path: "/collections/:slug",
       name: "collections",
-      component: ProductsByCaterogy,
+      component: () => import("@views/ProductsByCaterogyPage.vue"),
     },
     {
       path: "/search",
       name: "search",
-      component: SearchView,
+      component: () => import("@views/SearchPage.vue"),
       props: (route) => ({ query: route.query.q }),
     },
     {
       path: "/profile",
       name: "profile",
-      component: ProfileView,
+      component: () => import("@views/ProfilePage.vue"),
+      meta: {
+        roles: [ROLES.USER, ROLES.ADMIN],
+      },
+    },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: () => import("@views/DashboardPage.vue"),
+      meta: {
+        roles: [ROLES.ADMIN],
+      },
+    },
+    {
+      name: "403Page",
+      path: "/403",
+      component: () => import("@views/403Page.vue"),
+    },
+    {
+      name: "404Page",
+      path: "/404",
+      component: () => import("@views/404Page.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/404",
     },
     {
       path: "/order-history",
@@ -74,6 +93,7 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   const token = Cookies.get(TOKEN_KEY);
+  const authStore = useAuthStore();
   const authPath = ["/login", "/register"];
   if (token) {
     if (authPath.includes(to.path)) {
@@ -81,7 +101,18 @@ router.beforeEach((to, _from, next) => {
       return;
     }
   }
-
+  if (to.meta.roles) {
+    if (!token) {
+      next("/login");
+      return;
+    }
+    if (authStore.userInfo && to.meta.roles.includes(authStore.userInfo.role)) {
+      next();
+      return;
+    }
+    next("/403");
+    return;
+  }
   next();
 });
 

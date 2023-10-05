@@ -1,7 +1,11 @@
 <script setup>
 import BaseSelect from "@components/BaseSelect.vue";
 import { sortValueCommnet } from "@constants/select.js";
-import { getCommentApi, postCommentApi, putCommentApi } from "@apis/comment.js";
+import {
+  getCommentsApi,
+  postCommentApi,
+  putCommentApi,
+} from "@apis/comment.js";
 import { commentApiMessage } from "@locales/vi/messages";
 import { computed, reactive, ref, watch } from "vue";
 import { useAuthStore } from "@stores/auth.js";
@@ -76,7 +80,7 @@ const handleUpdateComment = async () => {
 
   try {
     await putCommentApi(commentId, params);
-    const { data: comments } = await getCommentApi(
+    const { data: comments } = await getCommentsApi(
       props.productDetail.id,
       state.params
     );
@@ -116,7 +120,7 @@ const handleComment = async () => {
   };
   try {
     await postCommentApi(params);
-    const { data: comments } = await getCommentApi(
+    const { data: comments } = await getCommentsApi(
       props.productDetail.id,
       state.params
     );
@@ -134,7 +138,7 @@ watch(
   () => [state.params, props.productDetail],
   async () => {
     try {
-      const { data: comments } = await getCommentApi(
+      const { data: comments } = await getCommentsApi(
         props.productDetail.id,
         state.params
       );

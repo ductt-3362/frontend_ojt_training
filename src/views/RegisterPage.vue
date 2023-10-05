@@ -94,7 +94,12 @@ const onSubmit = handleSubmit(onSuccess);
         </div>
         <div class="mb-6">
           <BaseLabel for="password">Mật khẩu</BaseLabel>
-          <BaseInput type="password" id="password" v-bind="password" />
+          <BaseInput
+            type="password"
+            id="password"
+            v-bind="password"
+            autocomplete
+          />
           <ErrorMessageText>{{ errors.password }}</ErrorMessageText>
         </div>
         <div class="mb-6">
@@ -103,6 +108,7 @@ const onSubmit = handleSubmit(onSuccess);
             type="password"
             id="confirmPassword"
             v-bind="confirmPassword"
+            autocomplete
           />
           <ErrorMessageText>{{ errors.confirmPassword }}</ErrorMessageText>
         </div>
