@@ -3,7 +3,7 @@ import IconFacebook from "@icons/IconFacebook.vue";
 import IconYoutube from "@icons/IconYoutube.vue";
 </script>
 <template>
-  <div class="max-w-screen-xl mx-auto py-8">
+  <div class="py-8">
     <div class="grid grid-cols-4 gap-4">
       <div>
         <span class="font-semibold">DỊCH VỤ</span>

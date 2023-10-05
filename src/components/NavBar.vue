@@ -17,10 +17,8 @@ const handleLogout = () => {
 </script>
 
 <template>
-  <nav class="max-w-screen-xl mx-auto">
-    <div
-      class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4 h-20"
-    >
+  <nav>
+    <div class="flex flex-wrap items-center justify-between py-4 h-20">
       <router-link to="/" class="flex items-center">
         <img
           src="@images/BookWithBookmarks.svg"
