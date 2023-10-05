@@ -23,6 +23,7 @@ export const cartMessage = {
 
 export const orderMessage = {
   success: "Đặt hàng thành công",
+  error: "Đặt hàng thất bại",
 };
 
 export const productApiMessage = {
