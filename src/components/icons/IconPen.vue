@@ -1,6 +1,10 @@
+<script setup>
+defineProps(["size"]);
+</script>
+
 <template>
   <svg
-    class="w-[20px] h-[20px]text-white"
+    :class="size"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"

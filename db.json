@@ -640,5 +640,23 @@
       "src": "https://theme.hstatic.net/200000343865/1001052087/14/ms_banner_img5.jpg?v=335",
       "alt": "Banner 5"
     }
+  ],
+  "comments": [
+    {
+      "content": "sản phẩm rất  nha",
+      "createdAt": "2023-10-02T13:35:58.508Z",
+      "userId": 1,
+      "bookId": 1,
+      "rating": 5,
+      "id": 1
+    },
+    {
+      "content": "sản phẩm tệ",
+      "createdAt": "2023-10-03T01:05:59.088Z",
+      "userId": 2,
+      "bookId": 1,
+      "rating": 3,
+      "id": 2
+    }
   ]
 }
