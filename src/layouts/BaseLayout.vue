@@ -15,8 +15,8 @@ const containerStyle = ref(
   <div class="min-h-[64vh]" :class="containerStyle">
     <slot></slot>
   </div>
-  <div class="border-t-2"></div>
-  <footer :class="containerStyle">
+  <div class="border-t-2 max-sm:hidden"></div>
+  <footer :class="containerStyle" class="max-sm:hidden">
     <BaseFooter />
   </footer>
 </template>
