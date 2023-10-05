@@ -85,6 +85,11 @@ const router = createRouter({
       name: "order-detail",
       component: OrderDetailView,
     },
+    {
+      path: "/order/:result/:id",
+      name: "order-result",
+      component: () => import("@views/OrderResultPage.vue"),
+    },
   ],
   scrollBehavior() {
     return { top: 0 };
