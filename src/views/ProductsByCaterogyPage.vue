@@ -17,6 +17,8 @@ import PagiNation from "@components/PagiNation.vue";
 import { useRoute } from "vue-router";
 import { useToast } from "vue-toast-notification";
 import { productApiMessage } from "@locales/vi/messages";
+import BaseLoading from "@components/BaseLoading.vue";
+
 const $toast = useToast();
 const route = useRoute();
 const ITEMS_PER_PAGE = 2;
@@ -34,7 +36,11 @@ const state = reactive({
   pageIndex: 1,
   resetCurrentId: true,
 });
-
+const isLoading = reactive({
+  products: false,
+  categories: false,
+  booksTotal: false,
+});
 // change params again when sort is enabled
 const handleSort = (params) => {
   state.params = { ...state.params, ...params };
@@ -63,6 +69,7 @@ const handleFilter = async (value) => {
   state.pageIndex = 1;
   state.noFilterParams = { ...state.params, id: null };
   state.resetCurrentId = !state.resetCurrentId;
+  isLoading.products = true;
   const { data: booksData } = await getBooksByCategoryApi(
     state.idCategory,
     state.noFilterParams
@@ -98,11 +105,13 @@ const handleFilter = async (value) => {
       id: bookIds,
     };
   }
+  isLoading.products = false;
 };
 
 // Get new books data when switching pages
 const handlePaginate = (pageIndex) => {
   state.pageIndex = pageIndex;
+
   fetchProductsByCategory({
     ...state.params,
     _page: pageIndex,
@@ -113,8 +122,10 @@ const handlePaginate = (pageIndex) => {
 // get categoris
 const fetchCategories = async () => {
   try {
+    isLoading.products = true;
     const { data: categoriesData } = await getCategoriesApi();
     state.categories = categoriesData;
+    isLoading.products = false;
   } catch (error) {
     $toast.error(productApiMessage.error);
   }
@@ -135,11 +146,13 @@ const fetchCategoryBySlug = async (slug) => {
 const fetchProductsByCategory = async function (params) {
   try {
     if (state.idCategory) {
+      isLoading.products = true;
       const { data: booksData } = await getBooksByCategoryApi(
         state.idCategory,
         params
       );
       state.books = booksData;
+      isLoading.products = false;
     }
   } catch (error) {
     $toast.error(productApiMessage.error);
@@ -150,12 +163,14 @@ const fetchProductsByCategory = async function (params) {
 const fetchBooksTotal = async function (params) {
   try {
     if (state.idCategory) {
+      isLoading.booksTotal = true;
       const { data: booksData } = await getBooksByCategoryApi(
         state.idCategory,
         params
       );
       state.noPagiBooks = booksData;
       state.pageSum = calculatePageSum(booksData.length);
+      isLoading.booksTotal = false;
     }
   } catch (error) {
     $toast.error(productApiMessage.error);
@@ -210,7 +225,9 @@ watch(
   { immediate: true }
 );
 onMounted(async () => {
+  isLoading.categories = true;
   await fetchCategories();
+  isLoading.categories = false;
 });
 </script>
 
@@ -219,15 +236,18 @@ onMounted(async () => {
     <div class="flex flex-col w-64 mr-4">
       <div class="h-fit mb-4 border-2 rounded-lg overflow-hidden">
         <p class="bg-red-700 p-4 text-white">DANH MỤC SẢN PHẨM</p>
-        <template v-for="item in state.categories" :key="item.id">
-          <router-link
-            :to="{
-              path: `/collections/${item.slug}`,
-            }"
-            class="p-4 block border-t-2 category-navbar truncate"
-            >{{ item.name }}
-          </router-link>
+        <template v-if="!isLoading.categories">
+          <template v-for="item in state.categories" :key="item.id">
+            <router-link
+              :to="{
+                path: `/collections/${item.slug}`,
+              }"
+              class="p-4 block border-t-2 category-navbar truncate"
+              >{{ item.name }}
+            </router-link>
+          </template>
         </template>
+        <template v-else><BaseLoading class="h-96" /></template>
       </div>
       <div class="w-64 h-fit border-2 h mb-4 rounded-lg overflow-hidden">
         <p class="bg-red-700 p-4 text-white">KHOẢNG GIÁ</p>
@@ -262,17 +282,28 @@ onMounted(async () => {
           {{ state.books.length }} sản phẩm với từ khóa "{{ state.params.q }}"
         </p>
       </div>
+
       <div
-        v-if="state.books.length === 0 && !state.isSearch"
+        v-if="
+          state.books.length === 0 &&
+          !state.isSearch &&
+          Object.keys(state.params).length !== 0
+        "
         class="mb-4 text-lg"
       >
         <p>Không có kết quả phù hợp với yêu cầu</p>
       </div>
-      <div class="grid grid-cols-4 gap-4 w-full">
+
+      <div
+        v-if="!isLoading.products && !isLoading.booksTotal"
+        class="grid grid-cols-4 gap-4 w-full h-full"
+      >
         <template v-for="book in state.books" :key="book.id">
           <BookItem :book="book" />
         </template>
       </div>
+
+      <template v-else><BaseLoading class="h-full" /></template>
       <PagiNation
         v-if="state.books.length > 0"
         :page-sum="state.pageSum"

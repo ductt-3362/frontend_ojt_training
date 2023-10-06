@@ -48,3 +48,7 @@ export const commentApiMessage = {
   error: "Không thể đăng đánh giá",
   success: "Đánh giá thành công",
 };
+
+export const homePageMessage = {
+  error: "Không thể kết nối đến máy chủ",
+};
