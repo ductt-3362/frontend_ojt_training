@@ -24,6 +24,7 @@ export const cartMessage = {
 export const orderMessage = {
   success: "Đặt hàng thành công",
   error: "Đặt hàng thất bại",
+  loginRequired: "Bạn cần đăng nhập để đặt hàng",
 };
 
 export const productApiMessage = {
