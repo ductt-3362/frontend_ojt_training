@@ -7,6 +7,7 @@ import IconAddToCart from "@components/icons/IconAddToCart.vue";
 import { useCartStore } from "@stores/cart";
 import ProductComment from "@components/ProductComment.vue";
 import BaseLoading from "@components/BaseLoading.vue";
+import { reactive } from "vue";
 const cartStore = useCartStore();
 
 const props = defineProps(["productDetail"]);
@@ -19,44 +20,55 @@ const handleAddToCart = () => {
     $toast.error(error);
   }
 };
+
+const style = reactive({
+  image: "w-[25%]  max-lg:w-[40%] max-sm:w-full max-sm:mb-2",
+  contentContainer: "pl-8 w-[75%] max-sm:p-0",
+  contentTitle: "leading-8 ",
+  reviewAndDescription: "mb-12 border-2 border-t-0 ",
+  button:
+    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-4 mt-4  max-lg:py-2",
+});
 </script>
 
 <template>
   <template v-if="productDetail.image">
-    <div class="my-12 grid grid-cols-5">
-      <div class="col-span-2">
+    <div class="flex mb-8 max-sm:flex-col">
+      <div :class="style.image">
         <img :src="productDetail.image" />
       </div>
-      <div class="detail-container pl-8 col-span-3">
-        <div class="name font-bold text-xl pb-6">
+      <div :class="style.contentContainer">
+        <div
+          class="name font-bold text-xl pb-6 max-lg:pb-2 max-lg:text-lg max-sm:text-base"
+        >
           {{ productDetail.name }}
         </div>
-        <div class="price text-3xl font-bold text-red-700">
+        <div class="price text-3xl font-bold text-red-700 max-lg:text-2xl">
           {{ formatPrice(productDetail.price) }}
         </div>
-        <div class="detail">
-          <ul class="my-6">
-            <li class="leading-8">
+        <div>
+          <ul>
+            <li :class="style.contentTitle">
               Tác giả:
               <span class="text-red-700">{{ productDetail.author }}</span>
             </li>
-            <li class="leading-8">
+            <li :class="style.contentTitle">
               Đối tượng:
               <span class="text-red-700">{{ productDetail.audience }}</span>
             </li>
-            <li class="leading-8">
+            <li :class="style.contentTitle">
               Khuôn khổ: <span>{{ productDetail.size }}</span>
             </li>
-            <li class="leading-8">
+            <li :class="style.contentTitle">
               Số trang: <span>{{ productDetail.page }}</span>
             </li>
-            <li class="leading-8">
+            <li :class="style.contentTitle">
               Định dạng: <span>{{ productDetail.cover }}</span>
             </li>
-            <li class="leading-8">
+            <li :class="style.contentTitle">
               Trọng lượng: <span>{{ productDetail.weight }}</span>
             </li>
-            <li class="leading-8">
+            <li :class="style.contentTitle">
               Số lượng sản phẩm còn:
               <span class="text-lg font-bold">{{
                 productDetail.quantity
@@ -64,26 +76,21 @@ const handleAddToCart = () => {
             </li>
           </ul>
 
-          <BaseButton
-            class="bg-red-700 hover:bg-red-800 py-4 flex items-center justify-center"
-            @click="handleAddToCart"
-          >
+          <BaseButton :class="style.button" @click="handleAddToCart">
             <IconAddToCart />
             THÊM VÀO GIỎ HÀNG
           </BaseButton>
         </div>
       </div>
     </div>
-    <div class="mb-12 border-2 border-t-0">
-      <p class="bg-red-500 text-white px-4">MÔ TẢ - ĐÁNH GIÁ</p>
+    <div :class="style.reviewAndDescription">
+      <p class="bg-red-500 text-white px-4">MÔ TẢ</p>
       <p class="p-4 mb-8 text-base">
         {{ productDetail.description }}
       </p>
     </div>
-    <div class="mb-12 border-2 border-t-0">
-      <div class="flex bg-red-500 text-white">
-        <p class="px-4">ĐÁNH GIÁ SẢN PHẨM</p>
-      </div>
+    <div :class="style.reviewAndDescription">
+      <p class="px-4 bg-red-500 text-white">ĐÁNH GIÁ SẢN PHẨM</p>
       <p class="p-4 mb-8 text-base">
         <ProductComment :product-detail="productDetail" />
       </p>
