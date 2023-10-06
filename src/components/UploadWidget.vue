@@ -41,7 +41,7 @@ const widget = window.cloudinary.openUploadWidget(
     ) {
       $toast.error(uploadMessage.error);
     }
-  }
+  },
 );
 
 function openUploadModal() {
@@ -57,7 +57,7 @@ onMounted(() => {
   <button
     type="button"
     @click="openUploadModal"
-    class="text-white bg-gray-400 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center transition-colors duration-300"
+    class="inline-flex items-center rounded-full bg-gray-400 p-2.5 text-center text-sm font-medium text-white duration-300 hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-blue-300"
   >
     <IconPen size="w-[20px] h-[20px] text-white" />
   </button>

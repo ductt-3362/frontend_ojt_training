@@ -16,10 +16,10 @@ const user = computed(() => authStore.userInfo);
 const isHidden = ref(true);
 
 const style = reactive({
-  nav: "flex h-20 min-w-[375px] flex-wrap items-center justify-between py-4",
+  nav: "flex h-20  min-w-[375px] flex-wrap items-center justify-between py-4",
   logo: "mr-3 inline-block h-12",
   title: "self-center text-2xl max-sm:hidden",
-  ul: "float-right mt-2 flex min-w-[200px] flex-col rounded-lg border border-gray-100 bg-gray-50 p-3 font-medium shadow-2xl lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:bg-inherit lg:p-0 lg:shadow-none",
+  ul: "float-right mt-2 flex min-w-[150px] flex-col rounded-lg border border-gray-100 bg-gray-50 p-3 font-medium shadow-2xl lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:bg-inherit lg:p-0 lg:shadow-none",
   link: "flex cursor-pointer items-center rounded px-3 py-2 text-gray-900 hover:bg-gray-100 lg:border-0 lg:p-0 lg:hover:bg-transparent",
   button:
     "inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden",
