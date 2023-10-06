@@ -5,97 +5,92 @@ import IconCart from "@icons/IconCart.vue";
 import IconLogin from "@icons/IconLogin.vue";
 import IconRegister from "@icons/IconRegister.vue";
 import IconProfile from "@icons/IconProfile.vue";
+import IconMenu from "@icons/IconMenu.vue";
 import { useAuthStore } from "@stores/auth";
-import { computed } from "vue";
+import { computed, reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const authStore = useAuthStore();
+const router = useRouter();
 const user = computed(() => authStore.userInfo);
+const isHidden = ref(true);
+
+const style = reactive({
+  nav: "flex h-20 min-w-[375px] flex-wrap items-center justify-between py-4",
+  logo: "mr-3 inline-block h-12",
+  title: "self-center text-2xl max-sm:hidden",
+  ul: "float-right mt-2 flex min-w-[200px] flex-col rounded-lg border border-gray-100 bg-gray-50 p-3 font-medium shadow-2xl lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:bg-inherit lg:p-0 lg:shadow-none",
+  link: "flex cursor-pointer items-center rounded px-3 py-2 text-gray-900 hover:bg-gray-100 lg:border-0 lg:p-0 lg:hover:bg-transparent",
+  button:
+    "inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 lg:hidden",
+  iconWrap: "flex h-10 w-10 pr-2 lg:p-0 items-center justify-center",
+});
 
 const handleLogout = () => {
   authStore.logout();
+};
+
+const handleClick = (path) => {
+  isHidden.value = true;
+  router.push(path);
 };
 </script>
 
 <template>
   <nav>
-    <div class="flex flex-wrap items-center justify-between py-4 h-20">
+    <div :class="style.nav">
       <router-link to="/" class="flex items-center">
-        <img
-          src="@images/BookWithBookmarks.svg"
-          class="h-8 mr-3 inline-block"
-          alt="Flowbite Logo"
-        />
-
-        <span class="self-center text-2xl font-semibold whitespace-nowrap"
-          >Bookshop</span
-        >
+        <img src="@images/bookshop.png" :class="style.logo" alt="logo" />
+        <span :class="style.title">Bookshop</span>
       </router-link>
       <SearchItem />
-      <ul class="font-medium flex flex-row">
-        <template v-if="user">
-          <li>
-            <router-link
-              to="/profile"
-              class="py-2 pl-4 text-black flex items-center"
-              aria-current="page"
-            >
-              <IconProfile />
+      <button :class="style.button" @click="isHidden = !isHidden">
+        <IconMenu />
+      </button>
+      <div
+        class="w-full lg:block lg:w-auto"
+        id="navbar-default"
+        :class="{ hidden: isHidden }"
+      >
+        <ul :class="style.ul">
+          <template v-if="user">
+            <li @click="handleClick('/profile')" :class="style.link">
+              <div :class="style.iconWrap">
+                <IconProfile />
+              </div>
               <span>
                 {{ user.name }}
               </span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/cart"
-              class="py-2 pl-4 text-black flex items-center"
-              aria-current="page"
-            >
-              <IconCart />
+            </li>
+            <li @click="handleClick('/cart')" :class="style.link">
+              <div :class="style.iconWrap">
+                <IconCart />
+              </div>
               <span> Giỏ hàng </span>
-            </router-link>
-          </li>
-          <li
-            @click="handleLogout"
-            class="cursor-pointer py-2 pl-4 text-black flex items-center"
-          >
-            <IconLogout />
-            <span>Đăng xuất</span>
-          </li>
-        </template>
-        <template v-else>
-          <li>
-            <router-link
-              to="/login"
-              class="py-2 pl-4 text-black flex items-center"
-              aria-current="page"
-            >
+            </li>
+            <li @click="handleLogout" :class="style.link">
+              <div :class="style.iconWrap">
+                <IconLogout />
+              </div>
+              <span>Đăng xuất</span>
+            </li>
+          </template>
+          <template v-else>
+            <li @click="handleClick('/login')" :class="style.link">
               <IconLogin />
               <span> Đăng nhập </span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/register"
-              class="py-2 pl-4 text-black flex items-center"
-              aria-current="page"
-            >
+            </li>
+            <li @click="handleClick('/register')" :class="style.link">
               <IconRegister />
               <span> Đăng ký </span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/cart"
-              class="py-2 pl-4 text-black flex items-center"
-              aria-current="page"
-            >
+            </li>
+            <li @click="handleClick('/cart')" :class="style.link">
               <IconCart />
               <span> Giỏ hàng</span>
-            </router-link>
-          </li>
-        </template>
-      </ul>
+            </li>
+          </template>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
