@@ -1,18 +1,17 @@
-<script setup></script>
 <template>
   <svg
-    class="text-gray-800 w-6 h-6"
+    class="w-3 h-3 text-gray-400 mx-1"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewBox="0 0 20 20"
+    viewBox="0 0 6 10"
   >
     <path
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="2"
-      d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"
+      d="m1 9 4-4-4-4"
     />
   </svg>
 </template>

@@ -14,6 +14,7 @@ import { formatDate } from "@utils/function";
 import { useToast } from "vue-toast-notification";
 import IconPen from "@icons/IconPen.vue";
 import BaseLoading from "@components/BaseLoading.vue";
+
 const $toast = useToast();
 const authStore = useAuthStore();
 const props = defineProps(["productDetail"]);
@@ -29,6 +30,10 @@ const state = reactive({
   isCommented: false,
   isEditComment: false,
 });
+
+const style = reactive({
+  button: "mt-2 h-6 py-4 px-4 text-white flex items-center border-2 rounded justify-center disabled:opacity-50 rounded-md"
+})
 const isLoading = ref(false);
 const userId = computed(() => {
   if (authStore.userInfo) return authStore.userInfo.id;
@@ -189,7 +194,7 @@ watch(
           <img class="h-full rounded-md" :src="authStore.userInfo.avatar" />
         </div>
         <div class="w-full relative">
-          <div class="mb-2">
+          <div class="mb-4">
             <StarRating
               v-model:rating="state.rating"
               :star-size="30"
@@ -199,21 +204,23 @@ watch(
           <textarea
             type="text"
             placeholder="Viết bình luận"
-            class="block w-full h-24 p-2 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+            class="block w-full h-24 p-2 text-sm text-gray-900 border rounded-lg border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
             v-model="state.commentContent"
           />
 
           <div class="absolute right-0 flex">
             <button
               :disabled="!state.isCommenting && !state.rating"
-              class="mt-2 h-6 py-3 px-3 bg-red-600 text-white flex items-center border-2 rounded justify-center disabled:opacity-50"
+              :class="style.button"
+              class=" bg-red-600"
               @click="handleCancelComment"
             >
               Hủy
             </button>
             <button
-              class="mt-2 h-6 py-3 px-3 bg-blue-600 text-white flex items-center border-2 rounded justify-center disabled:opacity-50"
-              :disabled="!state.isCommenting && !state.rating"
+             :class="style.button"
+              class=" bg-blue-600"
+              :disabled="!state.isCommenting || !state.rating"
               @click="handleComment"
             >
               Đăng
@@ -227,7 +234,7 @@ watch(
           <img class="h-full rounded-md" :src="authStore.userInfo.avatar" />
         </div>
         <div class="w-full relative">
-          <div class="mb-2">
+          <div class="mb-4">
             <StarRating
               v-model:rating="myComment.rating"
               :star-size="30"
@@ -242,14 +249,16 @@ watch(
           />
           <div class="absolute right-0 flex">
             <button
-              class="mt-2 h-6 py-3 px-3 bg-blue-600 text-white flex items-center border-2 rounded justify-center disabled:opacity-50"
+             :class="style.button"
+              class=" bg-blue-600"
               :disabled="!myComment.content && !myComment.rating"
               @click="handleUpdateComment"
             >
               Cập nhật
             </button>
             <button
-              class="mt-2 h-6 py-3 px-3 bg-red-600 text-white flex items-center border-2 rounded justify-center disabled:opacity-50"
+             :class="style.button"
+              class=" bg-red-600"
               @click="handleCancelEdit"
             >
               Hủy
@@ -266,7 +275,7 @@ watch(
           <div class="w-full flex-col pb-2">
             <div class="mb-1">
               <p class="font-medium leading-4">{{ comment.user.name }}</p>
-              <div class="flex items-center">
+              <div class="flex items-center ">
                 <StarRating
                   :rating="comment.rating"
                   :star-size="10"

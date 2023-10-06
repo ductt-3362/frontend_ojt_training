@@ -49,7 +49,7 @@ const style = reactive({
           <p :class="style.content">{{ user.address }}</p>
         </div>
         <BaseButton
-          :class="style.button"
+          :style-prop="style.button"
           @click="router.push({ name: 'order-history' })"
           >Lịch sử mua hàng</BaseButton
         >
