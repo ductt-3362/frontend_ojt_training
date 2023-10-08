@@ -1,17 +1,19 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 const props = defineProps(["styleProp"]);
 defineEmits(["submit"]);
-const defaultStyle = ref("text-sm px-5 py-2.5 font-medium rounded-lg ");
+
 const styleProp = computed(() => {
-  return props.styleProp ? props.styleProp : defaultStyle.value;
+  return props.styleProp
+    ? props.styleProp
+    : "text-sm px-5 py-2.5 font-medium rounded-lg ";
 });
 </script>
 
 <template>
   <button
     @click="() => $emit('submit')"
-    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300focus:outline-none"
+    class="focus:ring-blue-300focus:outline-none bg-blue-700 text-white hover:bg-blue-800 focus:ring-4"
     :class="styleProp"
   >
     <slot></slot>

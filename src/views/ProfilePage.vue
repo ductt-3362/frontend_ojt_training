@@ -12,9 +12,9 @@ const router = useRouter();
 const authStore = useAuthStore();
 const user = computed(() => authStore.userInfo);
 const style = reactive({
-  content: "text-xl text-gray-500 max-sm:text-sm p-2",
-  button: "h-10 p-1 rounded-md max-sm:text-xs max-sm:h-9   mt-4 ",
-  image: "rounded-[50%] max-sm:w-32",
+  content: "text-xl text-gray-500 max-sm:text-lg p-2",
+  button: "h-10 p-1 rounded-md max-sm:text-md max-sm:h-9 mt-4",
+  image: "rounded-[50%]  object-cover w-full h-full",
   wrapIcon: "mr-2 ",
 });
 </script>
@@ -22,16 +22,16 @@ const style = reactive({
 <template>
   <template v-if="user">
     <div
-      class="flex h-[64vh] flex-col items-center justify-center min-w-[350px]"
+      class="flex h-[64vh] min-w-[350px] flex-col items-center justify-center"
     >
-      <div class="relative max-w-[200px]">
+      <div class="relative h-[200px] w-[200px]">
         <img :class="style.image" :src="user.avatar" />
         <UploadWidget
           class="absolute bottom-4 right-4 max-sm:right-0"
           :user="user"
         />
       </div>
-      <p class="max-sm:text-sm p-2 text-2xl">{{ user.name }}</p>
+      <p class="p-2 text-2xl max-sm:text-xl">{{ user.name }}</p>
       <div class="flex flex-col">
         <div class="flex items-center">
           <div :class="style.wrapIcon">

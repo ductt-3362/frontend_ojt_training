@@ -9,27 +9,27 @@ import BaseLoading from "@components/BaseLoading.vue";
 const $toast = useToast();
 const props = defineProps(["query"]);
 const books = ref([]);
-const isLoading = ref(false);
+const isLoading = ref(true);
 const handleSearch = async () => {
   if (!props.query) books.value = [];
   else
     try {
-      isLoading.value = true;
       const { data } = await getBooksByKeywordApi(props.query);
       books.value = data;
       isLoading.value = false;
     } catch (error) {
+      isLoading.value = true;
       $toast.error(productApiMessage.error);
     }
 };
 
 const fetchBooksBySortParams = async (params) => {
   try {
-    isLoading.value = true;
     const { data } = await getBooksByKeywordApi(props.query, params);
     books.value = data;
     isLoading.value = false;
   } catch (error) {
+    isLoading.value = true;
     $toast.error(productApiMessage.error);
   }
 };

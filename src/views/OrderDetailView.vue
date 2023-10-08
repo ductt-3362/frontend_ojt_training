@@ -13,15 +13,15 @@ const $toast = useToast();
 const route = useRoute();
 const authStore = useAuthStore();
 const orderDetail = ref([]);
-const isLoading = ref(false);
+const isLoading = ref(true);
 
 const fetchOrder = async () => {
   try {
-    isLoading.value = true;
     const { data } = await getOrderDetailApi(route.params.id);
     orderDetail.value = data;
     isLoading.value = false;
   } catch (error) {
+    isLoading.value = true;
     $toast.error(orderApiMessage.error);
   }
 };
@@ -37,11 +37,11 @@ const order = computed(() => orderDetail.value[0]?.order);
   <template v-if="!isLoading">
     <div v-if="order" class="mt-12">
       <template v-if="order.userId === authStore.userInfo?.id">
-        <div class="w-full flex justify-between items-center mb-6">
+        <div class="mb-6 flex w-full items-center justify-between">
           <div class="flex items-center justify-center">
-            <p class="text-3xl mr-4">Chi tiết đơn hàng #{{ order.id }}</p>
+            <p class="mr-4 text-3xl">Chi tiết đơn hàng #{{ order.id }}</p>
             <span
-              class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+              class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
             >
               {{ order.status }}</span
             >
@@ -54,10 +54,10 @@ const order = computed(() => orderDetail.value[0]?.order);
           <template v-for="item in orderDetail" :key="item.id">
             <OrderItem :order="item" />
           </template>
-          <div class="flex w-full justify-end items-center mb-10">
+          <div class="mb-10 flex w-full items-center justify-end">
             <p class="text-2xl">
               Thành tiền:
-              <span class="text-red-700 font-bold ml-2">{{
+              <span class="ml-2 font-bold text-red-700">{{
                 formatPrice(order.total)
               }}</span>
             </p>
@@ -65,11 +65,11 @@ const order = computed(() => orderDetail.value[0]?.order);
         </div>
       </template>
       <template v-else>
-        <p class="text-3xl text-center">Bạn không có quyền xem đơn hàng này</p>
+        <p class="text-center text-3xl">Bạn không có quyền xem đơn hàng này</p>
       </template>
     </div>
     <div v-else class="mt-12">
-      <p class="text-3xl text-center">Đơn hàng không tồn tại</p>
+      <p class="text-center text-3xl">Đơn hàng không tồn tại</p>
     </div>
   </template>
   <template v-else>

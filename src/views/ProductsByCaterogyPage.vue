@@ -14,14 +14,23 @@ import SelectSort from "@components/SelectSort.vue";
 import FilterRadio from "@components/FilterRadio.vue";
 import BookItem from "@components/BookItem.vue";
 import PagiNation from "@components/PagiNation.vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toast-notification";
 import { productApiMessage } from "@locales/vi/messages";
 import BaseLoading from "@components/BaseLoading.vue";
 
 const $toast = useToast();
 const route = useRoute();
-const ITEMS_PER_PAGE = 2;
+const router = useRouter();
+const ITEMS_PER_PAGE = 4;
+const style = reactive({
+  bookList:
+    "grid h-full w-full grid-cols-4 gap-4 max-xl:grid-cols-3   max-lg:grid-cols-2 max-sm:grid-cols-2 max-sm:",
+  sidebar:
+    "mb-4 h-fit overflow-hidden rounded-lg border-2 max-md:mt-4 max-md:min-w-[280px]",
+  sidebarTitle: "bg-red-700 p-3 text-white",
+});
+
 const state = reactive({
   category: {},
   books: [],
@@ -37,10 +46,11 @@ const state = reactive({
   resetCurrentId: true,
 });
 const isLoading = reactive({
-  products: false,
-  categories: false,
-  booksTotal: false,
+  products: true,
+  categories: true,
+  booksTotal: true,
 });
+
 // change params again when sort is enabled
 const handleSort = (params) => {
   state.params = { ...state.params, ...params };
@@ -69,64 +79,72 @@ const handleFilter = async (value) => {
   state.pageIndex = 1;
   state.noFilterParams = { ...state.params, id: null };
   state.resetCurrentId = !state.resetCurrentId;
-  isLoading.products = true;
-  const { data: booksData } = await getBooksByCategoryApi(
-    state.idCategory,
-    state.noFilterParams,
-  );
-  const filteredBooks = booksData.filter((item) => {
-    switch (value) {
-      case LESS_THAN_100K_PRICE:
-        // price < 100000
-        return item.price < 100000;
-      case FROM_100K_TO_200K_PRICE:
-        // 100000 <= price < 20000
-        return item.price >= 100000 && item.price < 200000;
-      case FROM_200K_TO_300K_PRICE:
-        // 200000 <= price < 300000
-        return item.price >= 200000 && item.price < 300000;
-      case MORE_THAN_300K_PRICE:
-        // price > 300000
-        return item.price > 300000;
-      default:
-        // all
-        return true;
+  try {
+    const { data: booksData } = await getBooksByCategoryApi(
+      state.idCategory,
+      state.noFilterParams,
+    );
+    const filteredBooks = booksData.filter((item) => {
+      switch (value) {
+        case LESS_THAN_100K_PRICE:
+          // price < 100000
+          return item.price < 100000;
+        case FROM_100K_TO_200K_PRICE:
+          // 100000 <= price < 20000
+          return item.price >= 100000 && item.price < 200000;
+        case FROM_200K_TO_300K_PRICE:
+          // 200000 <= price < 300000
+          return item.price >= 200000 && item.price < 300000;
+        case MORE_THAN_300K_PRICE:
+          // price > 300000
+          return item.price > 300000;
+        default:
+          // all
+          return true;
+      }
+    });
+    const bookIds = filteredBooks.map((item) => item.id);
+    if (bookIds.length === 0) {
+      state.params = {
+        ...state.params,
+        id: 10000000,
+      };
+    } else {
+      state.params = {
+        ...state.params,
+        id: bookIds,
+      };
     }
-  });
-  const bookIds = filteredBooks.map((item) => item.id);
-  if (bookIds.length === 0) {
-    state.params = {
-      ...state.params,
-      id: 10000000,
-    };
-  } else {
-    state.params = {
-      ...state.params,
-      id: bookIds,
-    };
+    isLoading.products = false;
+  } catch (error) {
+    isLoading.products = true;
+    $toast.error(productApiMessage.error);
   }
-  isLoading.products = false;
 };
 
 // Get new books data when switching pages
 const handlePaginate = (pageIndex) => {
   state.pageIndex = pageIndex;
 
-  fetchProductsByCategory({
-    ...state.params,
-    _page: pageIndex,
-    _limit: ITEMS_PER_PAGE,
-  });
+  try {
+    fetchProductsByCategory({
+      ...state.params,
+      _page: pageIndex,
+      _limit: ITEMS_PER_PAGE,
+    });
+  } catch (error) {
+    $toast.error(productApiMessage.error);
+  }
 };
 
 // get categoris
 const fetchCategories = async () => {
   try {
-    isLoading.products = true;
     const { data: categoriesData } = await getCategoriesApi();
     state.categories = categoriesData;
     isLoading.products = false;
   } catch (error) {
+    isLoading.products = true;
     $toast.error(productApiMessage.error);
   }
 };
@@ -135,8 +153,12 @@ const fetchCategories = async () => {
 const fetchCategoryBySlug = async (slug) => {
   try {
     const { data: categoryData } = await getCategoryBySlugApi(slug);
-    state.idCategory = categoryData[0].id;
-    state.category = categoryData[0];
+    if (!categoryData.length) {
+      router.push({ name: "404Page" });
+    } else {
+      state.idCategory = categoryData[0].id;
+      state.category = categoryData[0];
+    }
   } catch (error) {
     $toast.error(productApiMessage.error);
   }
@@ -155,6 +177,7 @@ const fetchProductsByCategory = async function (params) {
       isLoading.products = false;
     }
   } catch (error) {
+    isLoading.products = true;
     $toast.error(productApiMessage.error);
   }
 };
@@ -163,7 +186,6 @@ const fetchProductsByCategory = async function (params) {
 const fetchBooksTotal = async function (params) {
   try {
     if (state.idCategory) {
-      isLoading.booksTotal = true;
       const { data: booksData } = await getBooksByCategoryApi(
         state.idCategory,
         params,
@@ -173,6 +195,7 @@ const fetchBooksTotal = async function (params) {
       isLoading.booksTotal = false;
     }
   } catch (error) {
+    isLoading.booksTotal = true;
     $toast.error(productApiMessage.error);
   }
 };
@@ -193,7 +216,11 @@ watch(
 watch(
   () => route.params.slug,
   async () => {
-    await fetchCategoryBySlug(route.params.slug);
+    try {
+      await fetchCategoryBySlug(route.params.slug);
+    } catch (error) {
+      $toast.error(productApiMessage.error);
+    }
   },
   { immediate: true },
 );
@@ -215,27 +242,37 @@ watch(
 watch(
   () => state.params,
   async () => {
-    await fetchProductsByCategory({
-      ...state.params,
-      _limit: ITEMS_PER_PAGE,
-      _page: state.pageIndex,
-    });
-    await fetchBooksTotal(state.params);
+    Promise.all([
+      fetchProductsByCategory({
+        ...state.params,
+        _limit: ITEMS_PER_PAGE,
+        _page: state.pageIndex,
+      }),
+      fetchBooksTotal(state.params),
+    ])
+      .then(() => {
+        isLoading.products = false;
+      })
+      .catch(() => {
+        isLoading.products = true;
+        $toast.error(productApiMessage.error);
+      });
   },
   { immediate: true },
 );
 onMounted(async () => {
-  isLoading.categories = true;
   await fetchCategories();
   isLoading.categories = false;
 });
 </script>
 
 <template>
-  <div class="mb-4 flex">
-    <div class="mr-4 flex w-64 flex-col">
-      <div class="mb-4 h-fit overflow-hidden rounded-lg border-2">
-        <p class="bg-red-700 p-4 text-white">DANH MỤC SẢN PHẨM</p>
+  <div class="mb-4 flex max-md:flex-wrap-reverse">
+    <div
+      class="mr-4 flex min-w-[240px] flex-col max-md:mr-0 max-md:w-full max-md:flex-row max-md:justify-between max-sm:flex-col"
+    >
+      <div :class="style.sidebar">
+        <p :class="style.sidebarTitle">DANH MỤC SẢN PHẨM</p>
         <template v-if="!isLoading.categories">
           <template v-for="item in state.categories" :key="item.id">
             <router-link
@@ -249,8 +286,8 @@ onMounted(async () => {
         </template>
         <template v-else><BaseLoading class="h-96" /></template>
       </div>
-      <div class="h mb-4 h-fit w-64 overflow-hidden rounded-lg border-2">
-        <p class="bg-red-700 p-4 text-white">KHOẢNG GIÁ</p>
+      <div :class="style.sidebar">
+        <p :class="style.sidebarTitle">KHOẢNG GIÁ</p>
 
         <FilterRadio
           :options-value="PRICE_FILTER"
@@ -261,8 +298,12 @@ onMounted(async () => {
     </div>
 
     <div class="flex w-full flex-col">
-      <div class="mb-4 flex justify-between">
-        <p class="w-56 truncate text-2xl font-bold">
+      <div
+        class="mb-4 flex items-center justify-between max-lg:flex-col max-lg:items-start"
+      >
+        <p
+          class="max-[w-56] mr-4 truncate text-2xl font-bold max-xl:text-xl max-lg:mb-2 max-lg:text-lg"
+        >
           {{ state.category.name }}
         </p>
         <div class="flex">
@@ -296,7 +337,7 @@ onMounted(async () => {
 
       <div
         v-if="!isLoading.products && !isLoading.booksTotal"
-        class="grid h-full w-full grid-cols-4 gap-4"
+        :class="style.bookList"
       >
         <template v-for="book in state.books" :key="book.id">
           <BookItem :book="book" />

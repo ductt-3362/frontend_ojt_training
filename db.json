@@ -522,18 +522,25 @@
       "createdAt": "2023-10-02T02:23:23.789Z",
       "status": "Đang chờ xác nhận",
       "total": 36000
+    },
+    {
+      "userId": 2,
+      "createdAt": "2023-10-09T07:02:20.089Z",
+      "status": "Đang chờ xác nhận",
+      "total": 36000,
+      "id": 3
     }
   ],
   "users": [
     {
       "email": "ductt@gmail.com",
-      "password": "$2a$10$IDtQLGoukMlc88F/tGCtFe6QZaBNC7zgnjSMoJAy1oCSbJa6KNSP.",
       "name": "Trần Thăng Đức",
       "phone": "0912345678",
       "address": "Hà Nội",
       "role": "admin",
       "id": 1,
-      "avatar": "https://avatars.githubusercontent.com/u/106803109?v=4"
+      "avatar": "https://res.cloudinary.com/dfntqslwg/image/upload/v1696832037/upload-demo/euexyujrbdngjje4sqnx.jpg",
+      "password": "$2a$10$mfv5MNq.JozgLZEd0EJuceIUXOR7gJa/SAmpK4Hvhvh.jZubhw4UO"
     },
     {
       "email": "anhdd@gmail.com",
@@ -612,6 +619,34 @@
       },
       "quantity": 1,
       "price": 36000
+    },
+    {
+      "orderId": 3,
+      "book": {
+        "id": 3,
+        "name": "NINJA RANTARO - TẬP 12",
+        "slug": "ninja-rantaro-tap-12",
+        "author": "Soubee Amako",
+        "price": 36000,
+        "quantity": 10,
+        "description": "Tuy gió vẫn còn lạnh nhưng trời đã sang xuân. Trong tập thơ Thanh Thiếu Nạp Ngôn có câu “mùa xuân là ánh bình minh”. Còn mấy câu kiểu như “mùa hè có ma, mùa đông ăn lẩu” chẳng qua là lời lảm nhảm của cậu chàng nhiều chuyện Kirimaru mà thôi. ",
+        "image": "https://product.hstatic.net/200000343865/product/17_144a93d3ecf346be83eb51f44924a536_master.jpg",
+        "size": "11.3x17.6 cm",
+        "page": 236,
+        "cover": "Bìa mềm",
+        "weight": "225 gram",
+        "audience": "Nhi đồng (6 – 11)",
+        "categoryId": 1,
+        "category": {
+          "id": 1,
+          "name": "Sách mới",
+          "slug": "sach-moi"
+        },
+        "inCartQuantity": 1
+      },
+      "quantity": 1,
+      "price": 36000,
+      "id": 4
     }
   ],
   "banners": [
@@ -644,7 +679,7 @@
   "comments": [
     {
       "content": "sản phẩm rất  nha",
-      "createdAt": "2023-10-02T13:35:58.508Z",
+      "createdAt": "2023-10-09T05:56:24.054Z",
       "userId": 1,
       "bookId": 1,
       "rating": 5,
@@ -652,19 +687,35 @@
     },
     {
       "content": "sản phẩm tệ",
-      "createdAt": "2023-10-06T08:12:54.566Z",
+      "createdAt": "2023-10-09T03:50:03.768Z",
       "userId": 2,
       "bookId": 1,
       "rating": 3,
       "id": 2
     },
     {
-      "content": "abcd",
-      "createdAt": "2023-10-06T08:39:07.047Z",
+      "content": "abcde",
+      "createdAt": "2023-10-09T03:11:43.491Z",
       "userId": 2,
       "bookId": 2,
       "rating": 5,
       "id": 3
+    },
+    {
+      "content": "a",
+      "createdAt": "2023-10-09T05:52:20.267Z",
+      "userId": 1,
+      "bookId": 6,
+      "rating": 4,
+      "id": 4
+    },
+    {
+      "content": "được",
+      "createdAt": "2023-10-09T05:56:45.207Z",
+      "userId": 1,
+      "bookId": 4,
+      "rating": 5,
+      "id": 5
     }
   ]
 }
