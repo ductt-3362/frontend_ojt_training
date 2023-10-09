@@ -1,48 +1,59 @@
 <script setup>
-import { computed } from "vue";
+import { computed, reactive } from "vue";
 import { useAuthStore } from "@stores/auth";
 import BaseButton from "@components/BaseButton.vue";
 import UploadWidget from "@components/UploadWidget.vue";
 import { useRouter } from "vue-router";
+import IconHome from "@icons/IconHome.vue";
+import IconPhone from "@icons/IconPhone.vue";
+import IconMail from "@icons/IconMail.vue";
 
 const router = useRouter();
 const authStore = useAuthStore();
 const user = computed(() => authStore.userInfo);
+const style = reactive({
+  content: "text-xl text-gray-500 max-sm:text-sm p-2",
+  button: "h-10 p-1 rounded-md max-sm:text-xs max-sm:h-9   mt-4 ",
+  image: "rounded-[50%] max-sm:w-32",
+  wrapIcon: "mr-2 ",
+});
 </script>
 
 <template>
-  <div class="mt-12">
-    <p class="text-3xl mb-6">Thông tin tài khoản</p>
-    <template v-if="user">
-      <div class="flex">
-        <div class="w-96">
-          <div class="relative">
-            <img class="rounded-3xl" :src="user.avatar" />
-            <UploadWidget class="absolute top-4 right-4" :user="user" />
-          </div>
-        </div>
-        <div class="ml-8 text-2xl flex flex-col justify-between">
-          <div class="">
-            <p class="text-2xl font-normal text-gray-400 mb-4">Email</p>
-            <p>{{ user.email }}</p>
-          </div>
-          <div class="">
-            <p class="text-2xl font-normal text-gray-400 mb-4">Số điện thoại</p>
-            <p>{{ user.phone }}</p>
-          </div>
-          <div class="">
-            <p class="text-2xl font-normal text-gray-400 mb-4">Địa chỉ</p>
-            <p>{{ user.address }}</p>
-          </div>
-          <BaseButton
-            class="text-xl"
-            @click="router.push({ name: 'order-history' })"
-            >Lịch sử mua hàng</BaseButton
-          >
-        </div>
+  <template v-if="user">
+    <div
+      class="flex h-[64vh] flex-col items-center justify-center min-w-[350px]"
+    >
+      <div class="relative max-w-[200px]">
+        <img :class="style.image" :src="user.avatar" />
+        <UploadWidget
+          class="absolute bottom-4 right-4 max-sm:right-0"
+          :user="user"
+        />
       </div>
-      <p class="text-2xl font-normal mt-4 text-gray-400">Họ và tên</p>
-      <p class="text-3xl font-normal mt-2">{{ user.name }}</p>
-    </template>
-  </div>
+      <p class="max-sm:text-sm p-2 text-2xl">{{ user.name }}</p>
+      <div class="flex flex-col">
+        <div class="flex items-center">
+          <div :class="style.wrapIcon">
+            <IconMail />
+          </div>
+
+          <p :class="style.content">{{ user.email }}</p>
+        </div>
+        <div class="flex items-center">
+          <div :class="style.wrapIcon"><IconPhone /></div>
+          <p :class="style.content">{{ user.phone }}</p>
+        </div>
+        <div class="flex items-center">
+          <div :class="style.wrapIcon"><IconHome /></div>
+          <p :class="style.content">{{ user.address }}</p>
+        </div>
+        <BaseButton
+          :class="style.button"
+          @click="router.push({ name: 'order-history' })"
+          >Lịch sử mua hàng</BaseButton
+        >
+      </div>
+    </div>
+  </template>
 </template>
