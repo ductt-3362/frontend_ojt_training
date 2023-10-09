@@ -171,10 +171,10 @@ watch(
           :show-rating="false"
           :read-only="true"
         />
+        <div class="flex items-end pl-2 text-3xl leading-9">
+          ({{ state.comments.length }})
+        </div>
       </template>
-      <div class="flex items-end pl-2 text-3xl leading-9">
-        ({{ state.comments.length }})
-      </div>
     </div>
     <div>
       <div class="mb-6 flex items-center justify-between border-b-2 py-4">
