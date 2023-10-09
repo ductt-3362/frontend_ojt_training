@@ -6,14 +6,51 @@ import { cartMessage } from "@locales/vi/messages";
 import IconAddToCart from "@components/icons/IconAddToCart.vue";
 import { useCartStore } from "@stores/cart";
 import ProductComment from "@components/ProductComment.vue";
-import { reactive } from "vue";
+import { computed, reactive, watch } from "vue";
 import Breadcrumb from "@components/BreadCrumb.vue";
 import { useRouter } from "vue-router";
+import { useProductStore } from "@stores/product";
+import BookList from "@components/BookList.vue";
 
+const productStore = useProductStore();
 const router = useRouter();
 const cartStore = useCartStore();
 const props = defineProps(["productDetail"]);
 const $toast = useToast();
+const LIMIT_NUM = 5;
+const seenProducts = computed(() => {
+  const bookNum = productStore.seenProducts.length;
+  const startIndex = bookNum - LIMIT_NUM;
+  const endIndex = bookNum;
+  return productStore.seenProducts.slice(startIndex, endIndex);
+});
+const state = reactive({
+  activeIndex: 1,
+});
+
+if (!props.productDetail) {
+  router.push({ name: "404Page" });
+}
+
+watch(
+  () => props.productDetail,
+  () => (state.activeIndex = 1),
+);
+const style = reactive({
+  // active: "border-blue-600 p-4 text-blue-600 ",
+  active:
+    "mr-2 inline-block rounded-t-lg border-b-2 border-blue-600 p-4 text-blue-600",
+  tabTitle:
+    "mr-2 inline-block cursor-pointer rounded-t-lg border-b-2 p-4 text-lg",
+
+  image: "w-[25%]  max-lg:w-[40%] max-sm:w-full max-sm:mb-2 ",
+  contentContainer: "pl-8 w-[75%] max-sm:p-0",
+  contentTitle: "leading-8 ",
+  descriptionTitle: "mb-8 border-2  rounded-lg	overflow-hidden	 ",
+  button:
+    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-3 mt-4  max-lg:py-2 rounded-lg px-3 text-sm ",
+});
+
 const handleAddToCart = () => {
   try {
     cartStore.addToCart(props.productDetail);
@@ -22,17 +59,17 @@ const handleAddToCart = () => {
     $toast.error(error);
   }
 };
-if (!props.productDetail) {
-  router.push({ name: "404Page" });
-}
-const style = reactive({
-  image: "w-[25%]  max-lg:w-[40%] max-sm:w-full max-sm:mb-2 ",
-  contentContainer: "pl-8 w-[75%] max-sm:p-0",
-  contentTitle: "leading-8 ",
-  descriptionTitle: "mb-8 border-2 border-t-0 rounded-lg	overflow-hidden	 ",
-  button:
-    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-3 mt-4  max-lg:py-2 rounded-lg px-3 text-sm ",
-});
+
+const handleNavigationSeenPage = () => {
+  router.push({ name: "seen-products" });
+};
+
+const isActive = (index) => {
+  return state.activeIndex === index;
+};
+const handleActive = (index) => {
+  state.activeIndex = index;
+};
 </script>
 
 <template>
@@ -95,17 +132,64 @@ const style = reactive({
           </div>
         </div>
       </div>
-      <div :class="style.descriptionTitle">
-        <p class="bg-red-500 px-4 text-white">MÔ TẢ</p>
+      <div
+        class="mb-8 border-b border-gray-200 text-center text-sm font-medium text-gray-500"
+      >
+        <ul class="-mb-px flex flex-wrap">
+          <li
+            @click="handleActive(1)"
+            :class="[
+              isActive(1)
+                ? style.active
+                : ' hover:border-gray-300 hover:text-gray-600 ',
+              ,
+              style.tabTitle,
+            ]"
+          >
+            Mô tả
+          </li>
+          <li
+            @click="handleActive(2)"
+            :class="[
+              isActive(2)
+                ? style.active
+                : 'hover:border-gray-300 hover:text-gray-600',
+              ,
+              style.tabTitle,
+            ]"
+          >
+            Bình luận
+          </li>
+        </ul>
+      </div>
+
+      <div :class="style.descriptionTitle" v-if="isActive(1)">
         <p class="mb-8 p-4 text-base">
           {{ productDetail.description }}
         </p>
       </div>
-      <div :class="style.descriptionTitle">
-        <p class="bg-red-500 px-4 text-white">ĐÁNH GIÁ SẢN PHẨM</p>
+      <div :class="style.descriptionTitle" v-if="isActive(2)">
         <p class="mb-8 p-4 text-base">
           <ProductComment :product-detail="productDetail" />
         </p>
+      </div>
+      <div>
+        <div class="inline-flex w-full items-center justify-center">
+          <hr class="my-8 h-px w-full border-0 bg-gray-200" />
+          <span
+            class="absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xl font-medium text-gray-900"
+          >
+            SẢN PHẨM ĐÃ XEM
+          </span>
+        </div>
+
+        <BookList :list="seenProducts" />
+        <div
+          class="flex cursor-pointer justify-end text-red-600"
+          @click="handleNavigationSeenPage"
+        >
+          Xem tiếp >>
+        </div>
       </div>
     </div>
   </template>

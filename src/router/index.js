@@ -54,6 +54,11 @@ const router = createRouter({
       },
     },
     {
+      path: "/pages/san-pham-da-xem",
+      name: "seen-products",
+      component: () => import("@views/SeenProductsPage.vue"),
+    },
+    {
       path: "/dashboard",
       name: "dashboard",
       component: () => import("@views/DashboardPage.vue"),
