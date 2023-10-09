@@ -25,7 +25,7 @@ const handleSearch = function () {
 <template>
   <div class="relative w-96 max-xl:w-80 max-lg:w-72 max-md:w-64 max-sm:w-56">
     <div
-      class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+      class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
     >
       <IconSearch />
     </div>

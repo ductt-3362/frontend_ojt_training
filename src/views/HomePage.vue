@@ -38,7 +38,7 @@ onMounted(fetchHomepageData);
 
 <template>
   <template v-if="!isLoading">
-    <Carousel :pictures="pictures" :slide="true" />
+    <Carousel :pictures="pictures" :slide="true" class="mb-10" />
     <template v-for="category in homepageData" :key="category.id">
       <CategoryTitle :title="category.name" :slug="category.slug" />
       <BookList :list="category.books" />
