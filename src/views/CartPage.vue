@@ -11,7 +11,9 @@ const total = computed(() => {
 
 <template>
   <template v-if="total">
-    <p class="my-12 text-3xl">Giỏ hàng của bạn có {{ total }} sản phẩm</p>
+    <p class="my-6 text-xl font-semibold">
+      Giỏ hàng của bạn có {{ total }} sản phẩm
+    </p>
     <CartList :list="cartStore.cart" />
   </template>
   <template v-else>

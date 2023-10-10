@@ -27,6 +27,7 @@ const seenProducts = computed(() => {
 });
 const state = reactive({
   activeIndex: 1,
+  // isLiked: false,
 });
 
 if (!props.productDetail) {
