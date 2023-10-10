@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useProductStore = defineStore("product", {
   state: () => ({
     seenProducts: [],
+    favoriteProducts: [],
   }),
 
   actions: {
@@ -12,11 +13,31 @@ export const useProductStore = defineStore("product", {
       );
 
       if (!seenProduct) {
-        this.seenProducts.push(product);
+        this.seenProducts.unshift(product);
       }
     },
+    addFavoriteProduct(product) {
+      const favoriteProducts = this.favoriteProducts.find(
+        (item) => item.id === product.id,
+      );
 
-    removeAll() {
+      if (!favoriteProducts) {
+        this.favoriteProducts.unshift(product);
+      } else {
+        this.favoriteProducts = this.favoriteProducts.filter((item) => {
+          return item.id !== product.id;
+        });
+      }
+    },
+    removeFavoriteProduct(product) {
+      this.favoriteProducts = this.favoriteProducts.filter((item) => {
+        return item.id !== product.id;
+      });
+    },
+    removeFavoriteProducts() {
+      this.favoriteProducts = [];
+    },
+    removeAllSeenProducts() {
       this.seenProducts = [];
     },
   },

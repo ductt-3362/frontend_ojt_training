@@ -6,7 +6,7 @@ const cartStore = useCartStore();
 <template>
   <div class="relative mr-3">
     <svg
-      class="w-6 h-6 text-black inline-block"
+      class="inline-block h-6 w-6 text-black"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -21,7 +21,7 @@ const cartStore = useCartStore();
       />
     </svg>
     <div
-      class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2"
+      class="absolute -right-2 -top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-red-500 text-xs font-bold text-white"
     >
       {{ cartStore.cart.length }}
     </div>

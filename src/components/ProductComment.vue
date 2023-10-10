@@ -35,7 +35,7 @@ const state = reactive({
 
 const style = reactive({
   button:
-    "mt-2 h-6 py-4 px-4 text-white flex items-center border-2 rounded justify-center disabled:opacity-50 rounded-md",
+    "my-2 h-6 py-4 px-4 text-white flex items-center border-2 rounded justify-center disabled:opacity-50 rounded-md",
 });
 const userId = computed(() => {
   if (authStore.userInfo) return authStore.userInfo.id;
@@ -177,12 +177,12 @@ watch(
       </template>
     </div>
     <div>
-      <div class="mb-6 flex items-center justify-between border-b-2 py-4">
+      <div class="flex items-center justify-between py-4">
         <div class="flex text-sm font-semibold">
           <p class="pr-1">{{ state.comments.length }}</p>
           <p>bình luận</p>
         </div>
-        <div class="text-sm">
+        <div class="text-sm" v-if="state.comments.length">
           <BaseSelect
             v-model="selectValue"
             @input="() => handleSelect(selectValue)"
@@ -193,7 +193,7 @@ watch(
         </div>
       </div>
       <!-- Đăng bình luận -->
-      <div v-if="authStore.userInfo && !state.isCommented" class="mb-6 flex">
+      <div v-if="authStore.userInfo && !state.isCommented" class="flex">
         <div class="max-w-1/12 mr-4 h-12">
           <img class="h-full rounded-md" :src="authStore.userInfo.avatar" />
         </div>
@@ -212,7 +212,7 @@ watch(
             v-model="state.commentContent"
           />
 
-          <div class="absolute right-0 flex">
+          <div class="flex justify-end">
             <BaseButton
               :style-prop="style.button"
               class="bg-red-600 hover:bg-red-800"
@@ -270,7 +270,7 @@ watch(
       </div>
       <!-- Hiển thị danh sách bình luận -->
       <template v-for="comment in state.comments" :key="comment.id">
-        <div class="flex border-b py-6">
+        <div class="flex border-t py-6">
           <div class="mr-4 h-12 w-12">
             <img class="h-full rounded-md" :src="comment.user.avatar" />
           </div>

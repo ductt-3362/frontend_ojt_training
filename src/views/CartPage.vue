@@ -11,21 +11,20 @@ const total = computed(() => {
 
 <template>
   <template v-if="total">
-    <p class="my-6 text-2xl max-sm:my-6">
-      Giỏ hàng của bạn có {{ total }} sản phẩm
-    </p>
+    <p class="my-12 text-3xl">Giỏ hàng của bạn có {{ total }} sản phẩm</p>
     <CartList :list="cartStore.cart" />
   </template>
   <template v-else>
-    <div class="flex h-[60vh] flex-col items-center justify-center">
-      <div class="h-32">
+    <p class="my-6 text-xl font-semibold">Giỏ hàng</p>
+    <div class="flex flex-col items-center justify-center">
+      <div class="h-48">
         <img
           src="https://cdn-icons-png.flaticon.com/256/4555/4555971.png"
           alt="empty_cart_icon"
           class="h-full"
         />
       </div>
-      <p class="my-8 text-3xl">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+      <p class="my-8 text-2xl">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
       <router-link to="/">
         <BaseButton>Tiếp tục mua sắm</BaseButton>
       </router-link>

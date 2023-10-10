@@ -11,6 +11,8 @@ import Breadcrumb from "@components/BreadCrumb.vue";
 import { useRouter } from "vue-router";
 import { useProductStore } from "@stores/product";
 import BookList from "@components/BookList.vue";
+import IconHeart from "@icons/IconHeart.vue";
+import IconHeartFill from "@icons/IconHeartFill.vue";
 
 const productStore = useProductStore();
 const router = useRouter();
@@ -19,9 +21,8 @@ const props = defineProps(["productDetail"]);
 const $toast = useToast();
 const LIMIT_NUM = 5;
 const seenProducts = computed(() => {
-  const bookNum = productStore.seenProducts.length;
-  const startIndex = bookNum - LIMIT_NUM;
-  const endIndex = bookNum;
+  const startIndex = 0;
+  const endIndex = LIMIT_NUM;
   return productStore.seenProducts.slice(startIndex, endIndex);
 });
 const state = reactive({
@@ -36,8 +37,8 @@ watch(
   () => props.productDetail,
   () => (state.activeIndex = 1),
 );
+
 const style = reactive({
-  // active: "border-blue-600 p-4 text-blue-600 ",
   active:
     "mr-2 inline-block rounded-t-lg border-b-2 border-blue-600 p-4 text-blue-600",
   tabTitle:
@@ -70,6 +71,16 @@ const isActive = (index) => {
 const handleActive = (index) => {
   state.activeIndex = index;
 };
+const isLiked = computed(() => {
+  const isFavorited = productStore.favoriteProducts.find(
+    (item) => item.id === props.productDetail.id,
+  );
+
+  return !!isFavorited;
+});
+const handleFavorite = (product) => {
+  productStore.addFavoriteProduct(product);
+};
 </script>
 
 <template>
@@ -88,10 +99,21 @@ const handleActive = (index) => {
         </div>
         <div :class="style.contentContainer">
           <div
-            class="name pb-6 text-xl font-bold max-lg:pb-2 max-lg:text-lg max-sm:text-base"
+            class="name flex items-start justify-between pb-4 text-xl font-bold max-lg:pb-2 max-lg:text-lg max-sm:text-base"
           >
             {{ productDetail.name }}
+            <div class="ml-2 cursor-pointer">
+              <IconHeart
+                @click="handleFavorite(productDetail)"
+                v-if="!isLiked"
+              />
+              <IconHeartFill
+                @click="handleFavorite(productDetail)"
+                v-if="isLiked"
+              />
+            </div>
           </div>
+
           <div class="price text-3xl font-bold text-red-700 max-lg:text-2xl">
             {{ formatPrice(productDetail.price) }}
           </div>
@@ -164,12 +186,12 @@ const handleActive = (index) => {
       </div>
 
       <div :class="style.descriptionTitle" v-if="isActive(1)">
-        <p class="mb-8 p-4 text-base">
+        <p class="p-4 text-base">
           {{ productDetail.description }}
         </p>
       </div>
       <div :class="style.descriptionTitle" v-if="isActive(2)">
-        <p class="mb-8 p-4 text-base">
+        <p class="p-4 text-base">
           <ProductComment :product-detail="productDetail" />
         </p>
       </div>
@@ -183,12 +205,12 @@ const handleActive = (index) => {
           </span>
         </div>
 
-        <BookList :list="seenProducts" />
+        <BookList :list="seenProducts" class="my-4" />
         <div
-          class="flex cursor-pointer justify-end text-red-600"
+          class="flex cursor-pointer justify-end text-red-600 duration-300 hover:text-red-800"
           @click="handleNavigationSeenPage"
         >
-          Xem tiếp >>
+          Xem thêm >>
         </div>
       </div>
     </div>

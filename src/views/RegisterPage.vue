@@ -21,7 +21,10 @@ const authStore = useAuthStore();
 
 const schema = yup.object({
   name: yup.string().required(registerMessage.required),
-  phone: yup.string().matches(PHONE_REGEX, registerMessage.phone),
+  phone: yup
+    .string()
+    .matches(PHONE_REGEX, registerMessage.phone)
+    .required(registerMessage.required),
   address: yup.string().required(registerMessage.required),
   email: yup
     .string()
@@ -69,32 +72,53 @@ const onSubmit = handleSubmit(onSuccess);
 
 <template>
   <div class="flex flex-col items-center justify-center py-16">
-    <div class="p-10 border-2 rounded-lg">
+    <div class="rounded-lg border-2 p-10">
       <p class="text-2xl">Đăng ký tài khoản</p>
       <form class="my-6 w-96" @submit="onSubmit">
         <div class="mb-6">
           <BaseLabel for="name">Họ và tên</BaseLabel>
-          <BaseInput type="text" id="name" v-bind="name" />
+          <BaseInput
+            form="novalidateform"
+            type="text"
+            id="name"
+            v-bind="name"
+          />
           <ErrorMessageText>{{ errors.name }}</ErrorMessageText>
         </div>
         <div class="mb-6">
           <BaseLabel for="phone">Số điện thoại</BaseLabel>
-          <BaseInput type="tel" id="phone" v-bind="phone" />
+          <BaseInput
+            form="novalidateform"
+            type="tel"
+            id="phone"
+            v-bind="phone"
+          />
           <ErrorMessageText>{{ errors.phone }}</ErrorMessageText>
         </div>
         <div class="mb-6">
           <BaseLabel for="address">Địa chỉ</BaseLabel>
-          <BaseInput type="text" id="address" v-bind="address" />
+          <BaseInput
+            form="novalidateform"
+            type="text"
+            id="address"
+            v-bind="address"
+          />
           <ErrorMessageText>{{ errors.address }}</ErrorMessageText>
         </div>
         <div class="mb-6">
           <BaseLabel for="email">Email</BaseLabel>
-          <BaseInput type="text" id="email" v-bind="email" />
+          <BaseInput
+            form="novalidateform"
+            type="text"
+            id="email"
+            v-bind="email"
+          />
           <ErrorMessageText>{{ errors.email }}</ErrorMessageText>
         </div>
         <div class="mb-6">
           <BaseLabel for="password">Mật khẩu</BaseLabel>
           <BaseInput
+            form="novalidateform"
             type="password"
             id="password"
             v-bind="password"
@@ -105,6 +129,7 @@ const onSubmit = handleSubmit(onSuccess);
         <div class="mb-6">
           <BaseLabel for="confirmPassword">Nhập lại mật khẩu</BaseLabel>
           <BaseInput
+            form="novalidateform"
             type="password"
             id="confirmPassword"
             v-bind="confirmPassword"
