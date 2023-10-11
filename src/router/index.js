@@ -40,6 +40,11 @@ const router = createRouter({
       component: () => import("@views/ProductsByCaterogyPage.vue"),
     },
     {
+      path: "/authors/:slug",
+      name: "authors",
+      component: () => import("@views/ProductsByAuthorPage.vue"),
+    },
+    {
       path: "/search",
       name: "search",
       component: () => import("@views/SearchPage.vue"),

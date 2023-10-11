@@ -11,8 +11,7 @@ import { useToast } from "vue-toast-notification";
 import { homePageMessage } from "@locales/vi/messages";
 
 const style = reactive({
-  seeMoreText:
-    "text-red-600 font-bold duration-300 transition-colors hover:text-red-800",
+  seeMoreText: "text-red-600 duration-300 transition-colors hover:text-red-800",
 });
 const homepageData = ref([]);
 const pictures = ref([]);
