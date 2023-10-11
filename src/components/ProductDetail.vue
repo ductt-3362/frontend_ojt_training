@@ -6,10 +6,11 @@ import { cartMessage } from "@locales/vi/messages";
 import IconAddToCart from "@components/icons/IconAddToCart.vue";
 import { useCartStore } from "@stores/cart";
 import ProductComment from "@components/ProductComment.vue";
-import BaseLoading from "@components/BaseLoading.vue";
 import { reactive } from "vue";
 import Breadcrumb from "@components/BreadCrumb.vue";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const cartStore = useCartStore();
 const props = defineProps(["productDetail"]);
 const $toast = useToast();
@@ -21,19 +22,21 @@ const handleAddToCart = () => {
     $toast.error(error);
   }
 };
-
+if (!props.productDetail) {
+  router.push({ name: "404Page" });
+}
 const style = reactive({
   image: "w-[25%]  max-lg:w-[40%] max-sm:w-full max-sm:mb-2 ",
   contentContainer: "pl-8 w-[75%] max-sm:p-0",
   contentTitle: "leading-8 ",
-  descriptionTitle: "mb-12 border-2 border-t-0 rounded-lg	overflow-hidden	 ",
+  descriptionTitle: "mb-8 border-2 border-t-0 rounded-lg	overflow-hidden	 ",
   button:
-    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-4 mt-4  max-lg:py-2",
+    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-3 mt-4  max-lg:py-2 rounded-lg px-3 text-sm ",
 });
 </script>
 
 <template>
-  <template v-if="productDetail.image">
+  <template v-if="productDetail">
     <div class="min-w-[320px]">
       <div class="mb-4">
         <Breadcrumb
@@ -42,13 +45,13 @@ const style = reactive({
           :book-name="productDetail.name"
         />
       </div>
-      <div class="flex mb-8 max-sm:flex-col">
+      <div class="mb-8 flex max-sm:flex-col">
         <div :class="style.image">
           <img :src="productDetail.image" class="rounded-lg" />
         </div>
         <div :class="style.contentContainer">
           <div
-            class="name font-bold text-xl pb-6 max-lg:pb-2 max-lg:text-lg max-sm:text-base"
+            class="name pb-6 text-xl font-bold max-lg:pb-2 max-lg:text-lg max-sm:text-base"
           >
             {{ productDetail.name }}
           </div>
@@ -85,7 +88,7 @@ const style = reactive({
               </li>
             </ul>
 
-            <BaseButton :class="style.button" @click="handleAddToCart">
+            <BaseButton :style-prop="style.button" @click="handleAddToCart">
               <IconAddToCart />
               THÊM VÀO GIỎ HÀNG
             </BaseButton>
@@ -93,20 +96,17 @@ const style = reactive({
         </div>
       </div>
       <div :class="style.descriptionTitle">
-        <p class="bg-red-500 text-white px-4">MÔ TẢ</p>
-        <p class="p-4 mb-8 text-base">
+        <p class="bg-red-500 px-4 text-white">MÔ TẢ</p>
+        <p class="mb-8 p-4 text-base">
           {{ productDetail.description }}
         </p>
       </div>
       <div :class="style.descriptionTitle">
-        <p class="px-4 bg-red-500 text-white">ĐÁNH GIÁ SẢN PHẨM</p>
-        <p class="p-4 mb-8 text-base">
+        <p class="bg-red-500 px-4 text-white">ĐÁNH GIÁ SẢN PHẨM</p>
+        <p class="mb-8 p-4 text-base">
           <ProductComment :product-detail="productDetail" />
         </p>
       </div>
     </div>
-  </template>
-  <template v-else>
-    <BaseLoading class="h-[80vh]" />
   </template>
 </template>

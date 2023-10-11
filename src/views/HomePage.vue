@@ -15,11 +15,10 @@ const pictures = ref([]);
 const ITEMS_PER_CATEGORY = 5;
 const params = { _limit: ITEMS_PER_CATEGORY };
 const $toast = useToast();
-const isLoading = ref(false);
+const isLoading = ref(true);
 
 const fetchHomepageData = async () => {
   try {
-    isLoading.value = true;
     const { data: categories } = await getCategoriesApi();
     categories.forEach(async ({ id, name, slug }) => {
       const { data: books } = await getBooksByCategoryApi(id, params);
@@ -29,6 +28,7 @@ const fetchHomepageData = async () => {
     pictures.value = banners;
     isLoading.value = false;
   } catch (err) {
+    isLoading.value = true;
     $toast.error(homePageMessage.error);
   }
 };

@@ -4,11 +4,13 @@ import { reactive } from "vue";
 defineProps(["book"]);
 
 const style = reactive({
+  name: "transtion-colors line-clamp-2 text-md tracking-tight text-gray-900 duration-150 hover:text-red-600 h-12",
+  price: "text-lg font-bold text-red-700",
+  image:
+    "max:lg:h-60 h-80 w-full rounded-t-lg object-cover max-xl:h-72 max-md:h-80 max-sm:h-60",
+  // image: "max:lg:  w-full rounded-t-lg object-cover max-xl: max-md:",
   container:
-    "relative flex flex-col justify-between rounded-lg border border-gray-200 bg-white shadow-md transition-transform duration-300 hover:scale-105 hover:transform",
-  image: "h-auto min-h-[300px] w-full rounded-t-lg object-cover",
-  name: "transtion-colors truncate tracking-tight text-gray-900 duration-300 hover:text-red-600",
-  price: "font-bold text-red-700",
+    "relative h-fit rounded-lg border border-gray-200  bg-white shadow-md transition-transform duration-300 hover:scale-105 hover:transform",
   oldPrice: "text-gray-500 line-through",
 });
 </script>

@@ -6,6 +6,7 @@ import {
   postCommentApi,
   putCommentApi,
 } from "@apis/comment.js";
+import BaseButton from "@components/BaseButton.vue";
 import { commentApiMessage } from "@locales/vi/messages";
 import { computed, reactive, ref, watch } from "vue";
 import { useAuthStore } from "@stores/auth.js";
@@ -20,6 +21,7 @@ const authStore = useAuthStore();
 const props = defineProps(["productDetail"]);
 const optionsValue = sortValueCommnet;
 const selectValue = ref("Sắp xếp theo");
+const isLoading = ref(true);
 const state = reactive({
   rating: null,
   isCommenting: false,
@@ -32,9 +34,9 @@ const state = reactive({
 });
 
 const style = reactive({
-  button: "mt-2 h-6 py-4 px-4 text-white flex items-center border-2 rounded justify-center disabled:opacity-50 rounded-md"
-})
-const isLoading = ref(false);
+  button:
+    "mt-2 h-6 py-4 px-4 text-white flex items-center border-2 rounded justify-center disabled:opacity-50 rounded-md",
+});
 const userId = computed(() => {
   if (authStore.userInfo) return authStore.userInfo.id;
   return 0;
@@ -88,7 +90,7 @@ const handleUpdateComment = async () => {
     await putCommentApi(commentId, params);
     const { data: comments } = await getCommentsApi(
       props.productDetail.id,
-      state.params
+      state.params,
     );
     state.comments = comments;
     state.averageRating = averageRating();
@@ -128,7 +130,7 @@ const handleComment = async () => {
     await postCommentApi(params);
     const { data: comments } = await getCommentsApi(
       props.productDetail.id,
-      state.params
+      state.params,
     );
     state.comments = comments;
     state.averageRating = averageRating();
@@ -144,19 +146,19 @@ watch(
   () => [state.params, props.productDetail],
   async () => {
     try {
-      isLoading.value = true;
       const { data: comments } = await getCommentsApi(
         props.productDetail.id,
-        state.params
+        state.params,
       );
       state.comments = comments;
       state.averageRating = averageRating();
       isLoading.value = false;
     } catch (error) {
+      isLoading.value = true;
       $toast.error(commentApiMessage.error);
     }
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>
 <template>
@@ -170,11 +172,13 @@ watch(
           :read-only="true"
         />
       </template>
-      <p class="ml-4 text-2xl leading-6">{{ state.averageRating }}</p>
+      <div class="flex items-end pl-2 text-3xl leading-9">
+        ({{ state.comments.length }})
+      </div>
     </div>
     <div>
-      <div class="flex py-4 justify-between border-b-2 mb-6 items-center">
-        <div class="flex font-semibold text-sm">
+      <div class="mb-6 flex items-center justify-between border-b-2 py-4">
+        <div class="flex text-sm font-semibold">
           <p class="pr-1">{{ state.comments.length }}</p>
           <p>bình luận</p>
         </div>
@@ -189,11 +193,11 @@ watch(
         </div>
       </div>
       <!-- Đăng bình luận -->
-      <div v-if="authStore.userInfo && !state.isCommented" class="flex mb-6">
-        <div class="max-w-1/12 h-12 mr-4">
+      <div v-if="authStore.userInfo && !state.isCommented" class="mb-6 flex">
+        <div class="max-w-1/12 mr-4 h-12">
           <img class="h-full rounded-md" :src="authStore.userInfo.avatar" />
         </div>
-        <div class="w-full relative">
+        <div class="relative w-full">
           <div class="mb-4">
             <StarRating
               v-model:rating="state.rating"
@@ -204,36 +208,35 @@ watch(
           <textarea
             type="text"
             placeholder="Viết bình luận"
-            class="block w-full h-24 p-2 text-sm text-gray-900 border rounded-lg border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+            class="block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
             v-model="state.commentContent"
           />
 
           <div class="absolute right-0 flex">
-            <button
+            <BaseButton
+              :style-prop="style.button"
+              class="bg-red-600 hover:bg-red-800"
               :disabled="!state.isCommenting && !state.rating"
-              :class="style.button"
-              class=" bg-red-600"
               @click="handleCancelComment"
             >
               Hủy
-            </button>
-            <button
-             :class="style.button"
-              class=" bg-blue-600"
+            </BaseButton>
+            <BaseButton
+              :style-prop="style.button"
               :disabled="!state.isCommenting || !state.rating"
               @click="handleComment"
             >
               Đăng
-            </button>
+            </BaseButton>
           </div>
         </div>
       </div>
       <!-- Form Chỉnh sửa bình luận -->
-      <div v-if="state.isEditComment" class="flex mb-6">
-        <div class="max-w-1/12 h-12 mr-4">
+      <div v-if="state.isEditComment" class="mb-6 flex">
+        <div class="max-w-1/12 mr-4 h-12">
           <img class="h-full rounded-md" :src="authStore.userInfo.avatar" />
         </div>
-        <div class="w-full relative">
+        <div class="relative w-full">
           <div class="mb-4">
             <StarRating
               v-model:rating="myComment.rating"
@@ -244,38 +247,37 @@ watch(
           <textarea
             type="text"
             placeholder="Viết bình luận"
-            class="block w-full h-24 p-2 text-sm text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+            class="block h-24 w-full border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
             v-model="myComment.content"
           />
           <div class="absolute right-0 flex">
-            <button
-             :class="style.button"
-              class=" bg-blue-600"
+            <BaseButton
+              :style-prop="style.button"
               :disabled="!myComment.content && !myComment.rating"
               @click="handleUpdateComment"
             >
               Cập nhật
-            </button>
-            <button
-             :class="style.button"
-              class=" bg-red-600"
+            </BaseButton>
+            <BaseButton
+              :style-prop="style.button"
+              class="bg-red-600 hover:bg-red-800"
               @click="handleCancelEdit"
             >
               Hủy
-            </button>
+            </BaseButton>
           </div>
         </div>
       </div>
       <!-- Hiển thị danh sách bình luận -->
       <template v-for="comment in state.comments" :key="comment.id">
         <div class="flex border-b py-6">
-          <div class="w-12 h-12 mr-4">
+          <div class="mr-4 h-12 w-12">
             <img class="h-full rounded-md" :src="comment.user.avatar" />
           </div>
           <div class="w-full flex-col pb-2">
             <div class="mb-1">
               <p class="font-medium leading-4">{{ comment.user.name }}</p>
-              <div class="flex items-center ">
+              <div class="flex items-center">
                 <StarRating
                   :rating="comment.rating"
                   :star-size="10"
@@ -284,7 +286,7 @@ watch(
                 />
                 <div
                   v-if="userId === comment.userId"
-                  class="ml-2 cursor-pointer flex hover:text-red-400"
+                  class="ml-2 flex cursor-pointer hover:text-red-400"
                   @click="handleEditComment"
                 >
                   <IconPen class="hover:text-red-400" size="w-4 h-4" />

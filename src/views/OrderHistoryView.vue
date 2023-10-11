@@ -11,15 +11,15 @@ import BaseLoading from "@components/BaseLoading.vue";
 const $toast = useToast();
 const authStore = useAuthStore();
 const orders = ref([]);
-const isLoading = ref(false);
+const isLoading = ref(true);
 
 const fetchOrders = async () => {
   try {
-    isLoading.value = true;
     const { data } = await getOrdersByUserApi(authStore.userInfo.id);
     orders.value = data;
     isLoading.value = false;
   } catch (error) {
+    isLoading.value = true;
     $toast.error(orderApiMessage.error);
   }
 };
@@ -32,14 +32,14 @@ onMounted(() => {
 <template>
   <template v-if="!isLoading">
     <div class="mt-12">
-      <p class="text-3xl mb-6">Lịch sử mua hàng</p>
+      <p class="mb-6 text-3xl">Lịch sử mua hàng</p>
       <div
         v-if="orders.length"
-        class="bg-white relative shadow-md sm:rounded-lg overflow-hidden"
+        class="relative overflow-hidden bg-white shadow-md sm:rounded-lg"
       >
         <div class="overflow-x-auto">
           <table class="w-full text-left text-gray-500">
-            <thead class="text-gray-700 uppercase bg-gray-50">
+            <thead class="bg-gray-50 uppercase text-gray-700">
               <tr>
                 <template v-for="item in orderTableHeader" :key="item.key">
                   <th scope="col" class="px-4 py-3 text-base">
@@ -53,7 +53,7 @@ onMounted(() => {
                 <tr class="border-b">
                   <th
                     scope="row"
-                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap"
+                    class="whitespace-nowrap px-4 py-3 font-medium text-gray-900"
                   >
                     #{{ order.id }}
                   </th>
@@ -74,7 +74,7 @@ onMounted(() => {
         </div>
       </div>
       <div v-else>
-        <p class="text-2xl text-center py-4">Bạn chưa có đơn hàng nào!</p>
+        <p class="py-4 text-center text-2xl">Bạn chưa có đơn hàng nào!</p>
       </div>
     </div>
   </template>
