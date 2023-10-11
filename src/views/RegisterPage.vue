@@ -72,9 +72,9 @@ const onSubmit = handleSubmit(onSuccess);
 
 <template>
   <div class="flex flex-col items-center justify-center py-16">
-    <div class="rounded-lg border-2 p-10">
-      <p class="text-2xl">Đăng ký tài khoản</p>
-      <form class="my-6 w-96" @submit="onSubmit">
+    <div class="min-w-96 min-w-96 rounded-lg border-2 p-10">
+      <p class="text-2xl max-sm:text-xl">Đăng ký tài khoản</p>
+      <form class="my-6" @submit="onSubmit">
         <div class="mb-6">
           <BaseLabel for="name">Họ và tên</BaseLabel>
           <BaseInput
@@ -140,7 +140,7 @@ const onSubmit = handleSubmit(onSuccess);
 
         <BaseButton>Đăng ký</BaseButton>
       </form>
-      <p class="text-lg">
+      <p class="text-lg max-sm:text-sm">
         Bạn đã có tài khoản? Đăng nhập tại
         <span>
           <router-link to="/login" class="text-blue-500">đây</router-link>

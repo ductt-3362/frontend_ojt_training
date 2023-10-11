@@ -215,4 +215,7 @@ const handleFavorite = (product) => {
       </div>
     </div>
   </template>
+  <template v-else>
+    <BaseLoading class="h-[64vh]" />
+  </template>
 </template>
