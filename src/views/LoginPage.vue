@@ -46,9 +46,9 @@ const onSubmit = handleSubmit(handleLogin);
 
 <template>
   <div class="flex flex-col items-center justify-center pt-16">
-    <div class="rounded-lg border-2 p-10">
-      <p class="text-2xl">Đăng nhập</p>
-      <form class="my-6 w-96" @submit="onSubmit">
+    <div class="min-w-96 rounded-lg border-2 p-10">
+      <p class="text-2xl max-sm:text-xl">Đăng nhập</p>
+      <form class="my-6" @submit="onSubmit">
         <div class="mb-6">
           <BaseLabel for="email">Email</BaseLabel>
           <BaseInput
@@ -72,7 +72,7 @@ const onSubmit = handleSubmit(handleLogin);
 
         <BaseButton>Đăng nhập</BaseButton>
       </form>
-      <p class="text-lg">
+      <p class="text-lg max-sm:text-sm">
         Bạn đã chưa có tài khoản? Đăng ký tại
         <span>
           <router-link to="/register" class="text-blue-500">đây</router-link>

@@ -37,16 +37,20 @@ const order = computed(() => orderDetail.value[0]?.order);
   <template v-if="!isLoading">
     <div v-if="order" class="mt-12">
       <template v-if="order.userId === authStore.userInfo?.id">
-        <div class="mb-6 flex w-full items-center justify-between">
+        <div
+          class="mb-6 flex w-full items-center justify-between max-lg:flex-col"
+        >
           <div class="flex items-center justify-center">
-            <p class="mr-4 text-3xl">Chi tiết đơn hàng #{{ order.id }}</p>
+            <p class="mr-4 text-2xl max-sm:text-xl">
+              Chi tiết đơn hàng #{{ order.id }}
+            </p>
             <span
-              class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+              class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-sm text-blue-800"
             >
               {{ order.status }}</span
             >
           </div>
-          <p class="text-xl text-gray-500">
+          <p class="text-xl text-gray-500 max-lg:text-lg max-sm:text-sm">
             Ngày đặt hàng: {{ formatDate(order.createdAt) }}
           </p>
         </div>
@@ -55,7 +59,7 @@ const order = computed(() => orderDetail.value[0]?.order);
             <OrderItem :order="item" />
           </template>
           <div class="mb-10 flex w-full items-center justify-end">
-            <p class="text-2xl">
+            <p class="text-2xl max-sm:text-xl">
               Thành tiền:
               <span class="ml-2 font-bold text-red-700">{{
                 formatPrice(order.total)
@@ -73,6 +77,6 @@ const order = computed(() => orderDetail.value[0]?.order);
     </div>
   </template>
   <template v-else>
-    <BaseLoading class="h-[80vh]" />
+    <BaseLoading class="h-[64vh]" />
   </template>
 </template>

@@ -56,6 +56,6 @@ onMounted(handleSearch);
     </div>
   </template>
   <template v-else>
-    <BaseLoading class="h-[80vh]" />
+    <BaseLoading class="h-[64vh]" />
   </template>
 </template>

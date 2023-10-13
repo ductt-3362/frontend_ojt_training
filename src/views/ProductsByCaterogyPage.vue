@@ -284,7 +284,7 @@ onMounted(async () => {
             </router-link>
           </template>
         </template>
-        <template v-else><BaseLoading class="h-96" /></template>
+        <template v-else><BaseLoading class="h-64" /></template>
       </div>
       <div :class="style.sidebar">
         <p :class="style.sidebarTitle">KHOẢNG GIÁ</p>

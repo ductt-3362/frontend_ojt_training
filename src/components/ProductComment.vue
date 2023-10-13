@@ -37,6 +37,7 @@ const style = reactive({
   button:
     "my-2 h-6 py-4 px-4 text-white flex items-center border-2 rounded justify-center disabled:opacity-50 rounded-md",
 });
+
 const userId = computed(() => {
   if (authStore.userInfo) return authStore.userInfo.id;
   return 0;
@@ -306,7 +307,7 @@ watch(
     </div>
   </template>
   <template v-else>
-    <BaseLoading class="h-[100%]" />
+    <BaseLoading class="h-full" />
   </template>
 </template>
 

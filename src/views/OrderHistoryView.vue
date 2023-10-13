@@ -7,6 +7,7 @@ import { useAuthStore } from "@stores/auth";
 import { useToast } from "vue-toast-notification";
 import { orderApiMessage } from "@locales/vi/messages";
 import BaseLoading from "@components/BaseLoading.vue";
+import BaseButton from "@components/BaseButton.vue";
 
 const $toast = useToast();
 const authStore = useAuthStore();
@@ -32,10 +33,10 @@ onMounted(() => {
 <template>
   <template v-if="!isLoading">
     <div class="mt-12">
-      <p class="mb-6 text-3xl">Lịch sử mua hàng</p>
+      <p class="mb-6 text-2xl">Lịch sử mua hàng</p>
       <div
         v-if="orders.length"
-        class="relative overflow-hidden bg-white shadow-md sm:rounded-lg"
+        class="relative bg-white shadow-md sm:rounded-lg"
       >
         <div class="overflow-x-auto">
           <table class="w-full text-left text-gray-500">
@@ -74,11 +75,23 @@ onMounted(() => {
         </div>
       </div>
       <div v-else>
-        <p class="py-4 text-center text-2xl">Bạn chưa có đơn hàng nào!</p>
+        <div class="flex flex-col items-center justify-center">
+          <div class="h-32">
+            <img
+              src="https://cdn-icons-png.flaticon.com/256/4555/4555971.png"
+              alt="empty_cart_icon"
+              class="h-full"
+            />
+          </div>
+          <p class="my-8 text-3xl">Bạn chưa có đơn hàng nào!</p>
+          <router-link to="/">
+            <BaseButton>Tiếp tục mua sắm</BaseButton>
+          </router-link>
+        </div>
       </div>
     </div>
   </template>
   <template v-else>
-    <BaseLoading class="h-[80vh]" />
+    <BaseLoading class="h-[64vh]" />
   </template>
 </template>
