@@ -46,17 +46,23 @@ const onSubmit = handleSubmit(handleLogin);
 
 <template>
   <div class="flex flex-col items-center justify-center pt-16">
-    <div class="p-10 border-2 rounded-lg">
+    <div class="rounded-lg border-2 p-10">
       <p class="text-2xl">Đăng nhập</p>
       <form class="my-6 w-96" @submit="onSubmit">
         <div class="mb-6">
           <BaseLabel for="email">Email</BaseLabel>
-          <BaseInput type="text" id="email" v-bind="email" />
+          <BaseInput
+            form="novalidateform"
+            type="text"
+            id="email"
+            v-bind="email"
+          />
           <div class="text-red-600">{{ errors.email }}</div>
         </div>
         <div class="mb-6">
           <BaseLabel for="password">Mật khẩu</BaseLabel>
           <BaseInput
+            form="novalidateform"
             type="password"
             id="password"
             v-bind="password"
