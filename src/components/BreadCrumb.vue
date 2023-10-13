@@ -9,7 +9,7 @@ defineProps(["categorySlug", "categoryName", "bookName"]);
       <li>
         <router-link
           to="/"
-          class="flex items-center hover:text-red-600 duration-300"
+          class="flex items-center duration-300 hover:text-red-600"
         >
           <IconSolidHome />
 
@@ -22,7 +22,7 @@ defineProps(["categorySlug", "categoryName", "bookName"]);
           class="flex items-center"
         >
           <IconArrowRight />
-          <span class="hover:text-red-600 duration-300 ml-1">{{
+          <span class="ml-1 duration-300 hover:text-red-600">{{
             categoryName
           }}</span>
         </router-link>

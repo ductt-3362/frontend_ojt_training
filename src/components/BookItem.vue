@@ -42,7 +42,7 @@ const handleAddSeenProduct = (product) => {
     >
       <div :class="style.layer">
         <p>{{ book.name }}</p>
-        <p class="mb-4">Tác giả: {{ book.author }}</p>
+        <p class="mb-4">Tác giả: {{ book.author.name }}</p>
         <p class="line-clamp-5">Mô tả: {{ book.description }}</p>
       </div>
     </router-link>
