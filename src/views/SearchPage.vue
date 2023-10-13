@@ -41,11 +41,15 @@ onMounted(handleSearch);
 <template>
   <template v-if="!isLoading">
     <div class="my-12">
-      <div v-if="query" class="flex justify-between">
-        <p class="text-3xl">
+      <div v-if="query" class="flex justify-between max-md:flex-col">
+        <p class="text-3xl max-lg:text-2xl">
           Kết quả: Có {{ books.length }} sản phẩm chứa từ khóa "{{ query }}"
         </p>
-        <SelectSort @handle-sort="(params) => fetchBooksBySortParams(params)" />
+        <div class="max-md:mt-4">
+          <SelectSort
+            @handle-sort="(params) => fetchBooksBySortParams(params)"
+          />
+        </div>
       </div>
       <p v-else class="text-3xl">Hãy nhập từ khóa để tìm kiếm</p>
       <BookList :list="books" />
