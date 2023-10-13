@@ -66,10 +66,10 @@ const handleOrder = async () => {
       <CartItem :book="book" />
     </template>
   </div>
-  <div v-if="list.length" class="flex w-full justify-end items-center mb-6">
-    <p class="text-2xl mr-8">
+  <div v-if="list.length" class="mb-6 flex w-full items-center justify-end">
+    <p class="mr-8 text-2xl max-sm:text-xl">
       Thành tiền:
-      <span class="text-red-700 font-bold ml-2">{{
+      <span class="ml-2 font-bold text-red-700">{{
         formatPrice(cartStore.getTotalPrice)
       }}</span>
     </p>
