@@ -15,6 +15,7 @@ import { formatDate } from "@utils/function";
 import { useToast } from "vue-toast-notification";
 import IconPen from "@icons/IconPen.vue";
 import BaseLoading from "@components/BaseLoading.vue";
+import IconMessage from "@icons/IconMessage.vue";
 
 const $toast = useToast();
 const authStore = useAuthStore();
@@ -34,6 +35,8 @@ const state = reactive({
 });
 
 const style = reactive({
+  textArea:
+    "block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500",
   button:
     "my-2 h-6 py-4 px-4 text-white flex items-center border-2 rounded justify-center disabled:opacity-50 rounded-md",
 });
@@ -168,30 +171,38 @@ watch(
       <template v-if="state.averageRating">
         <StarRating
           :rating="state.averageRating"
-          :star-size="40"
+          :star-size="30"
           :show-rating="false"
           :read-only="true"
         />
-        <div class="flex items-end pl-2 text-3xl leading-9">
+        <div class="flex items-end pl-2 text-2xl leading-7">
           ({{ state.comments.length }})
         </div>
       </template>
     </div>
     <div>
       <div class="flex items-center justify-between py-4">
-        <div class="flex text-sm font-semibold">
-          <p class="pr-1">{{ state.comments.length }}</p>
-          <p>bình luận</p>
-        </div>
-        <div class="text-sm" v-if="state.comments.length">
-          <BaseSelect
-            v-model="selectValue"
-            @input="() => handleSelect(selectValue)"
-            :options-value="optionsValue"
-          >
-            <template v-slot:name>Sắp xếp theo</template>
-          </BaseSelect>
-        </div>
+        <template v-if="state.comments.length">
+          <div class="flex font-semibold">
+            <p class="pr-1">{{ state.comments.length }}</p>
+            <p>bình luận</p>
+          </div>
+          <div>
+            <BaseSelect
+              v-model="selectValue"
+              @input="() => handleSelect(selectValue)"
+              :options-value="optionsValue"
+            >
+              <template v-slot:name>Sắp xếp theo</template>
+            </BaseSelect>
+          </div>
+        </template>
+        <template v-else>
+          <div class="flex w-full flex-col items-center justify-center">
+            <IconMessage class="mb-2 h-8 w-8" />
+            <p>Chưa có bình luận nào</p>
+          </div>
+        </template>
       </div>
       <!-- Đăng bình luận -->
       <div v-if="authStore.userInfo && !state.isCommented" class="flex">
@@ -209,7 +220,7 @@ watch(
           <textarea
             type="text"
             placeholder="Viết bình luận"
-            class="block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+            :class="style.textArea"
             v-model="state.commentContent"
           />
 
@@ -248,10 +259,10 @@ watch(
           <textarea
             type="text"
             placeholder="Viết bình luận"
-            class="block h-24 w-full border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:outline-none focus:ring-blue-500"
+            :class="style.textArea"
             v-model="myComment.content"
           />
-          <div class="absolute right-0 flex">
+          <div class="flex justify-end">
             <BaseButton
               :style-prop="style.button"
               :disabled="!myComment.content && !myComment.rating"

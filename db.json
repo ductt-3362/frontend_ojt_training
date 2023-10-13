@@ -2,9 +2,10 @@
   "books": [
     {
       "id": 1,
+      "authorId": 1,
       "name": "YONA - CÔNG CHÚA BÌNH MINH - TẬP 33 (TẶNG KÈM POSTCARD)",
       "slug": "yona-cong-chua-binh-minh-tap-33-tang-kem-postcard",
-      "author": "Mizuho Kusanagi",
+      "authouId": 1,
       "price": 22500,
       "quantity": 10,
       "description": "Yona không được tiếp xúc với Hak và Tứ Long, cả yêu cầu gặp mặt Soo Won cũng bị từ chối. Đêm đến, khi Yona lẻn ra khỏi phòng ngủ và tiến về phía ngự thư phòng thì Soo Won đột nhiên xuất hiện và bắt chuyện với cô… Trong lúc đó, Tứ Long đồng ý tham gia diễn tập cùng quân đội…!?",
@@ -20,7 +21,7 @@
       "id": 2,
       "name": "THÁNH THẠCH RAVE - TẬP 17 (TẶNG KÈM BOOKMARK PLUE)",
       "slug": "thanh-thach-rave-tap-17-tang-kem-bookmark-plue",
-      "author": "Hiro Mashima",
+      "authorId": 2,
       "price": 27000,
       "quantity": 10,
       "description": "Ma vương giáng lâm! Cuối cùng, Doryu – kẻ sở hữu bóng tối sâu thẳm đã tiết lộ hình dáng thật đầy đáng sợ của hắn!! Nhưng ta đâu đơn độc. Chỉ cần tất cả chúng ta hợp sức, nhất định sẽ đánh bại ngươi cho xem. Dù có phải thiêu rụi tính mạng này chăng nữa!!!",
@@ -36,7 +37,7 @@
       "id": 3,
       "name": "NINJA RANTARO - TẬP 12",
       "slug": "ninja-rantaro-tap-12",
-      "author": "Soubee Amako",
+      "authorId": 3,
       "price": 36000,
       "quantity": 10,
       "description": "Tuy gió vẫn còn lạnh nhưng trời đã sang xuân. Trong tập thơ Thanh Thiếu Nạp Ngôn có câu “mùa xuân là ánh bình minh”. Còn mấy câu kiểu như “mùa hè có ma, mùa đông ăn lẩu” chẳng qua là lời lảm nhảm của cậu chàng nhiều chuyện Kirimaru mà thôi. ",
@@ -52,7 +53,7 @@
       "id": 4,
       "name": "MIỀN AN LẠC - TẬP 2",
       "slug": "mien-an-lac-tap-2",
-      "author": "Ichimon Izumi",
+      "authorId": 4,
       "price": 36000,
       "quantity": 10,
       "description": "Thầy thuốc học việc Kang Zhipa và vị hôn thê Moshi Lati đến với nhau trong cuộc hôn nhân sắp đặt từ hai bên gia đình, song hiện giờ, mối quan hệ của hai người vẫn chỉ dừng lại ở mức độ bạn bè thân thiết. Luôn hết lòng cứu chữa bệnh nhân nhưng mặt khác lại là kẻ phát cuồng vì thảo dược đến nỗi khiến mọi người xung quanh thấy phiền… Càng biết thêm về Kang Zhipa, Lati càng thêm ngưỡng mộ vị hôn phu của mình. Giữa lúc ấy, Kang Zhipa và cô bạn thân thuở nhỏ xuất hiện trước mắt Lati… ",
@@ -68,7 +69,7 @@
       "id": 5,
       "name": "NHỮNG DÒNG CHỮ MÀU NHIỆM - NHẬT KÍ THỰC HIỆN ƯỚC MƠ",
       "slug": "nhung-dong-chu-mau-nhiem-nhat-ki-thuc-hien-uoc-mo",
-      "author": "Honda Ariake",
+      "authorId": 5,
       "price": 45000,
       "quantity": 10,
       "description": "Một thiếu niên hầu như không biết bơi liệu có thể bơi được 50 mét chỉ sau một kì nghỉ hè hay không? Rồi lại còn có thể tự tra được địa chỉ và đến gặp người bạn đã chuyển nhà sang tỉnh kế bên không?",
@@ -84,7 +85,7 @@
       "id": 6,
       "name": "THÁM TỬ LỪNG DANH CONAN - TIỂU THUYẾT - CƠN ÁC MỘNG ĐEN TỐI",
       "slug": "tham-tu-lung-danh-conan-tieu-thuyet-con-ac-mong-den-toi",
-      "author": "Gosho Aoyama",
+      "authorId": 6,
       "price": 45000,
       "quantity": 10,
       "description": "Trong chuyến tham quan thủy cung Toto cùng tiến sĩ Agasa, đội thám tử nhí tình cờ bắt gặp người phụ nữ mất trí nhớ, mình đầy thương tích, và đặc biệt hơn cả: hai đồng tử của cô ta khác màu nhau. Đội thám tử nhí nhiệt tình giúp đỡ, cùng cô ta lên vòng đu quay khổng lồ. Qua vẻ ngoài và khí chất kì dị, Haibara nghi ngờ cô ta là thành viên của tổ chức áo đen. Sự thật là, đêm hôm trước, người phụ nữ này đã đột nhập vào Cơ quan Cảnh sát Quốc gia rồi gặp tai nạn trên đường đào thoát. Tổ chức áo đen đang ráo riết truy lùng hòng cướp người về!",
@@ -100,7 +101,7 @@
       "id": 7,
       "name": "SPY X FAMILY - TẬP 9 (TẶNG KÈM STANDEE PVC)",
       "slug": "spy-x-family-tap-9-tang-kem-standee-pvc",
-      "author": "Tatsuya Endo",
+      "authorId": 7,
       "price": 22500,
       "quantity": 10,
       "description": "Trận giao tranh giữa Yor và đám sát thủ đã đi đến hồi kết…!! Cùng lúc đó, bom trên chiếc du thuyền hạng sang cũng được cài xong! Cảm nhận được mối nguy hiểm, Loid và Anya đều tận lực cứu vãn tình hình theo cách của riêng mình…",
@@ -116,7 +117,7 @@
       "id": 8,
       "name": "90% TRẺ THÔNG MINH NHỜ CÁCH TRÒ CHUYỆN ĐÚNG ĐẮN CỦA CHA MẸ",
       "slug": "90-tre-thong-minh-nho-cach-tro-chuyen-dung-dan-cua-cha-me",
-      "author": "Urako Kanamori",
+      "authorId": 8,
       "price": 35100,
       "quantity": 10,
       "description": "Bạn có bao giờ thốt ra những câu dù biết là không nên nói như  “Còn lề mề đến bao giờ nữa hả?” hay “Chẳng được cái trò trống gì, đưa đây xem nào!”… nhưng vẫn lỡ lời không?",
@@ -132,7 +133,7 @@
       "id": 9,
       "name": "TÝ QUẬY - TẬP 13",
       "slug": "ty-quay-tap-13",
-      "author": "Đào Hải",
+      "authorId": 9,
       "price": 36000,
       "quantity": 10,
       "description": "Tý Quậy tập 13 tiếp tục giới thiệu 4 mẩu chuyện mới toanh về Tý, Tèo, Tún – bộ ba gây cười “trứ danh” của xê-ri Tý Quậy. Ở tập truyện mới này, Tý phải đương đầu với những tình huống vô cùng “ngặt nghèo” như bị bố mẹ so sánh với “con nhà người ta”, với bài tập tiếng Việt tưởng dễ mà lại khó không tưởng, với ngày lễ Giáng Sinh và kì nghỉ hè “trong mơ”. Vẫn hài hước và đáng yêu đậm chất Tý Quậy, tập truyện tranh này hứa hẹn mang tới cho các độc giả trung thành của Tý những tràng cười sảng khoái! ",
@@ -148,7 +149,7 @@
       "id": 10,
       "name": "ĐẤT RỪNG PHƯƠNG NAM",
       "slug": "dat-rung-phuong-nam",
-      "author": "Đoàn Giỏi",
+      "authorId": 10,
       "price": 72900,
       "quantity": 10,
       "description": "Được viết bằng trái tim nhạy cảm, tài quan sát tinh tế, hiểu biết sâu sắc và vốn sống dồi dào, Đất rừng phương Nam là một trong những tác phẩm viết về Nam bộ xuất sắc nhất, làm bật lên trọn vẹn vẻ đẹp con người và thiên nhiên nơi đây. Mỗi lần đọc là mỗi lần tình yêu xứ sở được khơi gợi đến nao lòng",
@@ -164,7 +165,7 @@
       "id": 11,
       "name": "CUỘC PHIÊU LƯU CỦA DẾ ÚT (PHẦN KẾT)",
       "slug": "cuoc-phieu-luu-cua-de-ut-phan-ket",
-      "author": "Linh Rab",
+      "authorId": 11,
       "price": 63000,
       "quantity": 10,
       "description": "Chuyến phiêu lưu vòng quanh cánh đồng của Dế Út và các bạn đã tới phần cuối. Các bạn đã tới xứ Kiến, xứ sở của các cư dân chăm chỉ lao động. Nhưng xứ Kiến đang trong một cuộc chiến với bầy Châu Chấu. Đối thủ Châu Chấu Voi rất mạnh và hiếu chiến. ",
@@ -180,7 +181,7 @@
       "id": 12,
       "name": "CUỘC PHIÊU LƯU CỦA DẾ ÚT (PHẦN BA)",
       "slug": "cuoc-phieu-luu-cua-de-ut-phan-ba",
-      "author": "Linh Rab",
+      "authorId": 11,
       "price": 63000,
       "quantity": 10,
       "description": "Chuyến phiêu lưu vòng quanh cánh đồng của Dế Út và các bạn đã tới phần cuối. Các bạn đã tới xứ Kiến, xứ sở của các cư dân chăm chỉ lao động. Nhưng xứ Kiến đang trong một cuộc chiến với bầy Châu Chấu. Đối thủ Châu Chấu Voi rất mạnh và hiếu chiến. ",
@@ -196,7 +197,7 @@
       "id": 13,
       "name": "NHỮNG DÒNG CHỮ MÀU NHIỆM - SỔ TAY TƯƠNG LAI",
       "slug": "nhung-dong-chu-mau-nhiem-so-tay-tuong-lai",
-      "author": "Honda Ariake",
+      "authorId": 5,
       "price": 49500,
       "quantity": 10,
       "description": "‘Cậu em trai chỉn chu và anh trai làng nhàng.’ Cậu anh Fukuzumi Haruto tự thừa nhận như vậy nhưng đã thay đổi nhanh chóng trong kì nghỉ xuân",
@@ -212,7 +213,7 @@
       "id": 14,
       "name": "TRANH TRUYỆN LỊCH SỬ VIỆT NAM - CÔNG NỮ ANIO",
       "slug": "tranh-truyen-lich-su-viet-nam-cong-nu-anio",
-      "author": "Koshiya Katsuji",
+      "authorId": 12,
       "price": 54500,
       "quantity": 10,
       "description": "Công nữ Anio (? – 1645) là con gái nuôi của chúa Sãi Nguyễn Phúc Nguyên, sau được gả cho thương nhân Araki Sotaro đến từ Nhật Bản. Câu chuyện tình vượt đại dương này cho đến nay vẫn là nguồn cảm hứng cho hậu thế: Cứ bảy năm một lần, vào tháng 10, khung cảnh lễ rước kiệu đón công nữ sẽ được tái hiện trong lễ hội mùa thu Nagasaki Okunchi tại tỉnh Nagasaki (Nhật Bản), như một biểu tượng cho mối bang giao bền chặt giữa hai quốc gia Việt – Nhật.",
@@ -228,7 +229,7 @@
       "id": 15,
       "name": "BLUELOCK - TẬP 15 - BẢN ĐẶC BIỆT (TẶNG KÈM PVC JACKET + SET POSTCARD)",
       "slug": "bluelock-tap-15-ban-dac-biet-tang-kem-pvc-jacket-set-postcard",
-      "author": "Muneyuki Kaneshiro",
+      "authorId": 13,
       "price": 69300,
       "quantity": 10,
       "description": "Hiệp 1 trận quyết đấu đặt cược sự tồn vong của dự án BLUELOCK với tuyển U-20 đã khép lại việc BLUELOCK 11 vươn lên dẫn trước nhờ cú sút lật ngược tình thế của Itoshi Rin! Kế hoạch bị mật mà tuyển U-20 sẽ dùng để chống lại những cái tôi hừng hực khí thế khiến cả thế giới phải sửng sốt là gì!? Mắt của Shido Ryusei, người được Itoshi Sae tìm ra, sáng lên một cách bất thường! Trong trận chiến quyết định đang không ngừng nóng lên ấy, hãy ghi bàn đi, Isagi Yoichi!!",
@@ -244,7 +245,7 @@
       "id": 16,
       "name": "COMBO DORAEMON PLUS (6 TẬP)",
       "slug": "combo-doraemon-plus-6-tap",
-      "author": "Fujiko F Fujio",
+      "authorId": 14,
       "price": 112200,
       "quantity": 10,
       "description": "Dù bạn có là ai, có đọc bao nhiêu lần thì vẫn thấy thú vị!! Vượt qua thời gian, vượt qua thế hệ, đây là danh tác luôn được yêu quý và đón nhận!! Doraemon Plus là tuyển tập những truyện ngắn về Doraemon và các bạn của tác giả Fujiko F Fujio từng được đăng rải rác trên các tạp chí học tập Nhật Bản.",
@@ -260,7 +261,7 @@
       "id": 17,
       "name": "COMBO NHỮNG DÒNG CHỮ MÀU NHIỆM (3 QUYỂN)",
       "slug": "combo-nhung-dong-chu-mau-nhiem-3-quyen",
-      "author": "Honda Ariake",
+      "authorId": 5,
       "price": 128000,
       "quantity": 10,
       "description": "Kohei, Ryuya và Haruto đều là học sinh lớp 5 của trường tiểu học. Hoàn cảnh gia đình khác nhau, mỗi bạn đều có những mong ước, những mục tiêu muốn đạt được riêng. Nhưng cả ba có một điểm chung, là đều đã viết ra những mong muốn của mình vào một cuốn sổ “nhật kí” kì diệu, sự kì diệu nằm ở chỗ dường như mọi điều ước ghi vào cuốn sổ đều trở thành hiện thực. Nhưng thực tế thì liệu có tồn tại một cuốn sổ như vậy hay không?",
@@ -276,7 +277,7 @@
       "id": 18,
       "name": "COMBO MẬT HIỆU OGO (6 TẬP)",
       "slug": "combo-mat-hieu-ogo-6-tap",
-      "author": "Kiều Bích Hương",
+      "authorId": 15,
       "price": 160000,
       "quantity": 10,
       "description": "Câu chuyện kể về cậu bé Kobe và gia đình cậu, bố là người Bỉ, mẹ là người Việt Nam, chị gái Kate cùng cha khác mẹ và cô em gái Kim thông minh nhưng “chậm tiến” - một gia đình bình thường, mà sự khác biệt về ngôn ngữ, màu da, văn hóa, tuổi tác, không ngăn cản được tình yêu mến họ dành cho nhau, cùng nhau vượt qua đại dịch Covid-19 và chẳng ngại ngần dang rộng vòng tay đón nhận những người tị nạn chiến tranh đến từ Ukraina…",
@@ -292,7 +293,7 @@
       "id": 19,
       "name": "COMBO SIÊU LẬP DỊ (4 QUYỂN)",
       "slug": "combo-sieu-lap-di-4-quyen",
-      "author": "Jess Bradley",
+      "authorId": 16,
       "price": 208000,
       "quantity": 10,
       "description": "Andy là một cậu học trò nhút nhát nhưng mê vẽ vời. Trong chuyến dã ngoại với lớp đến Đảo Sinh Tồn, tình cờ cây bút chì của cậu bị nhiễm phóng xạ và có siêu năng lực “vẽ thứ gì là thứ đó biến thành thật”. Cùng với cô bạn Mona thông minh tuyệt vời và cậu em trai Oscar nghịch ngợm, Andy sẽ tiêu diệt những tên siêu tội phạm và bảo vệ thế giới ra sao? Mời bạn tìm đọc trọn bộ Siêu Lập Dị để tham gia vào những cuộc phiêu lưu vô cùng hấp dẫn và hài hước của cậu bé Andy nhé!",
@@ -308,7 +309,7 @@
       "id": 20,
       "name": "COMBO CÔNG CỤ LỚN CHO CHIẾN BINH NHỎ (4 QUYỂN)",
       "slug": "combo-cong-cu-lon-cho-chien-binh-nho-4-quyen",
-      "author": "Nhi đồng (6 – 11)",
+      "authorId": 17,
       "price": 144000,
       "quantity": 10,
       "description": "Ta có thể không hoàn hảo, nhưng chính sự bất toàn lại đẹp đẽ và giúp ta ngày càng hoàn thiện. Hãy yêu quí con người đích thực của mình, bởi vì mình rất tuyệt! Cuốn sách này bao gồm tám mẩu chuyện với phần bàn luận và trò chơi giúp trẻ cải thiện lòng tự tôn. Với những công cụ đúng và một chút luyện tập, ai cũng có thể yêu quí bản thân nhiều hơn và tốt hơn.",
@@ -324,7 +325,7 @@
       "id": 21,
       "name": "KOMI - NỮ THẦN SỢ GIAO TIẾP - TẬP 25",
       "slug": "komi-nu-than-so-giao-tiep-tap-25",
-      "author": "Tomohito Oda",
+      "authorId": 18,
       "price": 22500,
       "quantity": 10,
       "description": "Bước sang năm học lớp 12! Komi được chung lớp với Tadano và Komi ở lớp 12-A. Thế nhưng, bị tách khỏi cô bạn Manbagi thân thiết từ hồi cùng lớp 11-A, Komi bỗng cảm thấy hơi lo lắng?",
@@ -340,7 +341,7 @@
       "id": 22,
       "name": "CHÚ THUẬT HỒI CHIẾN - TẬP 17 - BẢN GIỚI HẠN (TẶNG KÈM BỌC BẢO VỆ SÁCH)",
       "slug": "chu-thuat-hoi-chien-tap-17-ban-gioi-han-tang-kem-boc-bao-ve-sach",
-      "author": "Gege Akutami",
+      "authorId": 19,
       "price": 58500,
       "quantity": 10,
       "description": "Bị Okkotsu, kẻ thi hành án, đánh bại, đứng trước lằn ranh sự sống và cái chết, khung cảnh gia đình vào một ngày nào đó trong quá khứ bỗng ùa về trong tâm trí Itadori. Ở đó có hình dạng trước kia của Kamo Noritoshi. Trong lúc mọi người đang nhắm đến việc trấn áp “Tử Diệt Hồi Du”, nơi các thuật sư sát phạt nhau, Maki lại đến nhà Zen’in…!? ",
@@ -356,7 +357,7 @@
       "id": 23,
       "name": "ONE PIECE - TẬP 36 (BÌA RỜI)",
       "slug": "one-piece-tap-36-bia-roi",
-      "author": "Eiichiro Oda",
+      "authorId": 20,
       "price": 22500,
       "quantity": 10,
       "description": "Robin sau những hành động tách riêng đã tuyên bố rút khỏi băng Mũ Rơm, quay trở về bóng tối... Để xác định mong muốn thật sự của cô, Luffy và đồng đội quyết đuổi theo Robin, từng sự thật lần lượt sáng tỏ đã khiến họ nhất thời kinh ngạc!! Những chuyến phiêu lưu trên đại dương xoay quanh 'ONE PIECE' lại bắt đầu!!",
@@ -372,7 +373,7 @@
       "id": 24,
       "name": "NHÓC MARUKO - TẬP 1",
       "slug": "nhoc-maruko-tap-1",
-      "author": "Momoko Sakura",
+      "authorId": 21,
       "price": 36000,
       "quantity": 10,
       "description": "“Nhóc Maruko” ra đời năm 1986, là bộ truyện tranh đình đám không chỉ ở Nhật Bản mà còn ở Việt Nam và rất quen thuộc với thế hệ độc giả 8x, 9x. Bộ truyện được sáng tác dựa trên chính tuổi thơ của tác giả Momoko Sakura, với nhân vật chính là cô bé tiểu học Maruko, sống trong đại gia đình gồm có ông bà nội, bố mẹ và chị gái.",
@@ -388,7 +389,7 @@
       "id": 25,
       "name": "SHIN - CẬU BÉ BÚT CHÌ - TẬP 39 (2019)",
       "slug": "shin-cau-be-but-chi-tap-39-2019",
-      "author": "Yoshito Usui",
+      "authorId": 2,
       "price": 17100,
       "quantity": 10,
       "description": "Được phát hành lần đầu vào năm 1992, bộ truyện sớm gây được tiếng vang đối với độc giả Nhật Bản và nhiều nước khác trên thế giới. Vài năm sau đó, loạt phim hoạt hình về cậu bé Shin cũng được sản xuất và phát sóng liên tục cho đến bây giờ.",
@@ -404,7 +405,7 @@
       "id": 26,
       "name": "ĐỘI QUÂN DORAEMON ĐẶC BIỆT - TẬP 9",
       "slug": "doi-quan-doraemon-dac-biet-tap-9",
-      "author": "Fujiko F Fujio",
+      "authorId": 14,
       "price": 19800,
       "quantity": 10,
       "description": "Chòm sao băng đâm sầm vào Trái Đất thực ra là một con quái vật đáng sợ! Vũ khí bí mật nền văn minh cổ đại truyền lại cho con cháu mà nhóm",
@@ -420,7 +421,7 @@
       "id": 27,
       "name": "ĐỘI QUÂN DORAEMON ĐẶC BIỆT - TẬP 5",
       "slug": "doi-quan-doraemon-dac-biet-tap-5",
-      "author": "Fujiko F Fujio",
+      "authorId": 14,
       "price": 19800,
       "quantity": 10,
       "description": "Truyền thuyết: “ khi mắt rồng hóa đỏ, tai họa sẽ giáng xuống” liệu có phải là sự thật? Mời các em khám phá qua chương truyện “Đôi mắt đỏ của rồng thần” cùng 10 câu chuyện li kì khác!",
@@ -436,7 +437,7 @@
       "id": 28,
       "name": "DORAEMON MOVIE STORY - NOBITA VÀ HÒN ĐẢO DIỆU KÌ - CUỘC PHIÊU LƯU CỦA LOÀI THÚ",
       "slug": "doraemon-movie-story-nobita-va-hon-dao-dieu-ki-cuoc-phieu-luu-cua-loai-thu",
-      "author": "Fujiko F Fujio",
+      "authorId": 14,
       "price": 27000,
       "quantity": 10,
       "description": "Nhóm Nobita đến thăm hòn đảo bí ẩn, nơi bảo vệ các loài động vật bị tuyệt chủng. Hòn đảo đó được bảo vệ bởi sức mạnh của con bọ hung sừng chữ Y hoàng kim có tên gọi “Golden Hercules”. Trên hòn đảo, nhóm bạn gặp Dakke, một cậu bé bí ẩn trông giống hệt Nobita. Nhưng một thương nhân xấu xa tên Sharman muốn cướp con bọ hung hoàng kim xuất hiện, gây ra cuộc đại chiến. Các cậu, chúng ta hãy dốc hết sức bảo vệ hòn đảo của ước mơ và hi vọng!",
@@ -452,7 +453,7 @@
       "id": 29,
       "name": "DORAEMON MOVIE STORY - NOBITA VÀ VIỆN BẢO TÀNG BẢO BỐI",
       "slug": "doraemon-movie-story-nobita-va-vien-bao-tang-bao-boi",
-      "author": "Fujiko F Fujio",
+      "authorId": 14,
       "price": 27000,
       "quantity": 10,
       "description": "Để tìm lại chiếc chuông bị siêu trộm DX lấy mất của Doraemon, nhóm Nobita đã đến “Viện bảo tàng bảo bối”, nơi trưng bày rất nhiều món bảo bối bí mật.",
@@ -468,7 +469,7 @@
       "id": 30,
       "name": "DORAEMON TRANH TRUYỆN MÀU - NOBITA VÀ CUỘC PHIÊU LƯU Ở THÀNH PHỐ DÂY CÓT - TẬP 2",
       "slug": "doraemon-tranh-truyen-mau-nobita-va-cuoc-phieu-luu-o-thanh-pho-day-cot-tap-2",
-      "author": "Fujiko F Fujio",
+      "authorId": 14,
       "price": 27000,
       "quantity": 10,
       "description": "'Ốc vít sinh mệnh' là bảo bối có thể làm các món đồ chơi cử động. Nobita đã đưa những món đồ chơi yêu thích của mình tới một tiểu hành tinh, tạo ra 'Thành phố thú nhồi bông', và giúp thành phố phát đạt hơn. Tuy nhiên, qua cánh cửa thần kì, tên tội phạm vượt ngục khét tiếng đã xâm nhập vào thành phố. Hắn tạo ra quân đoàn bản sao của mình rồi lên đường chiếm đóng thành phố. Cả nhóm Doraemon bị bọn chúng rượt đuổi sát nút, khiến Nobita bị rơi xuống vực sâu... Đây là phiên bản tranh truyện màu được vẽ lại từ tập phim hoạt hình cùng tên của tác giả Fujiko.F.Fujio. Mời các bạn tiếp tục theo dõi diễn biến nghẹt thở của câu chuyện trong tập hai này nhé.",
@@ -529,6 +530,20 @@
       "status": "Đang chờ xác nhận",
       "total": 36000,
       "id": 3
+    },
+    {
+      "userId": 2,
+      "createdAt": "2023-10-11T08:11:12.262Z",
+      "status": "Đang chờ xác nhận",
+      "total": 35100,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "createdAt": "2023-10-13T01:39:52.764Z",
+      "status": "Đang chờ xác nhận",
+      "total": 27000,
+      "id": 5
     }
   ],
   "users": [
@@ -561,7 +576,7 @@
         "id": 1,
         "name": "YONA - CÔNG CHÚA BÌNH MINH - TẬP 33 (TẶNG KÈM POSTCARD)",
         "slug": "yona-cong-chua-binh-minh-tap-33-tang-kem-postcard",
-        "author": "Mizuho Kusanagi",
+        "authouId": 1,
         "price": 22500,
         "quantity": 10,
         "description": "Yona không được tiếp xúc với Hak và Tứ Long, cả yêu cầu gặp mặt Soo Won cũng bị từ chối. Đêm đến, khi Yona lẻn ra khỏi phòng ngủ và tiến về phía ngự thư phòng thì Soo Won đột nhiên xuất hiện và bắt chuyện với cô… Trong lúc đó, Tứ Long đồng ý tham gia diễn tập cùng quân đội…!?",
@@ -583,7 +598,7 @@
         "id": 2,
         "name": "THÁNH THẠCH RAVE - TẬP 17 (TẶNG KÈM BOOKMARK PLUE)",
         "slug": "thanh-thach-rave-tap-17-tang-kem-bookmark-plue",
-        "author": "Hiro Mashima",
+        "authorId": 2,
         "price": 27000,
         "quantity": 10,
         "description": "Ma vương giáng lâm! Cuối cùng, Doryu – kẻ sở hữu bóng tối sâu thẳm đã tiết lộ hình dáng thật đầy đáng sợ của hắn!! Nhưng ta đâu đơn độc. Chỉ cần tất cả chúng ta hợp sức, nhất định sẽ đánh bại ngươi cho xem. Dù có phải thiêu rụi tính mạng này chăng nữa!!!",
@@ -605,7 +620,7 @@
         "id": 3,
         "name": "NINJA RANTARO - TẬP 12",
         "slug": "ninja-rantaro-tap-12",
-        "author": "Soubee Amako",
+        "authorId": 3,
         "price": 36000,
         "quantity": 10,
         "description": "Tuy gió vẫn còn lạnh nhưng trời đã sang xuân. Trong tập thơ Thanh Thiếu Nạp Ngôn có câu “mùa xuân là ánh bình minh”. Còn mấy câu kiểu như “mùa hè có ma, mùa đông ăn lẩu” chẳng qua là lời lảm nhảm của cậu chàng nhiều chuyện Kirimaru mà thôi. ",
@@ -626,7 +641,7 @@
         "id": 3,
         "name": "NINJA RANTARO - TẬP 12",
         "slug": "ninja-rantaro-tap-12",
-        "author": "Soubee Amako",
+        "authorId": 3,
         "price": 36000,
         "quantity": 10,
         "description": "Tuy gió vẫn còn lạnh nhưng trời đã sang xuân. Trong tập thơ Thanh Thiếu Nạp Ngôn có câu “mùa xuân là ánh bình minh”. Còn mấy câu kiểu như “mùa hè có ma, mùa đông ăn lẩu” chẳng qua là lời lảm nhảm của cậu chàng nhiều chuyện Kirimaru mà thôi. ",
@@ -647,6 +662,69 @@
       "quantity": 1,
       "price": 36000,
       "id": 4
+    },
+    {
+      "orderId": 4,
+      "book": {
+        "id": 8,
+        "name": "90% TRẺ THÔNG MINH NHỜ CÁCH TRÒ CHUYỆN ĐÚNG ĐẮN CỦA CHA MẸ",
+        "slug": "90-tre-thong-minh-nho-cach-tro-chuyen-dung-dan-cua-cha-me",
+        "authorId": 8,
+        "price": 35100,
+        "quantity": 10,
+        "description": "Bạn có bao giờ thốt ra những câu dù biết là không nên nói như  “Còn lề mề đến bao giờ nữa hả?” hay “Chẳng được cái trò trống gì, đưa đây xem nào!”… nhưng vẫn lỡ lời không?",
+        "image": "https://product.hstatic.net/200000343865/product/90_-tre-thong-minh-nho-cach-tro-chuyen_bia-tb3-final-in-1_4652a90b10334642ac514df6f07e8a20_master.jpg",
+        "size": "13x19 cm",
+        "page": 176,
+        "cover": "Bìa mềm",
+        "weight": "165 gram",
+        "audience": "Cha mẹ đọc cùng con",
+        "categoryId": 2,
+        "category": {
+          "id": 2,
+          "name": "Sách bán chạy",
+          "slug": "sach-ban-chay"
+        },
+        "inCartQuantity": 1
+      },
+      "quantity": 1,
+      "price": 35100,
+      "id": 5
+    },
+    {
+      "orderId": 5,
+      "book": {
+        "id": 2,
+        "name": "THÁNH THẠCH RAVE - TẬP 17 (TẶNG KÈM BOOKMARK PLUE)",
+        "slug": "thanh-thach-rave-tap-17-tang-kem-bookmark-plue",
+        "authorId": 2,
+        "price": 27000,
+        "quantity": 10,
+        "description": "Ma vương giáng lâm! Cuối cùng, Doryu – kẻ sở hữu bóng tối sâu thẳm đã tiết lộ hình dáng thật đầy đáng sợ của hắn!! Nhưng ta đâu đơn độc. Chỉ cần tất cả chúng ta hợp sức, nhất định sẽ đánh bại ngươi cho xem. Dù có phải thiêu rụi tính mạng này chăng nữa!!!",
+        "image": "https://product.hstatic.net/200000343865/product/12_1558b8f373cf43e88f3abe09ec49b8af_master.jpg",
+        "size": "11.3x17.6 cm",
+        "page": 184,
+        "cover": "Bìa mềm",
+        "weight": "135 gram",
+        "audience": "Tuổi mới lớn (15 – 18)",
+        "categoryId": 1,
+        "category": {
+          "id": 1,
+          "name": "Sách mới",
+          "slug": "sach-moi"
+        },
+        "author": {
+          "id": 2,
+          "name": "Hiro Mashima",
+          "slug": "hiro-mashima",
+          "description": "Mashima Hiro lớn lên ở tỉnh Nagano và trải qua tuổi thơ ở vùng núi cùng với ông nội. Bố của Mashima mất từ khi ông còn nhỏ và bố của Mashima là một họa sĩ với khao khát trở thành chuyên nghiệp. Ngay từ khi còn bé thì Mashima đã có ước mơ trở thành một họa sĩ và đặc biệt là có liên quan tới truyện tranh. Niềm yêu thích với vẽ của Mashima được khuyến khích bởi ông nội của ông, ông nội của ông là người đã tìm những cuốn manga bị bỏ đi về cho Mashima đọc và giúp ông luyện tập với chúng. Sau khi tốt nghiệp phổ thông thì Mashima quyết định tiếp tục theo đuổi giấc mơ của mình vào một trường về mỹ thuật đặc biệt là có dạy vẽ manga. Ông tin rằng đây là con đường giúp mình cải thiện được khả năng vẽ truyện tranh. Có điều kết quả không như mong muốn và ông đã bỏ học giữa chừng. Mashima chia sẻ là học những điều cơ bản vậy thì ông cảm thấy không giúp cho bản thân bước vào con đường chuyên nghiệp được. Và cuối cùng là ông quyết định tự học.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hiro_Mashima_in_2018.png"
+        },
+        "inCartQuantity": 1
+      },
+      "quantity": 1,
+      "price": 27000,
+      "id": 6
     }
   ],
   "banners": [
@@ -716,6 +794,170 @@
       "bookId": 4,
       "rating": 5,
       "id": 5
+    },
+    {
+      "content": "tốt",
+      "createdAt": "2023-10-13T03:47:50.066Z",
+      "userId": 2,
+      "bookId": 5,
+      "rating": 5,
+      "id": 6
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "name": "Mizuho Kusanagi",
+      "slug": "mizuho-kusanagi",
+      "description": "Mizuho Kusanagi là một họa sĩ truyện tranh người Nhật và là tác giả cùa Akatsuki no Yona. Cô sinh ra vào ngày 3/2 tại Kumatou, tỉnh Kumamoto, Nhật Bản. Sự nghiệp của cô đã bị gián đoạn trong một vài tháng bởi trận động đất Kunamo 5.1 độ richter vào ngày 31/08/2016. Kể từ sau ngày hôm đó cô đã quay trở về với lịch trình công việc bình thường.",
+      "image": "https://docs.ficomic.com/IMAGES_29/mizuho-kusanagi-autorretrato.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Hiro Mashima",
+      "slug": "hiro-mashima",
+      "description": "Mashima Hiro lớn lên ở tỉnh Nagano và trải qua tuổi thơ ở vùng núi cùng với ông nội. Bố của Mashima mất từ khi ông còn nhỏ và bố của Mashima là một họa sĩ với khao khát trở thành chuyên nghiệp. Ngay từ khi còn bé thì Mashima đã có ước mơ trở thành một họa sĩ và đặc biệt là có liên quan tới truyện tranh. Niềm yêu thích với vẽ của Mashima được khuyến khích bởi ông nội của ông, ông nội của ông là người đã tìm những cuốn manga bị bỏ đi về cho Mashima đọc và giúp ông luyện tập với chúng. Sau khi tốt nghiệp phổ thông thì Mashima quyết định tiếp tục theo đuổi giấc mơ của mình vào một trường về mỹ thuật đặc biệt là có dạy vẽ manga. Ông tin rằng đây là con đường giúp mình cải thiện được khả năng vẽ truyện tranh. Có điều kết quả không như mong muốn và ông đã bỏ học giữa chừng. Mashima chia sẻ là học những điều cơ bản vậy thì ông cảm thấy không giúp cho bản thân bước vào con đường chuyên nghiệp được. Và cuối cùng là ông quyết định tự học.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hiro_Mashima_in_2018.png"
+    },
+    {
+      "id": 3,
+      "name": "Soubee Amako",
+      "slug": "soubee-amako",
+      "description": "Amako Soubee (sinh năm 1958), sống ở thành phố Amagasaki, tỉnh Hyogo (Nhật Bản), là một trong những họa vẽ manga thiếu nhi nổi tiếng ở Nhật Bản. Tác phẩm để đời, quảng bá văn hóa địa phương và khơi gợi niềm đam mê đọc sách ở trẻ thơ của bà là 'Ninja loạn thị' (Rakudai Ninja Rantarou). Ban đầu nữ họa sĩ không có ý định theo nghiệp vẽ manga bởi bà vốn là một nhân viên văn phòng cực kỳ bình thường. Ngoài công việc ở công ty, bà còn nhận làm thêm ở một trường đại học bởi Amako Soubee từng học ở khoa Lịch sử văn thư. Bà là người đa tài, vừa am hiểu văn hóa truyền thống vừa biết vẽ sách, tranh. Trước khi bén duyên với nghề vẽ, nữ họa sĩ thường vẽ minh họa cho trường đại học. Một ngày nọ, Amako Soubee may mắn nhận được lời mời cộng tác với một đơn vị xuất bản uy tín và từ đó manga 'Ninja loạn thị' đã ra đời",
+      "image": "https://game8.vn/media/202112/images/haopv/nu-tac-gia-ninja-loan-thi-2.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Ichimon Izumi",
+      "description": "Bà là thi nhân waka nổi tiếng, con gái của Oe no Masamune (Đại Giang, Nhã Chí), Thái thú vùng Echizen. Mẹ là Taira no Yasuhira, con gái của Thái thú vùng Etchu. Bà kết hôn hai lần. Lần đầu là năm 995, với Tachibana no Michisada (Quất, Đạo Trinh), Thái thú vùng Izumi. Năm 997, bà sinh con gái, Koshikibu no Naishi (Tiểu Thức Bộ), người sau này cũng là một nhà thơ. Izumi theo chồng tới nơi ông nhậm chức, nhưng sớm trở lại kinh đô. Theo phong tục thời Heian, tên của bà là sự kết hợp giữa 'Izumi', nơi chồng bà giữ chức, và 'Shikibu', chức vị của cha bà. Tại Kyoto, giữa hai cuộc hôn nhân, bà có cuộc đời tình ái sóng gió với nhiều người đàn ông. Trước cả khi kết hôn với Michisada, có đồn đoán rằng bà có quan hệ với một người đàn ông tên là Omotomaru.Khi vẫn còn kết hôn với Michisada, bà có quan hệ tình ái với hoàng tử Tametaka (弾正宮為尊親王, Danjo no Miya Tametaka Shinnō, 977-1002). Khi sự việc vỡ lở, bà bị chồng li dị và gia đình cũng tuyên bố từ bỏ bà. Trong Eiga Monogatari có đề cập đến chuyện Tametaka bị bệnh và chết vì 'những cuộc phóng túng không chừng mực về đêm'",
+      "slug": "ichimon-izumi",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Hyakuninisshu_056.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Honda Ariake",
+      "slug": "honda-ariake",
+      "description": "",
+      "image": "https://product.hstatic.net/200000343865/product/nhung-dong-chu-nhiem-mau_nhat-ki-thuc-hien-uoc-mo_bia_350a97bfcbe147bd8f8ea57d35ad1d79_master.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Gosho Aoyama",
+      "slug": "gosho-aoyama",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Gosho_Aoyama.jpg/220px-Gosho_Aoyama.jpg",
+      "description": "Aoyama Gōshō từ lúc còn trẻ đã là một người vẽ rất giỏi. Khi còn học ở trường cấp 2, Aoyama đã từng đoạt giải nhất một cuộc thi vẽ tranh với bức vẽ mang tên 'Cuộc chiến Yukiai', và bức tranh này đã được trưng bày tại cửa hàng Daimaru ở Tottori, quê hương của ông. Ông tốt nghiệp trường cấp ba Ikuei. Sau đó, ông theo học ngành Mỹ thuật tại trường Đại học Nhật Bản - Trường Đại học lớn nhất Nhật Bản. Tại đây, mùa đông năm 1986, ông tham gia cuộc thi viết truyện tranh cho sinh viên năm thứ nhất và giành chiến thắng, đó chính là một bước ngoặt trong cuộc đời Aoyama, và cũng là bàn đạp để ông hướng tới sự nghiệp sáng tác truyện tranh trong tương lai sau này. Bộ truyện đầu tiên của Aoyama mang tên Chotto Mattete, được đăng trên tuần tạp chí Shonen Sunday vào mùa đông năm 1987. Một thời gian ngắn sau, Magic Kaito được xuất bản cũng trên tạp chí Shonen Sunday. Năm 1990, một bộ truyện tranh khác của Aoyama là Yaiba ra đời. Tập 24 của bộ truyện này đã đoạt Giải Manga Shogakukan cho lứa tuổi thiếu niên (shōnen - 少年) vào năm 1993. Aoyama còn đoạt giải Manga Shogakukan một lần nữa năm 2001 với Thám tử lừng danh Conan.[1] Ngày 5 tháng 5 năm 2005, Aoyama cưới Takayama Minami, một ca sĩ kiêm diễn viên, người lồng tiếng cho nhân vật Edogawa Conan trong phim hoạt hình Thám tử lừng danh Conan, nhưng sau đó hai người đã ly hôn vào ngày 10 tháng 12 năm 2007."
+    },
+    {
+      "id": 7,
+      "name": "Tatsuya Endo",
+      "slug": "tatsuya-endo",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Tatsuyaendo_pic_sketch.png",
+      "description": "Endō Tatsuya [遠藤達哉] sinh ngày 23 tháng 7 năm 1980 tại tỉnh Ibaraki. Ngay từ khi còn nhỏ, Endo đã mong muốn trở thành một họa sĩ truyện tranh. Gia đình anh gồm có một người cha và một người anh trai. Các diễn viên yêu thích của cô là Bruce Lee, Hiroshi Abe, Meg Ryan và Audrey Tautou. Của chúng mangaka yêu thích Chúng tôi Akira Toriyama, Hiroyuki Nishimori và Minetarō Mochizuki.Sở thích của anh ấy bao gồm trượt tuyết, bóng rổ và chơi vợt. Endo làm trợ lý cho mangaka của Blue Exorcist và Fire Punch. Anh được cố vấn bởi các họa sĩ manga Yasuhiro Kanō và Yoshiyuki Nishi.Endo bắt đầu sự nghiệp của mình với việc tạo ra một bức ảnh, sau đó tạo ra một số manga không mấy thành công. Cùng với biên tập viên Shihei Lin, cả hai bắt đầu lên kế hoạch cho một tác phẩm với mục đích xuất hiện trong Shounen Jump.Manga này sẽ kết hợp những gì Lin tin là điểm mạnh của các tác phẩm trước của Endo, do đó tạo nên Spy × Family. Sự đón nhận tốt đến nỗi việc đăng nhiều kỳ đã được quyết định ngay cả trước một cuộc họp chính thức. Ngày nay nó đã trở thành một trong những bộ truyện tranh thành công nhất trong ngành.Ngoài các tác phẩm gốc và công việc phụ tá của mình, Endo còn là họa sĩ minh họa cho One-Shots và Light Novel như Okujoo Tantei Okutan, Yamamoto-kun's Distress và Kuroniko the Exile."
+    },
+    {
+      "id": 8,
+      "name": "Urako Kanamori",
+      "slug": "urako-kanamori",
+      "image": "https://product.hstatic.net/200000343865/product/90_-tre-thong-minh-nho-cach-tro-chuyen_bia-tb3-final-in-1_4652a90b10334642ac514df6f07e8a20_master.jpg",
+      "description": "Tác giả: Urako Kanamori. Tác giả sinh năm 1937 tại Tokyo, Nhật Bản. Sau khi tốt nghiệp chuyên ngành Giáo dục học, khoa Nhân văn, Đại học Aoyama Gakuin, bà trở thành giáo viên tiểu học, sau đó mở Trung tâm Nghiên cứu Giáo dục Tâm lí Tokyo vào năm 1978 và không gian tự do SEPY năm 1990. Với vai trò là một bác sĩ tâm lý, nhà tâm lí học lâm sàng và chuyên viên liệu pháp nghệ thuật, bà đã sưởi ấm và hồi sinh những tâm hồn cằn cỗi thông qua biện pháp tư vấn tâm lí, rèn luyện tự điều trị, tập hít thở, khí công…Các tác phẩm đã xuất bản của bà như: Những câu cửa miệng mẹ dồn ép con; Người mẹ dạy hư con; Mắng ít khen nhiều; Cách nuôi dạy anh em cho tốt; Cách điều tiết sự bực tức của trẻ; Nuôi dạy con trai; Không cần phải làm con ngoan; Không sao, rồi sẽ ổn thôi…"
+    },
+    {
+      "id": 9,
+      "name": "Đào Hải",
+      "slug": "dao-hai",
+      "image": "https://images2.thanhnien.vn/Uploaded/2014/Pictures201404/Minh_Nguyet/tacgia.jpg",
+      "description": "Tác giả Đào Hải (sáng tác tập 1 đến tập 8 và viết lời tập 9) có tên thật là Đào Hồng Hải, sinh năm 1958 tại Hà Nội, là họa sĩ thiết kế mỹ thuật phim và có thời gian dài công tác tại Hãng phim truyện Việt Nam. Đào Hải tốt nghiệp Đại học Mỹ thuật Công nghiệp, Đại học Sân khấu - Điện ảnh Hà Nội, đã có nhiều tác phẩm cho thiếu nhi. Đào Hải bắt đầu có mẩu chuyện đen trắng nhỏ, in mỏng, đặt tên là Tý và Tèo. Năm 1997, những cuốn sách rời về Tý và Tèo của hoạ sĩ được tập hợp lại thành cuốn 64 trang (Tý và Tèo học võ). Năm 2007, bộ truyện được định hình như hiện tại, gồm có 4 quyển truyện màu. Trong các năm tiếp theo, các tập 5, 6, 7 được ra mắt vào thời điểm tương ứng. Theo lời góp ý của phụ huynh và độc giả, ông đã bỏ bớt các từ suông sã, hậu cảnh sơ sài. Năm 2012, sức khỏe Đào Hải đã yếu đi nhiều, nhưng ông đã cố gắng để hoàn thành tập 8. ào Hải qua đời vào ngày 9 tháng 4 năm 2014 khi tập 9 của ông vẫn còn dang dở. Họa sĩ Nguyễn Quang Toàn là người tiếp nối phần tranh vẽ của bộ truyện. Ngoài ra, Hoài Thu đã viết kịch bản tập 10 và tập 11, Dương Thúy Quỳnh viết kịch bản tập 12 của bộ truyện."
+    },
+    {
+      "id": 10,
+      "name": "Đoàn Giỏi",
+      "slug": "doan-gioi",
+      "image": "https://file.hstatic.net/200000343865/file/upload_472bddf3bea74f0283cbf10a406c5a41.jpg",
+      "description": "Nhà văn Đoàn Giỏi (17-05-1925 – 02-04-1989) sinh ra tại thị xã Mỹ Tho, tỉnh Mỹ Tho, nay thuộc xã Tân Hiệp, huyện Châu Thành, tỉnh Tiền Giang. Tên khai sinh của ông là Đoàn Văn Giỏi. Ngoài bút danh Đoàn Giỏi, ông còn có các bút danh khác là Nguyễn Hoài, Nguyễn Phú Lễ, Huyền Tư.Vào năm 1939, sau khi học xong bậc tiểu học ở quê nhà, ông lên Sài Gòn tiếp tục học trung học. Vốn là người say mê hội họa, ông đã trốn gia đình và quyết định thi vào Trường Mỹ thuật Gia Định và theo học ở trường được 1 năm, sau đó ông chọn theo đuổi con đường văn chương của mình.Tác phẩm truyện ngắn đầu tay “Nhớ cố hương” (1943) là một trong những thành công của nhà văn Đoàn Giỏi. Tác phẩm được đăng trên số Xuân của tờ Nam Kỳ Tuần Báo qua sự xét duyệt và chọn lọc của nhà văn Hồ Biểu Chánh - một trong những đàn anh của làng văn thời bấy giờ. Năm 1945, khi Cách mạng Tháng Tám nổ ra, ông tạm gác lại công việc sáng tác của mình để trở về quê hương, tham gia kháng chiến. Sau chiến dịch Điện Biên Phủ thành công năm 1954, nhà văn Đoàn Giỏi được tập kết ra Bắc và công tác tại Đài Tiếng nói Việt Nam. Sau đó, ông chuyển sang làm việc ở Hội Nhà văn Việt Nam. Trong những năm tháng sống và làm việc ở Miền Bắc, ông cũng có điều kiện chuyên tâm vào sự nghiệp viết văn của mình. Hầu hết những tác phẩm của ông viết ra đều viết về con người và mảnh đất Nam Bộ. ác phẩm chính của ông có Người Nam thà chết không hàng (kịch thơ – 1947), Khí hùng đất nước (ký – 1948), Những dòng chữ máu Nam kỳ 1940 (ký – 1948); Đường về gia hương (truyện – 1948), Chiến sỹ Tháp Mười (kịch thơ – 1949), Giữ vững niềm tin (thơ – 1954); Cá bống mú ((truyện – 1956), Ngọn tầm vông (truyện ký – 1956); Trần Văn Ơn (truyện ký – 1955), Đất rừng phương Nam (truyện – 1957), Hoa hướng dương (truyện ngắn – 1960), Cuộc truy tầm kho vũ khí (truyện – 1962), Những chuyện lạ về cá (biên khảo – 1981), Tê giác trong ngàn xanh (biên khảo – 1982) Nhà văn Đoàn Giỏi vinh dự được nhận Giải thưởng Nhà nước về Văn học Nghệ thuật, năm 2001. Những trang viết của Đoàn Giỏi đã mang đến cho người đọc những hình ảnh hết sức sinh động về thiên nhiên và con người nơi miền Nam của Tổ quốc,với lòng thương nhớ da diết rẻo đất phương Nam, cộng với một vốn sống phong phú, tác phẩm của Đoàn Giỏi có một giá trị lớn trong việc bồi đắp vốn hiểu biết cũng như tình yêu quê hương, đất nước cho người đọc.  Khi xây dựng tác phẩm, ngòi bút của Đoàn Giỏi thể hiện rõ tính chất phác, hồn nhiên rất Nam Bộ. Mặt khác, bạn đọc có thể cảm nhận ít nhiều kỹ  thuật của hội họa trong nghệ thuật dựng cảnh của ông. “Đất rừng Phương Nam” là tác phẩm làm nên tên tuổi nhà văn Đoàn Giỏi, gắn liền với thời điểm ra đời của NXB Kim Đồng, vào tháng 6 năm 1957. Các tác phẩm nổi tiếng của Đoàn Giỏi đã được NXB Kim Đồng xuất bản: “Đất rừng phương Nam”, “Những chuyện lạ về cá”, “Tê giác trong ngàn xanh”, “Cá bống mú”, “Rừng đêm xào xạc”, “Hoa hướng dương”, “Người thủy thủ già trên hòn đảo lưu đày”, “Cuộc truy tầm kho vũ khí”, “Trần Văn Ơn”  Tiểu thuyết “Đất rừng phương Nam” lấy bối cảnh câu chuyện rất đặc trưng của vùng Tây Nam bộ với rừng tràm bạt ngàn, dòng sông mênh mông, con đò bập bềnh, tôm cá đầy đàn. Đất rừng phương Nam đã mang đến người đọc nhiều thú vị về bối cảnh, con người, tập tục văn hóa của vùng nông thôn Nam bộ. Ông mượn hình ảnh một cậu bé bị lưu lạc trong thời kỳ kháng chiến chống Pháp ở Nam bộ để giới thiệu một vùng đất vô cùng giàu có, hào phóng và hùng vĩ với những con người trung hậu, trí dũng, một lòng một dạ theo kháng chiến. Tác phẩm gần như tập hợp tất cả đất rừng và người phương Nam. Có thể nói, “Đất rừng phương Nam” của Đoàn Giỏi như một xã hội của miền sông nước Tây Nam bộ thu nhỏ. Ở nơi đó, người đọc đã tìm thấy hình ảnh người dân của vùng đất phương Nam từ sông Tiền, sông Hậu trải dài đến Kiên Giang – Rạch Giá, rồi xuống tận rừng U Minh, sau đó dừng lại ở Năm Căn - Cà Mau. Bối cảnh trong “Đất rừng phương Nam” là cả một đất trời thiên nhiên ưu đãi, cánh đồng bát ngát mênh mông, sóng nước rì rầm, rừng rậm bạt ngàn trù phú, thú rừng hoang dã muôn loài… Sự tài tình của Đoàn Giỏi là như tái tạo lại bối cảnh sông nước, con người từ thuở ông cha ta còn mang gươm mở cõi. “Đất rừng Phương Nam” (1957) của Đoàn Giỏi không chỉ là tác phẩm phổ biến trong giới học sinh – sinh viên. Đối với độc giả khắp nơi trên mọi miền đất nước, họ xem tác phẩm ấy như một áng văn về con người, về vùng đất Nam bộ khá điển hình. “Đất rừng phương Nam” càng phổ biến khi được dịch ra nhiều thứ tiếng: Nga, Ba Lan, Trung Quốc, Đức, Tây Ban Nha… Từ tiểu thuyết “Đất rừng phương Nam”, hãng phim truyền hình thành phố Hồ Chí Minh (TFS) đã sản xuất thành bộ phim “Đất phương Nam” dài 11 tập. Nguyễn Vinh Sơn viết kịch bản và đạo diễn. Hội Điện ảnh Việt Nam đã trao giải A cho đạo diễn vào năm 1997. Thành công từ những tác phẩm đầu tay, nhà văn như được như được chắp cánh, niềm đam mê thúc đẩy ông một cách mạnh mẽ đi vào con đường văn chương, chọn văn chương để làm điểm tựa. Ông còn tìm đến văn chương như sự chia sẻ, động viên trong những ngày sống xa quê. Và hơn thế nữa, Đoàn Giỏi đã chọn con đường văn chương để làm sự nghiệp trọn đời mình.   "
+    },
+    {
+      "id": 11,
+      "name": "Linh Rab",
+      "slug": "linh-rab",
+      "image": "https://product.hstatic.net/200000343865/product/cuoc-phieu-luu-cua-de-ut_bia_phan-ket_bc2cf628314e4b77bc951845a6fc077e_master.jpg",
+      "description": "NGUYỄN THẾ LINH bút danh LinhRab Là họa sĩ truyện tranh và minh họa tự do, hiện sinh sống và làm việc tại Hà Nội. Yêu thích vẽ từ năm 3 tuổi, LinhRab bắt đầu vẽ những bức nguệch ngoạc trên khoảnh sân nhỏ và bức tường nhà. Anh cũng “sáng tác” những mẩu truyện tranh đầu tiên khi chỉ mới học cấp một."
+    },
+    {
+      "id": 12,
+      "name": "Koshiya Katsuji",
+      "slug": "koshiya-katsuji",
+      "image": "https://product.hstatic.net/200000343865/product/cong-nu-anio_19x26cm_811f3514270149c3912b8684dc988b1b_master.jpg",
+      "description": "ông nữ Anio (? – 1645) là con gái nuôi của chúa Sãi Nguyễn Phúc Nguyên, sau được gả cho thương nhân Araki Sotaro đến từ Nhật Bản. Câu chuyện tình vượt đại dương này cho đến nay vẫn là nguồn cảm hứng cho hậu thế: Cứ bảy năm một lần, vào tháng 10, khung cảnh lễ rước kiệu đón công nữ sẽ được tái hiện trong lễ hội mùa thu Nagasaki Okunchi tại tỉnh Nagasaki (Nhật Bản), như một biểu tượng cho mối bang giao bền chặt giữa hai quốc gia Việt – Nhật."
+    },
+    {
+      "id": 13,
+      "name": "Muneyuki Kaneshiro",
+      "slug": "muneyuki-kaneshiro",
+      "image": "https://product.hstatic.net/200000343865/product/15---db_e17a41dc1ac54a8795cde140715ce95b_master.jpg",
+      "description": "Hiệp 1 trận quyết đấu đặt cược sự tồn vong của dự án BLUELOCK với tuyển U-20 đã khép lại việc BLUELOCK 11 vươn lên dẫn trước nhờ cú sút lật ngược tình thế của Itoshi Rin! Kế hoạch bị mật mà tuyển U-20 sẽ dùng để chống lại những cái tôi hừng hực khí thế khiến cả thế giới phải sửng sốt là gì!? Mắt của Shido Ryusei, người được Itoshi Sae tìm ra, sáng lên một cách bất thường! Trong trận chiến quyết định đang không ngừng nóng lên ấy, hãy ghi bàn đi, Isagi Yoichi!!"
+    },
+    {
+      "id": 14,
+      "name": "Fujiko F Fujio",
+      "slug": "fujiko-f-fujio",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Fujiko_Fujio.jpg/220px-Fujiko_Fujio.jpg",
+      "description": "Ông Motoo Abiko sinh năm 1934 tại tỉnh Toyama. Ngay từ nhỏ, tác giả Doraemon đã bộc lộ sở thích vẽ manga. Vào năm 1953, Motoo Abiko và Hiroshi Fujimoto cùng nhau xuất bản tác phẩm đầu tay có tên là The Last World War."
+    },
+    {
+      "id": 15,
+      "name": "Kiều Bích Hương",
+      "slug": "kieu-bich-huong",
+      "image": "https://cdn.tuoitre.vn/tto/i/s626//2014/10/16/XkIiq3BS.jpg",
+      "description": "Câu chuyện kể về cậu bé Kobe và gia đình cậu, bố là người Bỉ, mẹ là người Việt Nam, chị gái Kate cùng cha khác mẹ và cô em gái Kim thông minh nhưng “chậm tiến” - một gia đình bình thường, mà sự khác biệt về ngôn ngữ, màu da, văn hóa, tuổi tác, không ngăn cản được tình yêu mến họ dành cho nhau, cùng nhau vượt qua đại dịch Covid-19 và chẳng ngại ngần dang rộng vòng tay đón nhận những người tị nạn chiến tranh đến từ Ukraina…"
+    },
+    {
+      "id": 16,
+      "name": "Jess Bradley",
+      "slug": "jess-bradley",
+      "image": "https://product.hstatic.net/200000343865/product/cb_f74b3ca7a76a4011a66a95622e0598e3_master.jpg",
+      "description": "Andy là một cậu học trò nhút nhát nhưng mê vẽ vời. Trong chuyến dã ngoại với lớp đến Đảo Sinh Tồn, tình cờ cây bút chì của cậu bị nhiễm phóng xạ và có siêu năng lực “vẽ thứ gì là thứ đó biến thành thật”. Cùng với cô bạn Mona thông minh tuyệt vời và cậu em trai Oscar nghịch ngợm, Andy sẽ tiêu diệt những tên siêu tội phạm và bảo vệ thế giới ra sao? Mời bạn tìm đọc trọn bộ Siêu Lập Dị để tham gia vào những cuộc phiêu lưu vô cùng hấp dẫn và hài hước của cậu bé Andy nhé!"
+    },
+    {
+      "id": 17,
+      "name": "Nhiều tác giả",
+      "slug": "nhieu-tac-gia",
+      "image": "https://product.hstatic.net/200000343865/product/cb_3342c7d907434655b9a6fb83baace5ec_master.jpg",
+      "description": "Ta có thể không hoàn hảo, nhưng chính sự bất toàn lại đẹp đẽ và giúp ta ngày càng hoàn thiện. Hãy yêu quí con người đích thực của mình, bởi vì mình rất tuyệt! Cuốn sách này bao gồm tám mẩu chuyện với phần bàn luận và trò chơi giúp trẻ cải thiện lòng tự tôn. Với những công cụ đúng và một chút luyện tập, ai cũng có thể yêu quí bản thân nhiều hơn và tốt hơn."
+    },
+    {
+      "id": 18,
+      "name": "Tomohito Oda",
+      "slug": "tomohito-oda",
+      "image": "https://product.hstatic.net/200000343865/product/25_a479d632ff964a0eb73348136ef0f801_master.jpg",
+      "description": "Bước sang năm học lớp 12! Komi được chung lớp với Tadano và Komi ở lớp 12-A. Thế nhưng, bị tách khỏi cô bạn Manbagi thân thiết từ hồi cùng lớp 11-A, Komi bỗng cảm thấy hơi lo lắng?"
+    },
+    {
+      "id": 19,
+      "name": "Gege Akutami",
+      "slug": "gege-akutami",
+      "image": "https://static.gamehub.vn/img/files/2021/07/20/Gamehub.vn-Jujutsu-Kaisen-xuat-ban-tro-lai4.jpg",
+      "description": "Bị Okkotsu, kẻ thi hành án, đánh bại, đứng trước lằn ranh sự sống và cái chết, khung cảnh gia đình vào một ngày nào đó trong quá khứ bỗng ùa về trong tâm trí Itadori. Ở đó có hình dạng trước kia của Kamo Noritoshi. Trong lúc mọi người đang nhắm đến việc trấn áp “Tử Diệt Hồi Du”, nơi các thuật sư sát phạt nhau, Maki lại đến nhà Zen’in…!? "
+    },
+    {
+      "id": 20,
+      "name": "Eiichiro Oda",
+      "slug": "eiichiro-oda",
+      "image": "https://cdn.popsww.com/blog/sites/2/2023/05/oda-eiichiro-con-song-khong.jpg",
+      "description": "Oda nổi tiếng là người nghiện công việc và ít khi nghỉ ngơi trong gần 30 năm qua. Ông luôn vẽ mới mọi khung hình, không bao giờ sao chép lại và tự vẽ hầu hết các nhân vật, có rất ít trợ lý. Họa sĩ sinh ngày 1/1/1975 có lịch làm việc 'điên rồ'. Khoảng thời gian nghỉ duy nhất dành cho ăn, ngủ và đi vệ sinh. Một ngày điển hình của Oda: dậy lúc 5h sáng, làm việc cả ngày, đi ngủ lúc 2h sáng hôm sau. Lịch trong tuần sẽ như sau: Thứ hai tới thứ tư: Lập bố cục và hội thoại nhân vật; Thứ năm tới thứ bảy: Vẽ; Chủ nhật: Tô màu và các nhiệm vụ khác. Vì quá say mê công việc, Oda đã khiến các fan lo lắng. Họa sĩ người Nhật phải nhập viện khiến One Piece bị chậm xuất bản ít ngày"
+    },
+    {
+      "id": 21,
+      "name": "Momoko Sakura",
+      "slug": "momoko-sakura",
+      "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRzJ8cQTWSzIi_H24DEuS4BKdb6fGV8nkDvs4eXy1MSnqm_BCb7",
+      "description": "Momoko Sakura sinh năm 1965 tại tỉnh Shizuoka - một vùng ngoại ô của Nhật Bản. Ít ai biết rằng bộ truyện 'Nhóc Maruko' được lấy cảm hứng từ chính tuổi thơ của nữ tác giả. Bên cạnh đó Maruko là tên gọi ngày bé của người phụ nữ tài năng này. Và nếu để ý, bạn sẽ thấy bút danh của nữ mangaka cũng chính là tên thật của nhân vật chính: Momoko Sakura"
+    },
+    {
+      "id": 22,
+      "name": "Yoshito Usui",
+      "slug": "yoshito-usui",
+      "image": "https://upload.wikimedia.org/wikipedia/vi/0/07/Yoshito_Usui.jpg",
+      "description": "Năm 1977, ông tốt nghiệp trường trung học kĩ thuật Saitama Kasukabe. Sau khi tốt nghiệp, ông nhập học tại một trường cao đẳng bán thời gian liên quan đến ngành thiết kế nhưng sau đó thì bỏ học. Vào năm 1979, ông tham gia vào một công ty quảng cáo có tên là POP Advertising. Ông ra mắt công chúng với tư cách là một họa sĩ vẽ tranh vào năm 1987 khi tạp chí Weekly Manga Action bắt đầu đăng tải series truyện tranh Darakuya Store Monogatari của ông. Vào tháng 8/1990, bộ truyện tranh Shin - cậu bé bút chì của ông bắt đầu được đăng tải trên tạp chí Weekly Manga Action, bộ truyện này ban đầu là một spin-off của nhân vật Shinnosuke Nikaido (二階堂信之介) từ truyện tranh Darakuya Store Monogatari. Một sê-ri phim hoạt hình dựa trên truyện tranh đã được bắt đầu thực hiện vào năm 1992. Và sau khi ra mắt vào năm 1993, bộ phim đã tạo ra một cơn sốt mang tên Shin - cậu bé bút chì. Một năm sau kể từ 1995, loạt truyện tranh Super Shufu Tsukimi-San của Usui đã được đăng tải trên tạp chí Manga Life."
     }
   ]
 }
