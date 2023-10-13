@@ -1,7 +1,10 @@
 <script setup>
 import { formatPrice } from "@utils/function.js";
 import { reactive } from "vue";
+import { useProductStore } from "@stores/product";
+
 defineProps(["book"]);
+const productStore = useProductStore();
 
 const style = reactive({
   name: "transtion-colors line-clamp-2 text-md tracking-tight text-gray-900 duration-150 hover:text-red-600 h-12",
@@ -14,17 +17,29 @@ const style = reactive({
     "absolute right-2 top-2 mr-2 rounded bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800",
   oldPrice: "text-gray-500 line-through",
 });
+
+const handleAddSeenProduct = (product) => {
+  productStore.addSeenProduct(product);
+};
 </script>
 
 <template>
   <div :class="style.container">
     <span :class="style.badge">-10%</span>
-    <router-link :to="{ path: `/books/${book.slug}` }">
+    <router-link
+      :to="{ path: `/books/${book.slug}` }"
+      @click="handleAddSeenProduct(book)"
+    >
       <img :class="style.image" :src="book.image" alt="product image" />
     </router-link>
     <div class="p-4">
-      <router-link :to="{ path: `/books/${book.slug}` }">
-        <h5 :class="style.name">{{ book.name }}</h5>
+      <router-link
+        :to="{ path: `/books/${book.slug}` }"
+        @click="handleAddSeenProduct(book)"
+      >
+        <h5 :class="style.name">
+          {{ book.name }}
+        </h5>
       </router-link>
       <div class="flex justify-between">
         <div :class="style.price">{{ formatPrice(book.price) }}</div>

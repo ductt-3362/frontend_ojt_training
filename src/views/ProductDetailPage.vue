@@ -2,17 +2,16 @@
 import ProductDetail from "@components/ProductDetail.vue";
 import { useRoute } from "vue-router";
 import { getDetailBookApi } from "@apis/book";
-import { ref, onMounted } from "vue";
+import { ref, watch } from "vue";
 import { useToast } from "vue-toast-notification";
 import { productApiMessage } from "@locales/vi/messages";
 import BaseLoading from "@components/BaseLoading.vue";
 
 const $toast = useToast();
 const route = useRoute();
-const slug = route.params.slug;
 const bookDetail = ref({});
 const isLoading = ref(true);
-const getBookDetailData = async () => {
+const getBookDetailData = async (slug) => {
   try {
     const { data } = await getDetailBookApi(slug);
     bookDetail.value = data[0];
@@ -22,7 +21,14 @@ const getBookDetailData = async () => {
     $toast.error(productApiMessage.error);
   }
 };
-onMounted(getBookDetailData);
+
+watch(
+  () => route.params.slug,
+  async () => {
+    await getBookDetailData(route.params.slug);
+  },
+  { immediate: true },
+);
 </script>
 
 <template>
