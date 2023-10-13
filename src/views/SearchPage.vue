@@ -11,8 +11,10 @@ const props = defineProps(["query"]);
 const books = ref([]);
 const isLoading = ref(true);
 const handleSearch = async () => {
-  if (!props.query) books.value = [];
-  else
+  if (!props.query) {
+    books.value = [];
+    isLoading.value = false;
+  } else
     try {
       const { data } = await getBooksByKeywordApi(props.query);
       books.value = data;

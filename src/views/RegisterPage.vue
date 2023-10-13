@@ -13,6 +13,7 @@ import { registerMessage } from "@locales/vi/messages";
 import { DEFAULT_AVATAR_URL } from "@constants/images";
 import { PHONE_REGEX } from "@constants/regex";
 import { TOKEN_KEY } from "@constants/storage";
+import { ROLES } from "@constants/roles";
 import Cookies from "js-cookie";
 
 const router = useRouter();
@@ -56,6 +57,7 @@ async function onSuccess(values) {
     const { data } = await registerApi({
       ...values,
       avatar: DEFAULT_AVATAR_URL,
+      role: ROLES.USER,
     });
     $toast.success(registerMessage.success);
     const { accessToken, user } = data;
@@ -74,7 +76,7 @@ const onSubmit = handleSubmit(onSuccess);
   <div class="flex flex-col items-center justify-center py-16">
     <div class="min-w-96 min-w-96 rounded-lg border-2 p-10">
       <p class="text-2xl max-sm:text-xl">Đăng ký tài khoản</p>
-      <form class="my-6" @submit="onSubmit">
+      <form class="my-6" @submit="onSubmit" @keyup.enter="onSubmit">
         <div class="mb-6">
           <BaseLabel for="name">Họ và tên</BaseLabel>
           <BaseInput
