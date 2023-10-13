@@ -1,16 +1,14 @@
 <script setup>
 import BookList from "@components/BookList.vue";
 import CategoryTitle from "@components/CategoryTitle.vue";
+import BaseLoading from "@components/BaseLoading.vue";
+import SwiperCarousel from "../components/SwiperCarousel.vue";
 import { getBooksByCategoryApi } from "@apis/book";
 import { getCategoriesApi } from "@apis/category";
 import { getBannersApi } from "@apis/banner";
 import { onMounted, ref, reactive } from "vue";
-import BaseLoading from "@components/BaseLoading.vue";
 import { useToast } from "vue-toast-notification";
 import { homePageMessage } from "@locales/vi/messages";
-
-import { register } from "swiper/element/bundle";
-register();
 
 const style = reactive({
   seeMoreText:
@@ -44,25 +42,7 @@ onMounted(fetchHomepageData);
 
 <template>
   <template v-if="!isLoading">
-    <swiper-container
-      class="mb-10"
-      :navigation="true"
-      :pagination="true"
-      :spaceBetween="30"
-      :centeredSlides="true"
-      :rewind="true"
-      :speed="750"
-      :autoplay="{
-        delay: 4000,
-        disableOnInteraction: false,
-      }"
-    >
-      <template v-for="picture in pictures" :key="picture.id">
-        <swiper-slide>
-          <img :src="picture.src" alt="banner" class="rounded-lg" />
-        </swiper-slide>
-      </template>
-    </swiper-container>
+    <SwiperCarousel :pictures="pictures" />
     <template v-for="category in homepageData" :key="category.id">
       <CategoryTitle :title="category.name" :slug="category.slug" />
       <BookList :list="category.books" />
