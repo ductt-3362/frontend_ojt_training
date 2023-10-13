@@ -18,8 +18,8 @@ const total = computed(() => {
   </template>
   <template v-else>
     <p class="my-6 text-xl font-semibold">Giỏ hàng</p>
-    <div class="flex flex-col items-center justify-center">
-      <div class="h-48">
+    <div class="mt-20 flex flex-col items-center justify-center">
+      <div class="h-36">
         <img
           src="https://cdn-icons-png.flaticon.com/256/4555/4555971.png"
           alt="empty_cart_icon"

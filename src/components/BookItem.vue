@@ -7,15 +7,15 @@ defineProps(["book"]);
 const productStore = useProductStore();
 
 const style = reactive({
-  name: "line-clamp-2 text-md tracking-tight text-gray-900 h-12",
-  price: "text-lg font-bold text-red-700",
+  name: "line-clamp-2 tracking-tight text-gray-900 h-12",
+  price: "text-lg font-bold text-red-700 max-sm:text-sm",
   image:
     "max:lg:h-60 h-80 w-full rounded-t-lg object-cover max-xl:h-72 max-md:h-80 max-sm:h-60",
   container:
     "relative h-fit rounded-lg border border-gray-200  bg-white shadow-md transition-transform duration-300 hover:scale-105 hover:transform",
   badge:
     "absolute right-2 top-2 rounded bg-red-100 px-2.5 py-0.5 text-sm font-medium text-red-800",
-  oldPrice: "text-gray-500 line-through",
+  oldPrice: "text-gray-500 line-through max-sm:text-sm",
   layer:
     "absolute left-0 top-0 z-10 h-full w-full rounded-lg bg-black/60 p-5 opacity-0 transition-opacity duration-300 hover:opacity-100 text-white",
 });
@@ -42,7 +42,7 @@ const handleAddSeenProduct = (product) => {
     >
       <div :class="style.layer">
         <p>{{ book.name }}</p>
-        <p class="mb-4">Tác giả: {{ book.author }}</p>
+        <p class="mb-4">Tác giả: {{ book.author.name }}</p>
         <p class="line-clamp-5">Mô tả: {{ book.description }}</p>
       </div>
     </router-link>

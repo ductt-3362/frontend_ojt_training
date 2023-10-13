@@ -48,7 +48,7 @@ const onSubmit = handleSubmit(handleLogin);
   <div class="flex flex-col items-center justify-center pt-16">
     <div class="min-w-96 rounded-lg border-2 p-10">
       <p class="text-2xl max-sm:text-xl">Đăng nhập</p>
-      <form class="my-6" @submit="onSubmit">
+      <form class="my-6" @submit="onSubmit" @keyup.enter="onSubmit">
         <div class="mb-6">
           <BaseLabel for="email">Email</BaseLabel>
           <BaseInput
@@ -69,7 +69,6 @@ const onSubmit = handleSubmit(handleLogin);
             autocomplete
           />
         </div>
-
         <BaseButton>Đăng nhập</BaseButton>
       </form>
       <p class="text-lg max-sm:text-sm">

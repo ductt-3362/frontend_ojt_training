@@ -4,12 +4,12 @@ defineProps(["title", "slug"]);
 
 <template>
   <div class="inline-flex w-full items-center justify-center">
-    <hr class="border-1 h-px w-full bg-gray-200 dark:bg-gray-700" />
+    <hr class="border-1 h-px w-full bg-gray-200" />
     <span
       class="absolute left-1/2 -translate-x-1/2 bg-white px-6 font-medium text-gray-900"
       ><router-link
         :to="{ name: 'collections', params: { slug } }"
-        class="text-gray text-2xl font-bold duration-300 hover:text-red-600"
+        class="text-gray text-2xl font-bold duration-300 hover:text-red-600 max-sm:text-xl"
       >
         {{ title }}
       </router-link></span

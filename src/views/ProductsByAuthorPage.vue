@@ -17,7 +17,6 @@ import PagiNation from "@components/PagiNation.vue";
 import { useRoute, useRouter } from "vue-router";
 import { useToast } from "vue-toast-notification";
 import { productApiMessage } from "@locales/vi/messages";
-import BaseLoading from "@components/BaseLoading.vue";
 import IconArrowDownVue from "@icons/IconArrowDown.vue";
 import IconArrowUpVue from "@icons/IconArrowUp.vue";
 
@@ -253,10 +252,7 @@ onMounted(async () => {
         />
       </div>
     </div>
-    <div
-      class="flex w-full flex-col"
-      v-if="!isLoading.products && !isLoading.booksTotal"
-    >
+    <div class="flex w-full flex-col">
       <div class="mb-8 flex max-lg:flex-col">
         <div class="mr-4 max-lg:mb-4">
           <img
@@ -332,7 +328,9 @@ onMounted(async () => {
       <div v-if="state.isSearch" class="mb-4 text-lg">
         <p>
           Kết quả: Có
-          {{ state.books.length }} sản phẩm với từ khóa "{{ state.params.q }}"
+          {{ state.noPagiBooks.length }} sản phẩm với từ khóa "{{
+            state.params.q
+          }}"
         </p>
       </div>
 
@@ -361,8 +359,5 @@ onMounted(async () => {
         class="mt-4 self-center"
       />
     </div>
-    <template v-else>
-      <BaseLoading class="h-[64vh] w-full" />
-    </template>
   </div>
 </template>

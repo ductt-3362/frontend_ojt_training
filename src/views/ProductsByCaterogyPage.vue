@@ -137,7 +137,7 @@ const handlePaginate = (pageIndex) => {
   }
 };
 
-// get categoris
+// get categories
 const fetchCategories = async () => {
   try {
     const { data: categoriesData } = await getCategoriesApi();
@@ -320,7 +320,9 @@ onMounted(async () => {
       <div v-if="state.isSearch" class="mb-4 text-lg">
         <p>
           Kết quả: Có
-          {{ state.books.length }} sản phẩm với từ khóa "{{ state.params.q }}"
+          {{ state.noPagiBooks.length }} sản phẩm với từ khóa "{{
+            state.params.q
+          }}"
         </p>
       </div>
 
