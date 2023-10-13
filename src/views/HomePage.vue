@@ -1,12 +1,12 @@
 <script setup>
 import BookList from "@components/BookList.vue";
 import CategoryTitle from "@components/CategoryTitle.vue";
-import { Carousel } from "flowbite-vue";
+import BaseLoading from "@components/BaseLoading.vue";
+import SwiperCarousel from "../components/SwiperCarousel.vue";
 import { getBooksByCategoryApi } from "@apis/book";
 import { getCategoriesApi } from "@apis/category";
 import { getBannersApi } from "@apis/banner";
 import { onMounted, ref, reactive } from "vue";
-import BaseLoading from "@components/BaseLoading.vue";
 import { useToast } from "vue-toast-notification";
 import { homePageMessage } from "@locales/vi/messages";
 
@@ -41,7 +41,7 @@ onMounted(fetchHomepageData);
 
 <template>
   <template v-if="!isLoading">
-    <Carousel :pictures="pictures" :slide="true" class="mb-10" />
+    <SwiperCarousel :pictures="pictures" />
     <template v-for="category in homepageData" :key="category.id">
       <CategoryTitle :title="category.name" :slug="category.slug" />
       <BookList :list="category.books" />
