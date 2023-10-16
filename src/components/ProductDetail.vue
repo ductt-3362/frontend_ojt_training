@@ -7,7 +7,6 @@ import IconAddToCart from "@components/icons/IconAddToCart.vue";
 import { useCartStore } from "@stores/cart";
 import ProductComment from "@components/ProductComment.vue";
 import { computed, reactive, watch } from "vue";
-import Breadcrumb from "@components/BreadCrumb.vue";
 import { useRouter } from "vue-router";
 import { useProductStore } from "@stores/product";
 import BookList from "@components/BookList.vue";
@@ -15,6 +14,7 @@ import IconHeart from "@icons/IconHeart.vue";
 import IconHeartFill from "@icons/IconHeartFill.vue";
 import { getBooksByCategoryApi, getBooksByAuthorApi } from "@apis/book.js";
 import { productApiMessage } from "@locales/vi/messages";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
 
 const productStore = useProductStore();
 const router = useRouter();
@@ -39,6 +39,18 @@ const booksByAuthor = computed(() => {
   const startIndex = 0;
   const endIndex = LIMIT_NUM;
   return state.booksByAuthor.slice(startIndex, endIndex);
+});
+
+const breadcrumbItems = computed(() => {
+  return [
+    {
+      path: `/collections/${props.productDetail.category.slug}`,
+      title: `${props.productDetail.category.name}`,
+    },
+    {
+      title: `${props.productDetail.name}`,
+    },
+  ];
 });
 
 const isLiked = computed(() => {
@@ -141,11 +153,7 @@ watch(
   <template v-if="productDetail">
     <div class="min-w-[320px]">
       <div class="mb-4">
-        <Breadcrumb
-          :category-slug="productDetail.category.slug"
-          :category-name="productDetail.category.name"
-          :book-name="productDetail.name"
-        />
+        <BaseBreadcrumb :items="breadcrumbItems" />
       </div>
       <div class="mb-8 flex max-sm:flex-col">
         <div :class="style.image">

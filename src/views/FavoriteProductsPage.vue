@@ -3,6 +3,7 @@ import BookItem from "@components/BookItem.vue";
 import BaseButton from "@components/BaseButton.vue";
 import { useProductStore } from "@stores/product";
 import { reactive, computed } from "vue";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
 
 const productStore = useProductStore();
 const style = reactive({
@@ -15,6 +16,7 @@ const favoriteProducts = computed(() => {
   const endIndex = LIMIT_NUM;
   return productStore.favoriteProducts.slice(startIndex, endIndex);
 });
+const breadcrumbItems = [{ title: `Yêu thích` }];
 
 const handleClear = () => {
   productStore.removeFavoriteProducts();
@@ -25,6 +27,7 @@ const handleRemoveItem = (product) => {
 };
 </script>
 <template>
+  <BaseBreadcrumb :items="breadcrumbItems" />
   <div class="flex items-end justify-between">
     <div class="mt-6 text-xl font-semibold">Danh sách yêu thích</div>
     <BaseButton

@@ -3,13 +3,20 @@ import { computed } from "vue";
 import CartList from "@components/CartList.vue";
 import BaseButton from "@components/BaseButton.vue";
 import { useCartStore } from "@stores/cart";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
+
 const cartStore = useCartStore();
+
+const breadcrumbItems = [{ title: `Giỏ hàng` }];
+
 const total = computed(() => {
   return cartStore.cart.length;
 });
 </script>
 
 <template>
+  <BaseBreadcrumb :items="breadcrumbItems" />
+
   <template v-if="total">
     <p class="my-6 text-xl font-semibold">
       Giỏ hàng của bạn có {{ total }} sản phẩm

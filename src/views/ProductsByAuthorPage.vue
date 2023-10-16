@@ -8,7 +8,7 @@ import {
   FROM_200K_TO_300K_PRICE,
   MORE_THAN_300K_PRICE,
 } from "@constants/filters.js";
-import { reactive, onMounted, watch } from "vue";
+import { reactive, onMounted, watch, computed } from "vue";
 import CategorySearch from "@components/CategorySearch.vue";
 import SelectSort from "@components/SelectSort.vue";
 import FilterRadio from "@components/FilterRadio.vue";
@@ -19,6 +19,7 @@ import { useToast } from "vue-toast-notification";
 import { productApiMessage } from "@locales/vi/messages";
 import IconArrowDownVue from "@icons/IconArrowDown.vue";
 import IconArrowUpVue from "@icons/IconArrowUp.vue";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
 
 const $toast = useToast();
 const route = useRoute();
@@ -46,6 +47,10 @@ const state = reactive({
   pageIndex: 1,
   resetCurrentId: true,
   isShow: false,
+});
+
+const breadcrumbItems = computed(() => {
+  return [{ title: `${state.author.name}` }];
 });
 
 const isLoading = reactive({
@@ -238,6 +243,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <BaseBreadcrumb :items="breadcrumbItems" />
   <div class="my-4 flex max-md:flex-wrap-reverse">
     <div
       class="mr-4 flex min-w-[240px] flex-col max-md:mr-0 max-md:w-full max-md:flex-row max-md:justify-between max-sm:flex-col"

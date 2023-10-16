@@ -8,12 +8,15 @@ import { useToast } from "vue-toast-notification";
 import { orderApiMessage } from "@locales/vi/messages";
 import { useAuthStore } from "@stores/auth";
 import BaseLoading from "@components/BaseLoading.vue";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
 
 const $toast = useToast();
 const route = useRoute();
 const authStore = useAuthStore();
 const orderDetail = ref([]);
 const isLoading = ref(true);
+
+const breadcrumbItems = [{ title: `Chi tiết đơn hàng` }];
 
 const fetchOrder = async () => {
   try {
@@ -34,6 +37,7 @@ const order = computed(() => orderDetail.value[0]?.order);
 </script>
 
 <template>
+  <BaseBreadcrumb :items="breadcrumbItems" />
   <template v-if="!isLoading">
     <div v-if="order" class="mt-12">
       <template v-if="order.userId === authStore.userInfo?.id">
