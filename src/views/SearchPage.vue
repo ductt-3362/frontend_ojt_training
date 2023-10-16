@@ -6,10 +6,13 @@ import { productApiMessage } from "@locales/vi/messages";
 import { useToast } from "vue-toast-notification";
 import { onMounted, ref, watch } from "vue";
 import BaseLoading from "@components/BaseLoading.vue";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
+
 const $toast = useToast();
 const props = defineProps(["query"]);
 const books = ref([]);
 const isLoading = ref(true);
+const breadcrumbItems = [{ title: `Tìm kiếm` }];
 const handleSearch = async () => {
   if (!props.query) {
     books.value = [];
@@ -37,12 +40,12 @@ const fetchBooksBySortParams = async (params) => {
 };
 
 watch(() => props.query, handleSearch);
-
 onMounted(handleSearch);
 </script>
 <template>
+  <BaseBreadcrumb :items="breadcrumbItems" />
   <template v-if="!isLoading">
-    <div class="my-12">
+    <div class="my-4">
       <div v-if="query" class="flex justify-between max-md:flex-col">
         <p class="text-3xl max-lg:text-2xl">
           Kết quả: Có {{ books.length }} sản phẩm chứa từ khóa "{{ query }}"

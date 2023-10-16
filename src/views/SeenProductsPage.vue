@@ -3,6 +3,7 @@ import BookList from "@components/BookList.vue";
 import { useProductStore } from "@stores/product";
 import BaseButton from "@components/BaseButton.vue";
 import { computed, reactive } from "vue";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
 
 const productStore = useProductStore();
 const style = reactive({
@@ -14,11 +15,15 @@ const seenBooks = computed(() => {
   const endIndex = LIMIT_NUM;
   return productStore.seenProducts.slice(startIndex, endIndex);
 });
+
+const breadcrumbItems = [{ title: `Sản phẩm đã xem` }];
+
 const handleClear = () => {
   productStore.removeAllSeenProducts();
 };
 </script>
 <template>
+  <BaseBreadcrumb :items="breadcrumbItems" />
   <div class="flex items-end justify-between" v-if="seenBooks.length">
     <div class="mt-6 text-xl font-semibold">SẢN PHẨM ĐÃ XEM</div>
     <BaseButton :style-prop="style.button" @click="handleClear">

@@ -7,6 +7,7 @@ import { useRouter } from "vue-router";
 import IconHome from "@icons/IconHome.vue";
 import IconPhone from "@icons/IconPhone.vue";
 import IconMail from "@icons/IconMail.vue";
+import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -17,9 +18,11 @@ const style = reactive({
   image: "rounded-[50%]  object-cover w-full h-full",
   wrapIcon: "mr-2 ",
 });
+const breadcrumbItems = [{ title: `Thông tin người dùng` }];
 </script>
 
 <template>
+  <BaseBreadcrumb :items="breadcrumbItems" />
   <template v-if="user">
     <div
       class="flex h-[64vh] min-w-[350px] flex-col items-center justify-center"
