@@ -1054,7 +1054,132 @@
         }
       },
       "userId": 2,
-      "id": 3
+      "id": 15
+    },
+    {
+      "book": {
+        "id": 20,
+        "name": "COMBO CÔNG CỤ LỚN CHO CHIẾN BINH NHỎ (4 QUYỂN)",
+        "slug": "combo-cong-cu-lon-cho-chien-binh-nho-4-quyen",
+        "authorId": 17,
+        "price": 144000,
+        "quantity": 10,
+        "description": "Ta có thể không hoàn hảo, nhưng chính sự bất toàn lại đẹp đẽ và giúp ta ngày càng hoàn thiện. Hãy yêu quí con người đích thực của mình, bởi vì mình rất tuyệt! Cuốn sách này bao gồm tám mẩu chuyện với phần bàn luận và trò chơi giúp trẻ cải thiện lòng tự tôn. Với những công cụ đúng và một chút luyện tập, ai cũng có thể yêu quí bản thân nhiều hơn và tốt hơn.",
+        "image": "https://product.hstatic.net/200000343865/product/cb_3342c7d907434655b9a6fb83baace5ec_master.jpg",
+        "size": "17x22 cm",
+        "page": 48,
+        "cover": "Bìa mềm",
+        "weight": "520 gram",
+        "audience": "Nhi đồng (6 – 11)",
+        "categoryId": 3,
+        "category": {
+          "id": 3,
+          "name": "Combo",
+          "slug": "combo"
+        },
+        "author": {
+          "id": 17,
+          "name": "Nhiều tác giả",
+          "slug": "nhieu-tac-gia",
+          "image": "https://product.hstatic.net/200000343865/product/cb_3342c7d907434655b9a6fb83baace5ec_master.jpg",
+          "description": "Ta có thể không hoàn hảo, nhưng chính sự bất toàn lại đẹp đẽ và giúp ta ngày càng hoàn thiện. Hãy yêu quí con người đích thực của mình, bởi vì mình rất tuyệt! Cuốn sách này bao gồm tám mẩu chuyện với phần bàn luận và trò chơi giúp trẻ cải thiện lòng tự tôn. Với những công cụ đúng và một chút luyện tập, ai cũng có thể yêu quí bản thân nhiều hơn và tốt hơn."
+        }
+      },
+      "userId": 2,
+      "id": 16
+    },
+    {
+      "book": {
+        "id": 9,
+        "name": "TÝ QUẬY - TẬP 13",
+        "slug": "ty-quay-tap-13",
+        "authorId": 9,
+        "price": 36000,
+        "quantity": 10,
+        "description": "Tý Quậy tập 13 tiếp tục giới thiệu 4 mẩu chuyện mới toanh về Tý, Tèo, Tún – bộ ba gây cười “trứ danh” của xê-ri Tý Quậy. Ở tập truyện mới này, Tý phải đương đầu với những tình huống vô cùng “ngặt nghèo” như bị bố mẹ so sánh với “con nhà người ta”, với bài tập tiếng Việt tưởng dễ mà lại khó không tưởng, với ngày lễ Giáng Sinh và kì nghỉ hè “trong mơ”. Vẫn hài hước và đáng yêu đậm chất Tý Quậy, tập truyện tranh này hứa hẹn mang tới cho các độc giả trung thành của Tý những tràng cười sảng khoái! ",
+        "image": "https://product.hstatic.net/200000343865/product/13_96a50f23f2514a25a41381cc637cfae3_master.jpg",
+        "size": "14.5x20.5 cm",
+        "page": 160,
+        "cover": "Bìa mềm",
+        "weight": "185 gram",
+        "audience": "Nhi đồng (6 – 11)",
+        "categoryId": 2,
+        "category": {
+          "id": 2,
+          "name": "Sách bán chạy",
+          "slug": "sach-ban-chay"
+        },
+        "author": {
+          "id": 9,
+          "name": "Đào Hải",
+          "slug": "dao-hai",
+          "image": "https://images2.thanhnien.vn/Uploaded/2014/Pictures201404/Minh_Nguyet/tacgia.jpg",
+          "description": "Tác giả Đào Hải (sáng tác tập 1 đến tập 8 và viết lời tập 9) có tên thật là Đào Hồng Hải, sinh năm 1958 tại Hà Nội, là họa sĩ thiết kế mỹ thuật phim và có thời gian dài công tác tại Hãng phim truyện Việt Nam. Đào Hải tốt nghiệp Đại học Mỹ thuật Công nghiệp, Đại học Sân khấu - Điện ảnh Hà Nội, đã có nhiều tác phẩm cho thiếu nhi. Đào Hải bắt đầu có mẩu chuyện đen trắng nhỏ, in mỏng, đặt tên là Tý và Tèo. Năm 1997, những cuốn sách rời về Tý và Tèo của hoạ sĩ được tập hợp lại thành cuốn 64 trang (Tý và Tèo học võ). Năm 2007, bộ truyện được định hình như hiện tại, gồm có 4 quyển truyện màu. Trong các năm tiếp theo, các tập 5, 6, 7 được ra mắt vào thời điểm tương ứng. Theo lời góp ý của phụ huynh và độc giả, ông đã bỏ bớt các từ suông sã, hậu cảnh sơ sài. Năm 2012, sức khỏe Đào Hải đã yếu đi nhiều, nhưng ông đã cố gắng để hoàn thành tập 8. ào Hải qua đời vào ngày 9 tháng 4 năm 2014 khi tập 9 của ông vẫn còn dang dở. Họa sĩ Nguyễn Quang Toàn là người tiếp nối phần tranh vẽ của bộ truyện. Ngoài ra, Hoài Thu đã viết kịch bản tập 10 và tập 11, Dương Thúy Quỳnh viết kịch bản tập 12 của bộ truyện."
+        }
+      },
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "book": {
+        "id": 17,
+        "name": "COMBO NHỮNG DÒNG CHỮ MÀU NHIỆM (3 QUYỂN)",
+        "slug": "combo-nhung-dong-chu-mau-nhiem-3-quyen",
+        "authorId": 5,
+        "price": 128000,
+        "quantity": 10,
+        "description": "Kohei, Ryuya và Haruto đều là học sinh lớp 5 của trường tiểu học. Hoàn cảnh gia đình khác nhau, mỗi bạn đều có những mong ước, những mục tiêu muốn đạt được riêng. Nhưng cả ba có một điểm chung, là đều đã viết ra những mong muốn của mình vào một cuốn sổ “nhật kí” kì diệu, sự kì diệu nằm ở chỗ dường như mọi điều ước ghi vào cuốn sổ đều trở thành hiện thực. Nhưng thực tế thì liệu có tồn tại một cuốn sổ như vậy hay không?",
+        "image": "https://product.hstatic.net/200000343865/product/cb_531c0bd312d14103957d19f56fa9efb6_large.jpg",
+        "size": "13x19 cm",
+        "page": 150,
+        "cover": "Bìa mềm",
+        "weight": "540 gram",
+        "audience": "Thiếu niên (11 – 15)",
+        "categoryId": 3,
+        "category": {
+          "id": 3,
+          "name": "Combo",
+          "slug": "combo"
+        },
+        "author": {
+          "id": 5,
+          "name": "Honda Ariake",
+          "slug": "honda-ariake",
+          "description": "",
+          "image": "https://product.hstatic.net/200000343865/product/nhung-dong-chu-nhiem-mau_nhat-ki-thuc-hien-uoc-mo_bia_350a97bfcbe147bd8f8ea57d35ad1d79_master.jpg"
+        }
+      },
+      "userId": 2,
+      "id": 18
+    }
+  ],
+  "seenBooks": [
+    {
+      "book": {
+        "id": 1,
+        "authorId": 1,
+        "name": "YONA - CÔNG CHÚA BÌNH MINH - TẬP 33 (TẶNG KÈM POSTCARD)",
+        "slug": "yona-cong-chua-binh-minh-tap-33-tang-kem-postcard",
+        "price": 22500,
+        "quantity": 10,
+        "description": "Yona không được tiếp xúc với Hak và Tứ Long, cả yêu cầu gặp mặt Soo Won cũng bị từ chối. Đêm đến, khi Yona lẻn ra khỏi phòng ngủ và tiến về phía ngự thư phòng thì Soo Won đột nhiên xuất hiện và bắt chuyện với cô… Trong lúc đó, Tứ Long đồng ý tham gia diễn tập cùng quân đội…!?",
+        "image": "https://product.hstatic.net/200000343865/product/33_c41b6baaa61d479f9846d9f65d09e717_master.jpg",
+        "size": "11.3x17.6 cm",
+        "page": 176,
+        "cover": "Bìa mềm",
+        "weight": "150 gram",
+        "audience": "Thiếu niên (11 – 15)",
+        "categoryId": 1,
+        "author": {
+          "id": 1,
+          "name": "Mizuho Kusanagi",
+          "slug": "mizuho-kusanagi",
+          "description": "Mizuho Kusanagi là một họa sĩ truyện tranh người Nhật và là tác giả cùa Akatsuki no Yona. Cô sinh ra vào ngày 3/2 tại Kumatou, tỉnh Kumamoto, Nhật Bản. Sự nghiệp của cô đã bị gián đoạn trong một vài tháng bởi trận động đất Kunamo 5.1 độ richter vào ngày 31/08/2016. Kể từ sau ngày hôm đó cô đã quay trở về với lịch trình công việc bình thường.",
+          "image": "https://docs.ficomic.com/IMAGES_29/mizuho-kusanagi-autorretrato.jpg"
+        }
+      },
+      "userId": 2,
+      "id": 1
     }
   ]
 }

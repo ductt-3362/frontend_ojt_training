@@ -2,10 +2,12 @@
 import { formatPrice } from "@utils/function.js";
 import { reactive } from "vue";
 import { useProductStore } from "@stores/product";
+import { postSeenBookApi } from "@apis/book.js";
+import { useToast } from "vue-toast-notification";
+import { useAuthStore } from "@stores/auth";
+import { productApiMessage } from "@locales/vi/messages";
 
 defineProps(["book"]);
-const productStore = useProductStore();
-
 const style = reactive({
   name: "line-clamp-2 tracking-tight text-gray-900 h-12",
   price: "text-lg font-bold text-red-700 max-sm:text-sm",
@@ -20,8 +22,25 @@ const style = reactive({
     "absolute left-0 top-0 z-10 h-full w-full rounded-lg bg-black/60 p-5 opacity-0 transition-opacity duration-300 hover:opacity-100 text-white",
 });
 
-const handleAddSeenProduct = (product) => {
-  productStore.addSeenProduct(product);
+const productStore = useProductStore();
+const authStore = useAuthStore();
+const $toast = useToast();
+
+const handleAddSeenProduct = async (product) => {
+  const seenproduct = productStore.seenProducts.find(
+    (item) => item.book.id === product.id,
+  );
+  if (!seenproduct && authStore.userInfo) {
+    try {
+      const { data } = await postSeenBookApi({
+        book: product,
+        userId: authStore.userInfo.id,
+      });
+      productStore.addSeenProduct(data);
+    } catch (error) {
+      $toast.error(productApiMessage.error);
+    }
+  }
 };
 </script>
 

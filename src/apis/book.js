@@ -30,3 +30,12 @@ export const postFavoriteBookApi = async (param) =>
 
 export const deleteFavoriteBookApi = async (id) =>
   api.delete(`/favorites/${id}`);
+
+export const postSeenBookApi = async (param) => api.post(`/seenBooks`, param);
+
+export const getSeenBooksApi = async (userId) =>
+  api.get(`/seenBooks`, {
+    params: { userId },
+  });
+
+export const deleteSeenBookApi = async (id) => api.delete(`/seenBooks/${id}`);

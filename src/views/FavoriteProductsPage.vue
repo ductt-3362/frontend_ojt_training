@@ -2,15 +2,13 @@
 import BookItem from "@components/BookItem.vue";
 import BaseButton from "@components/BaseButton.vue";
 import { useProductStore } from "@stores/product";
-import { useAuthStore } from "@stores/auth.js";
 import { reactive, computed } from "vue";
 import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
-import { getFavoriteBooksApi, deleteFavoriteBookApi } from "@apis/book.js";
+import { deleteFavoriteBookApi } from "@apis/book.js";
 import { useToast } from "vue-toast-notification";
-import { favoriteMessage, productApiMessage } from "@locales/vi/messages";
+import { favoriteMessage } from "@locales/vi/messages";
 
 const productStore = useProductStore();
-const authStore = useAuthStore();
 const $toast = useToast();
 const style = reactive({
   button: "bg-red-600 hover:bg-red-800 py-1 px-2 rounded-md",
@@ -21,22 +19,13 @@ const favoriteProducts = computed(() => {
 });
 const breadcrumbItems = [{ title: `Yêu thích` }];
 
-const handleRemoveItem = async (id) => {
+const handleRemoveItem = async (favoriteBook) => {
   try {
-    await deleteFavoriteBookApi(id);
+    await deleteFavoriteBookApi(favoriteBook.id);
     $toast.success(favoriteMessage.removeSuccess);
-    await updateFavoriteBooks();
+    productStore.removeFavoriteProduct(favoriteBook);
   } catch (error) {
     $toast.error(favoriteMessage.removeError);
-  }
-};
-
-const updateFavoriteBooks = async () => {
-  try {
-    const { data } = await getFavoriteBooksApi(authStore.userInfo.id);
-    productStore.setFavoriteProducts(data);
-  } catch (error) {
-    $toast.error(productApiMessage.error);
   }
 };
 </script>
@@ -56,7 +45,7 @@ const updateFavoriteBooks = async () => {
           <BaseButton
             class="absolute left-0 top-0"
             :style-prop="style.button"
-            @click="handleRemoveItem(item.id)"
+            @click="handleRemoveItem(item)"
           >
             Xóa
           </BaseButton>

@@ -13,6 +13,7 @@ import { useAuthStore } from "@stores/auth";
 import BookList from "@components/BookList.vue";
 import IconHeart from "@icons/IconHeart.vue";
 import IconHeartFill from "@icons/IconHeartFill.vue";
+import BaseLoading from "@components/BaseLoading.vue";
 import {
   getBooksByCategoryApi,
   getBooksByAuthorApi,
@@ -49,7 +50,12 @@ const LIMIT_NUM = 5;
 const seenProducts = computed(() => {
   const startIndex = 0;
   const endIndex = LIMIT_NUM;
-  return productStore.seenProducts.slice(startIndex, endIndex);
+
+  return productStore.seenProducts
+    .map((item) => {
+      return item.book;
+    })
+    .slice(startIndex, endIndex);
 });
 
 const booksBycategory = computed(() => {
@@ -80,6 +86,7 @@ const state = reactive({
   activeIndex: 1,
   booksByCategory: [],
   booksByAuthor: [],
+  seenBooks: [],
 });
 const favoriteItem = computed(() => {
   return productStore.favoriteProducts.find((item) => {
@@ -90,11 +97,6 @@ const favoriteItem = computed(() => {
 if (!props.productDetail) {
   router.push({ name: "404Page" });
 }
-
-watch(
-  () => props.productDetail,
-  () => (state.activeIndex = 1),
-);
 
 const handleAddToCart = () => {
   try {
@@ -158,6 +160,7 @@ const handleFavorite = async () => {
 watch(
   () => props.productDetail,
   () => {
+    state.activeIndex = 1;
     try {
       Promise.all([
         getBooksByCategoryApi(props.productDetail.category.id),
@@ -311,18 +314,20 @@ watch(
         >
           Xem thêm >>
         </div>
-        <div class="inline-flex w-full items-center justify-center">
-          <hr class="my-8 h-px w-full border-0 bg-gray-200" />
-          <span :class="style.listBookTitle"> SẢN PHẨM ĐÃ XEM </span>
-        </div>
+        <template v-if="authStore.userInfo">
+          <div class="inline-flex w-full items-center justify-center">
+            <hr class="my-8 h-px w-full border-0 bg-gray-200" />
+            <span :class="style.listBookTitle"> SẢN PHẨM ĐÃ XEM </span>
+          </div>
 
-        <BookList :list="seenProducts" class="my-4" />
-        <div
-          class="flex cursor-pointer justify-end text-red-600 duration-300 hover:text-red-800"
-          @click="handleNavigationSeenPage"
-        >
-          Xem thêm >>
-        </div>
+          <BookList :list="seenProducts" class="my-4" />
+          <div
+            class="flex cursor-pointer justify-end text-red-600 duration-300 hover:text-red-800"
+            @click="handleNavigationSeenPage"
+          >
+            Xem thêm >>
+          </div>
+        </template>
       </div>
     </div>
   </template>

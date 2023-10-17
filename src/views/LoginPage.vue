@@ -13,7 +13,7 @@ import { useToast } from "vue-toast-notification";
 import { loginMessage } from "@locales/vi/messages";
 import { TOKEN_KEY } from "@constants/storage";
 import Cookies from "js-cookie";
-import { getFavoriteBooksApi } from "@apis/book.js";
+import { getFavoriteBooksApi, getSeenBooksApi } from "@apis/book.js";
 
 const $toast = useToast();
 const router = useRouter();
@@ -35,10 +35,13 @@ async function handleLogin(values) {
     Cookies.set(TOKEN_KEY, accessToken);
     await authStore.setUserInfo(user);
     $toast.success(loginMessage.success);
-    const { data: favoriteBooks } = await getFavoriteBooksApi(
-      authStore.userInfo.id,
-    );
-    productStore.setFavoriteProducts(favoriteBooks);
+    Promise.all([
+      getFavoriteBooksApi(authStore.userInfo.id),
+      getSeenBooksApi(authStore.userInfo.id),
+    ]).then(([{ data: favoriteBooks }, { data: seenBooks }]) => {
+      productStore.setFavoriteProducts(favoriteBooks);
+      productStore.setSeenProducts(seenBooks);
+    });
     router.push("/");
   } catch (error) {
     // handle error

@@ -10,6 +10,9 @@ export const useProductStore = defineStore("product", {
     setFavoriteProducts(products) {
       this.favoriteProducts = products;
     },
+    setSeenProducts(products) {
+      this.seenProducts = products;
+    },
     clearFavoriteProducts() {
       this.favoriteProducts = [];
     },
@@ -31,6 +34,11 @@ export const useProductStore = defineStore("product", {
         return item.id !== product.id;
       });
     },
+    removeSeenProduct(product) {
+      this.seenProducts = this.seenProducts.filter((item) => {
+        return item.id !== product.id;
+      });
+    },
     addSeenProduct(product) {
       const seenProduct = this.seenProducts.find(
         (item) => item.id === product.id,
@@ -40,7 +48,7 @@ export const useProductStore = defineStore("product", {
         this.seenProducts.unshift(product);
       }
     },
-    removeAllSeenProducts() {
+    clearSeenProducts() {
       this.seenProducts = [];
     },
   },

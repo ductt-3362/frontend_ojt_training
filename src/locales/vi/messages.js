@@ -62,3 +62,8 @@ export const favoriteMessage = {
   error: "Thêm vào danh sách yêu thích thất bại",
   required: "Bạn cần đăng nhập để sử dụng tính năng này",
 };
+
+export const seenProductsMessage = {
+  removeSuccess: "Xóa khỏi danh sách đã xem thành công",
+  removeError: "Xóa khỏi danh sách đã xem thất bại",
+};

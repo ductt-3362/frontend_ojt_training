@@ -34,6 +34,7 @@ const style = reactive({
 
 const handleLogout = () => {
   productStore.clearFavoriteProducts();
+  productStore.clearSeenProducts();
   authStore.logout();
 };
 
