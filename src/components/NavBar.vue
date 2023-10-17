@@ -11,7 +11,10 @@ import { useAuthStore } from "@stores/auth";
 import { computed, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useProductStore } from "@stores/product";
+import { useToast } from "vue-toast-notification";
+import { favoriteMessage } from "@locales/vi/messages";
 
+const $toast = useToast();
 const productStore = useProductStore();
 const authStore = useAuthStore();
 const router = useRouter();
@@ -30,12 +33,24 @@ const style = reactive({
 });
 
 const handleLogout = () => {
+  productStore.clearFavoriteProducts();
   authStore.logout();
 };
 
 const handleClick = (path) => {
   isHidden.value = true;
   router.push(path);
+};
+
+const handleClickFavorite = (path) => {
+  const userId = authStore.userInfo?.id;
+  if (!userId) {
+    $toast.error(favoriteMessage.required);
+    router.push({ name: "login" });
+  } else {
+    isHidden.value = true;
+    router.push(path);
+  }
 };
 </script>
 
@@ -100,7 +115,10 @@ const handleClick = (path) => {
               <IconRegister />
               <span> Đăng ký </span>
             </li>
-            <li @click="handleClick('/pages/favorite')" :class="style.link">
+            <li
+              @click="handleClickFavorite('/pages/favorite')"
+              :class="style.link"
+            >
               <div :class="style.iconWrap">
                 <div class="relative mr-3">
                   <IconHeart />

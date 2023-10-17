@@ -53,3 +53,12 @@ export const commentApiMessage = {
 export const homePageMessage = {
   error: "Không thể kết nối đến máy chủ",
 };
+
+export const favoriteMessage = {
+  addSuccess: "Thêm vào danh sách yêu thích thành công",
+  addError: "Thêm vào danh sách yêu thích thất bại",
+  removeSuccess: "Xóa khỏi danh sách yêu thích thành công",
+  removeError: "Xóa khỏi danh sách yêu thích thất bại",
+  error: "Thêm vào danh sách yêu thích thất bại",
+  required: "Bạn cần đăng nhập để sử dụng tính năng này",
+};

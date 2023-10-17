@@ -958,5 +958,103 @@
       "image": "https://upload.wikimedia.org/wikipedia/vi/0/07/Yoshito_Usui.jpg",
       "description": "Năm 1977, ông tốt nghiệp trường trung học kĩ thuật Saitama Kasukabe. Sau khi tốt nghiệp, ông nhập học tại một trường cao đẳng bán thời gian liên quan đến ngành thiết kế nhưng sau đó thì bỏ học. Vào năm 1979, ông tham gia vào một công ty quảng cáo có tên là POP Advertising. Ông ra mắt công chúng với tư cách là một họa sĩ vẽ tranh vào năm 1987 khi tạp chí Weekly Manga Action bắt đầu đăng tải series truyện tranh Darakuya Store Monogatari của ông. Vào tháng 8/1990, bộ truyện tranh Shin - cậu bé bút chì của ông bắt đầu được đăng tải trên tạp chí Weekly Manga Action, bộ truyện này ban đầu là một spin-off của nhân vật Shinnosuke Nikaido (二階堂信之介) từ truyện tranh Darakuya Store Monogatari. Một sê-ri phim hoạt hình dựa trên truyện tranh đã được bắt đầu thực hiện vào năm 1992. Và sau khi ra mắt vào năm 1993, bộ phim đã tạo ra một cơn sốt mang tên Shin - cậu bé bút chì. Một năm sau kể từ 1995, loạt truyện tranh Super Shufu Tsukimi-San của Usui đã được đăng tải trên tạp chí Manga Life."
     }
+  ],
+  "favorites": [
+    {
+      "book": {
+        "id": 2,
+        "name": "THÁNH THẠCH RAVE - TẬP 17 (TẶNG KÈM BOOKMARK PLUE)",
+        "slug": "thanh-thach-rave-tap-17-tang-kem-bookmark-plue",
+        "authorId": 2,
+        "price": 27000,
+        "quantity": 10,
+        "description": "Ma vương giáng lâm! Cuối cùng, Doryu – kẻ sở hữu bóng tối sâu thẳm đã tiết lộ hình dáng thật đầy đáng sợ của hắn!! Nhưng ta đâu đơn độc. Chỉ cần tất cả chúng ta hợp sức, nhất định sẽ đánh bại ngươi cho xem. Dù có phải thiêu rụi tính mạng này chăng nữa!!!",
+        "image": "https://product.hstatic.net/200000343865/product/12_1558b8f373cf43e88f3abe09ec49b8af_master.jpg",
+        "size": "11.3x17.6 cm",
+        "page": 184,
+        "cover": "Bìa mềm",
+        "weight": "135 gram",
+        "audience": "Tuổi mới lớn (15 – 18)",
+        "categoryId": 1,
+        "category": {
+          "id": 1,
+          "name": "Sách mới",
+          "slug": "sach-moi"
+        },
+        "author": {
+          "id": 2,
+          "name": "Hiro Mashima",
+          "slug": "hiro-mashima",
+          "description": "Mashima Hiro lớn lên ở tỉnh Nagano và trải qua tuổi thơ ở vùng núi cùng với ông nội. Bố của Mashima mất từ khi ông còn nhỏ và bố của Mashima là một họa sĩ với khao khát trở thành chuyên nghiệp. Ngay từ khi còn bé thì Mashima đã có ước mơ trở thành một họa sĩ và đặc biệt là có liên quan tới truyện tranh. Niềm yêu thích với vẽ của Mashima được khuyến khích bởi ông nội của ông, ông nội của ông là người đã tìm những cuốn manga bị bỏ đi về cho Mashima đọc và giúp ông luyện tập với chúng. Sau khi tốt nghiệp phổ thông thì Mashima quyết định tiếp tục theo đuổi giấc mơ của mình vào một trường về mỹ thuật đặc biệt là có dạy vẽ manga. Ông tin rằng đây là con đường giúp mình cải thiện được khả năng vẽ truyện tranh. Có điều kết quả không như mong muốn và ông đã bỏ học giữa chừng. Mashima chia sẻ là học những điều cơ bản vậy thì ông cảm thấy không giúp cho bản thân bước vào con đường chuyên nghiệp được. Và cuối cùng là ông quyết định tự học.",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Hiro_Mashima_in_2018.png"
+        }
+      },
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "book": {
+        "id": 9,
+        "name": "TÝ QUẬY - TẬP 13",
+        "slug": "ty-quay-tap-13",
+        "authorId": 9,
+        "price": 36000,
+        "quantity": 10,
+        "description": "Tý Quậy tập 13 tiếp tục giới thiệu 4 mẩu chuyện mới toanh về Tý, Tèo, Tún – bộ ba gây cười “trứ danh” của xê-ri Tý Quậy. Ở tập truyện mới này, Tý phải đương đầu với những tình huống vô cùng “ngặt nghèo” như bị bố mẹ so sánh với “con nhà người ta”, với bài tập tiếng Việt tưởng dễ mà lại khó không tưởng, với ngày lễ Giáng Sinh và kì nghỉ hè “trong mơ”. Vẫn hài hước và đáng yêu đậm chất Tý Quậy, tập truyện tranh này hứa hẹn mang tới cho các độc giả trung thành của Tý những tràng cười sảng khoái! ",
+        "image": "https://product.hstatic.net/200000343865/product/13_96a50f23f2514a25a41381cc637cfae3_master.jpg",
+        "size": "14.5x20.5 cm",
+        "page": 160,
+        "cover": "Bìa mềm",
+        "weight": "185 gram",
+        "audience": "Nhi đồng (6 – 11)",
+        "categoryId": 2,
+        "category": {
+          "id": 2,
+          "name": "Sách bán chạy",
+          "slug": "sach-ban-chay"
+        },
+        "author": {
+          "id": 9,
+          "name": "Đào Hải",
+          "slug": "dao-hai",
+          "image": "https://images2.thanhnien.vn/Uploaded/2014/Pictures201404/Minh_Nguyet/tacgia.jpg",
+          "description": "Tác giả Đào Hải (sáng tác tập 1 đến tập 8 và viết lời tập 9) có tên thật là Đào Hồng Hải, sinh năm 1958 tại Hà Nội, là họa sĩ thiết kế mỹ thuật phim và có thời gian dài công tác tại Hãng phim truyện Việt Nam. Đào Hải tốt nghiệp Đại học Mỹ thuật Công nghiệp, Đại học Sân khấu - Điện ảnh Hà Nội, đã có nhiều tác phẩm cho thiếu nhi. Đào Hải bắt đầu có mẩu chuyện đen trắng nhỏ, in mỏng, đặt tên là Tý và Tèo. Năm 1997, những cuốn sách rời về Tý và Tèo của hoạ sĩ được tập hợp lại thành cuốn 64 trang (Tý và Tèo học võ). Năm 2007, bộ truyện được định hình như hiện tại, gồm có 4 quyển truyện màu. Trong các năm tiếp theo, các tập 5, 6, 7 được ra mắt vào thời điểm tương ứng. Theo lời góp ý của phụ huynh và độc giả, ông đã bỏ bớt các từ suông sã, hậu cảnh sơ sài. Năm 2012, sức khỏe Đào Hải đã yếu đi nhiều, nhưng ông đã cố gắng để hoàn thành tập 8. ào Hải qua đời vào ngày 9 tháng 4 năm 2014 khi tập 9 của ông vẫn còn dang dở. Họa sĩ Nguyễn Quang Toàn là người tiếp nối phần tranh vẽ của bộ truyện. Ngoài ra, Hoài Thu đã viết kịch bản tập 10 và tập 11, Dương Thúy Quỳnh viết kịch bản tập 12 của bộ truyện."
+        }
+      },
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "book": {
+        "id": 8,
+        "name": "90% TRẺ THÔNG MINH NHỜ CÁCH TRÒ CHUYỆN ĐÚNG ĐẮN CỦA CHA MẸ",
+        "slug": "90-tre-thong-minh-nho-cach-tro-chuyen-dung-dan-cua-cha-me",
+        "authorId": 8,
+        "price": 35100,
+        "quantity": 10,
+        "description": "Bạn có bao giờ thốt ra những câu dù biết là không nên nói như  “Còn lề mề đến bao giờ nữa hả?” hay “Chẳng được cái trò trống gì, đưa đây xem nào!”… nhưng vẫn lỡ lời không?",
+        "image": "https://product.hstatic.net/200000343865/product/90_-tre-thong-minh-nho-cach-tro-chuyen_bia-tb3-final-in-1_4652a90b10334642ac514df6f07e8a20_master.jpg",
+        "size": "13x19 cm",
+        "page": 176,
+        "cover": "Bìa mềm",
+        "weight": "165 gram",
+        "audience": "Cha mẹ đọc cùng con",
+        "categoryId": 2,
+        "category": {
+          "id": 2,
+          "name": "Sách bán chạy",
+          "slug": "sach-ban-chay"
+        },
+        "author": {
+          "id": 8,
+          "name": "Urako Kanamori",
+          "slug": "urako-kanamori",
+          "image": "https://product.hstatic.net/200000343865/product/90_-tre-thong-minh-nho-cach-tro-chuyen_bia-tb3-final-in-1_4652a90b10334642ac514df6f07e8a20_master.jpg",
+          "description": "Tác giả: Urako Kanamori. Tác giả sinh năm 1937 tại Tokyo, Nhật Bản. Sau khi tốt nghiệp chuyên ngành Giáo dục học, khoa Nhân văn, Đại học Aoyama Gakuin, bà trở thành giáo viên tiểu học, sau đó mở Trung tâm Nghiên cứu Giáo dục Tâm lí Tokyo vào năm 1978 và không gian tự do SEPY năm 1990. Với vai trò là một bác sĩ tâm lý, nhà tâm lí học lâm sàng và chuyên viên liệu pháp nghệ thuật, bà đã sưởi ấm và hồi sinh những tâm hồn cằn cỗi thông qua biện pháp tư vấn tâm lí, rèn luyện tự điều trị, tập hít thở, khí công…Các tác phẩm đã xuất bản của bà như: Những câu cửa miệng mẹ dồn ép con; Người mẹ dạy hư con; Mắng ít khen nhiều; Cách nuôi dạy anh em cho tốt; Cách điều tiết sự bực tức của trẻ; Nuôi dạy con trai; Không cần phải làm con ngoan; Không sao, rồi sẽ ổn thôi…"
+        }
+      },
+      "userId": 2,
+      "id": 3
+    }
   ]
 }

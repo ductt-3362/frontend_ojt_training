@@ -9,14 +9,37 @@ import ProductComment from "@components/ProductComment.vue";
 import { computed, reactive, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useProductStore } from "@stores/product";
+import { useAuthStore } from "@stores/auth";
 import BookList from "@components/BookList.vue";
 import IconHeart from "@icons/IconHeart.vue";
 import IconHeartFill from "@icons/IconHeartFill.vue";
-import { getBooksByCategoryApi, getBooksByAuthorApi } from "@apis/book.js";
-import { productApiMessage } from "@locales/vi/messages";
+import {
+  getBooksByCategoryApi,
+  getBooksByAuthorApi,
+  postFavoriteBookApi,
+  deleteFavoriteBookApi,
+} from "@apis/book.js";
+import { productApiMessage, favoriteMessage } from "@locales/vi/messages";
 import BaseBreadcrumb from "@components/BaseBreadcrumb.vue";
 
+const style = reactive({
+  active:
+    "mr-2 inline-block rounded-t-lg border-b-2 border-blue-600 p-4 text-blue-600",
+  tabTitle:
+    "mr-2 inline-block cursor-pointer rounded-t-lg border-b-2 p-4 text-lg",
+
+  image: "w-[25%]  max-lg:w-[40%] max-sm:w-full max-sm:mb-2 ",
+  contentContainer: "pl-8 w-[75%] max-sm:p-0 max-sm:w-full",
+  contentTitle: "leading-8 ",
+  descriptionTitle: "mb-8 border-2  rounded-lg	overflow-hidden	 ",
+  button:
+    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-2 mt-4  rounded-lg px-3 text-sm duration-300 ",
+  listBookTitle:
+    "absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xl font-medium text-gray-900 text-center",
+});
+
 const productStore = useProductStore();
+const authStore = useAuthStore();
 const router = useRouter();
 const cartStore = useCartStore();
 const props = defineProps(["productDetail"]);
@@ -53,17 +76,15 @@ const breadcrumbItems = computed(() => {
   ];
 });
 
-const isLiked = computed(() => {
-  const isFavorited = productStore.favoriteProducts.find(
-    (item) => item.id === props.productDetail.id,
-  );
-  return !!isFavorited;
-});
-
 const state = reactive({
   activeIndex: 1,
   booksByCategory: [],
   booksByAuthor: [],
+});
+const favoriteItem = computed(() => {
+  return productStore.favoriteProducts.find((item) => {
+    return item.book.id === props.productDetail.id;
+  });
 });
 
 if (!props.productDetail) {
@@ -74,22 +95,6 @@ watch(
   () => props.productDetail,
   () => (state.activeIndex = 1),
 );
-
-const style = reactive({
-  active:
-    "mr-2 inline-block rounded-t-lg border-b-2 border-blue-600 p-4 text-blue-600",
-  tabTitle:
-    "mr-2 inline-block cursor-pointer rounded-t-lg border-b-2 p-4 text-lg",
-
-  image: "w-[25%]  max-lg:w-[40%] max-sm:w-full max-sm:mb-2 ",
-  contentContainer: "pl-8 w-[75%] max-sm:p-0 max-sm:w-full",
-  contentTitle: "leading-8 ",
-  descriptionTitle: "mb-8 border-2  rounded-lg	overflow-hidden	 ",
-  button:
-    "flex items-center justify-center bg-red-700 hover:bg-red-800 py-2 mt-4  rounded-lg px-3 text-sm duration-300 ",
-  listBookTitle:
-    "absolute left-1/2 -translate-x-1/2 bg-white px-3 text-xl font-medium text-gray-900 text-center",
-});
 
 const handleAddToCart = () => {
   try {
@@ -126,8 +131,28 @@ const handleActive = (index) => {
   state.activeIndex = index;
 };
 
-const handleFavorite = (product) => {
-  productStore.addFavoriteProduct(product);
+const handleFavorite = async () => {
+  if (authStore.userInfo) {
+    try {
+      if (!favoriteItem.value) {
+        const FavoriteBook = {
+          book: props.productDetail,
+          userId: authStore.userInfo.id,
+        };
+        const { data } = await postFavoriteBookApi(FavoriteBook);
+        productStore.addFavoriteProduct(data);
+        $toast.success(favoriteMessage.addSuccess);
+      } else {
+        deleteFavoriteBookApi(favoriteItem.value.id);
+        productStore.removeFavoriteProduct(favoriteItem.value);
+        $toast.success(favoriteMessage.removeSuccess);
+      }
+    } catch (error) {
+      $toast.error(productApiMessage.error);
+    }
+  } else {
+    $toast.error(favoriteMessage.required);
+  }
 };
 
 watch(
@@ -167,11 +192,11 @@ watch(
             <div class="ml-6 cursor-pointer">
               <IconHeart
                 @click="handleFavorite(productDetail)"
-                v-if="!isLiked"
+                v-if="!favoriteItem"
               />
               <IconHeartFill
                 @click="handleFavorite(productDetail)"
-                v-if="isLiked"
+                v-if="favoriteItem"
               />
             </div>
           </div>

@@ -8,14 +8,17 @@ import * as yup from "yup";
 import { useRouter } from "vue-router";
 import { loginApi } from "@apis/auth.js";
 import { useAuthStore } from "@stores/auth";
+import { useProductStore } from "@stores/product";
 import { useToast } from "vue-toast-notification";
 import { loginMessage } from "@locales/vi/messages";
 import { TOKEN_KEY } from "@constants/storage";
 import Cookies from "js-cookie";
+import { getFavoriteBooksApi } from "@apis/book.js";
 
 const $toast = useToast();
 const router = useRouter();
 const authStore = useAuthStore();
+const productStore = useProductStore();
 
 const schema = yup.object({
   email: yup.string().required(loginMessage.required).email(loginMessage.email),
@@ -32,6 +35,10 @@ async function handleLogin(values) {
     Cookies.set(TOKEN_KEY, accessToken);
     await authStore.setUserInfo(user);
     $toast.success(loginMessage.success);
+    const { data: favoriteBooks } = await getFavoriteBooksApi(
+      authStore.userInfo.id,
+    );
+    productStore.setFavoriteProducts(favoriteBooks);
     router.push("/");
   } catch (error) {
     // handle error

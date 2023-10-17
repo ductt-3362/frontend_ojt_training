@@ -7,14 +7,11 @@ export const useProductStore = defineStore("product", {
   }),
 
   actions: {
-    addSeenProduct(product) {
-      const seenProduct = this.seenProducts.find(
-        (item) => item.id === product.id,
-      );
-
-      if (!seenProduct) {
-        this.seenProducts.unshift(product);
-      }
+    setFavoriteProducts(products) {
+      this.favoriteProducts = products;
+    },
+    clearFavoriteProducts() {
+      this.favoriteProducts = [];
     },
     addFavoriteProduct(product) {
       const favoriteProducts = this.favoriteProducts.find(
@@ -34,8 +31,14 @@ export const useProductStore = defineStore("product", {
         return item.id !== product.id;
       });
     },
-    removeFavoriteProducts() {
-      this.favoriteProducts = [];
+    addSeenProduct(product) {
+      const seenProduct = this.seenProducts.find(
+        (item) => item.id === product.id,
+      );
+
+      if (!seenProduct) {
+        this.seenProducts.unshift(product);
+      }
     },
     removeAllSeenProducts() {
       this.seenProducts = [];
